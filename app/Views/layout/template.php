@@ -7,15 +7,14 @@
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         html { scroll-behavior: smooth; }
         body { font-family: 'Quicksand', sans-serif; background-color: #ffffff; }
         
-        /* Agar saat scroll, konten tidak tertutup navbar */
         section { scroll-margin-top: 100px; }
 
-        /* Navbar Custom Gradasi Hijau */
         .navbar { 
             background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%) !important;
             padding: 12px 0;
@@ -34,7 +33,6 @@
         }
         .nav-link:hover { color: #f1c40f !important; }
 
-        /* Hover Dropdown Desktop */
         @media (min-width: 992px) {
             .nav-item.dropdown:hover .dropdown-menu { display: block; margin-top: 0; }
         }
@@ -61,6 +59,37 @@
         }
 
         .footer { background: #f8f9fa; padding: 50px 0; border-top: 5px solid #27ae60; }
+
+        .social-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            justify-content: center;
+        }
+
+        @media (min-width: 768px) {
+            .social-container { justify-content: flex-start; }
+        }
+
+        .social-icon-link {
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+        .social-icon-link:hover {
+            transform: scale(1.2);
+        }
+
+        /* Style Lihat Selengkapnya */
+        #moreMisi { display: none; }
+        .btn-read-more {
+            color: #27ae60;
+            cursor: pointer;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
@@ -136,12 +165,28 @@
             <div class="col-md-4 mb-4">
                 <h5 class="fw-bold" style="color: #27ae60;">Alamat</h5>
                 <p class="small text-muted">Tempursari RT 04/03 Desa Tempursari Kecamatan Sambi 
-       Kabupaten Boyolali 57376
-</p>
+                Kabupaten Boyolali 57376</p>
             </div>
             <div class="col-md-4 mb-4">
                 <h5 class="fw-bold" style="color: #27ae60;">Hubungi Kami</h5>
-                <a href="https://wa.me/628123456789" class="btn btn-success btn-sm rounded-pill px-4 shadow-sm">Chat WhatsApp</a>
+                <a href="https://wa.me/628123456789" class="btn btn-success btn-sm rounded-pill px-4 shadow-sm mb-3">
+                    <i class="fab fa-whatsapp me-2"></i>Chat WhatsApp
+                </a>
+                
+                <div class="d-flex gap-3 justify-content-center justify-content-md-start mt-2">
+                    <a href="https://instagram.com/raperwanidatempursari?igshid=YmMyMTA2M2Y=" target="_blank" class="social-icon-link" title="Instagram">
+                        <i class="fab fa-instagram fs-4" style="color: #E1306C;"></i>
+                    </a>
+                    <a href="https://www.facebook.com/raperwanida.tempursari" target="_blank" class="social-icon-link" title="Facebook">
+                        <i class="fab fa-facebook fs-4" style="color: #1877F2;"></i>
+                    </a>
+                    <a href="https://youtube.com/channel/UCVB9WzzeCXluCUKBkkw0PIw" target="_blank" class="social-icon-link" title="YouTube">
+                        <i class="fab fa-youtube fs-4" style="color: #FF0000;"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@raperwanidatempursari?_t=8VyC9v5qgV8&_r=1" target="_blank" class="social-icon-link" title="TikTok">
+                        <i class="fab fa-tiktok fs-4" style="color: #000000;"></i>
+                    </a>
+                </div>
             </div>
         </div>
         <hr>
@@ -152,5 +197,21 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    function toggleMisi() {
+        var moreText = document.getElementById("moreMisi");
+        var btnText = document.getElementById("btnReadMore");
+
+        if (moreText.style.display === "none" || moreText.style.display === "") {
+            moreText.style.display = "inline";
+            btnText.innerHTML = "Sembunyikan";
+        } else {
+            moreText.style.display = "none";
+            btnText.innerHTML = "Lihat Selengkapnya...";
+        }
+    }
+</script>
+
 </body>
 </html>
