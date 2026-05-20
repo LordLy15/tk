@@ -154,7 +154,7 @@
     <?= $this->renderSection('content') ?>
 </main>
 
-<footer class="footer mt-5">
+<footer id="kontak" class="footer mt-5">
     <div class="container">
         <div class="row text-center text-md-start">
             <div class="col-md-4 mb-4">
