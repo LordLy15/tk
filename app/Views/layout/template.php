@@ -150,7 +150,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#kontak">Contak</a>
+                    <a class="nav-link" href="#kontak">Kontak</a>
                 </li>
             </ul>
         </div>
