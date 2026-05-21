@@ -156,17 +156,24 @@
 
 <footer id="kontak" class="footer mt-5">
     <div class="container">
-        <div class="row text-center text-md-start">
+        <div class="row text-center text-md-start d-flex align-items-start">
+            
             <div class="col-md-4 mb-4">
-                <img src="<?= base_url('assets/logo.png'); ?>" alt="Logo" width="60" class="mb-3">
-                <h5 class="fw-bold" style="color: #27ae60;">RA PERWANIDA</h5>
-                <p class="small text-muted">Mendidik dengan ilmu, menuntun dengan adab.</p>
+                <div class="d-flex align-items-center justify-content-center justify-content-md-start">
+                    <img src="<?= base_url('assets/logo.png'); ?>" alt="Logo" width="60" class="me-3">
+                    <div class="text-start">
+                        <h5 class="fw-bold mb-1" style="color: #27ae60; line-height: 1.2;">RA PERWANIDA</h5>
+                        <p class="small text-muted mb-0" style="line-height: 1.3;">Mendidik dengan ilmu, menuntun dengan adab.</p>
+                    </div>
+                </div>
             </div>
+
             <div class="col-md-4 mb-4">
                 <h5 class="fw-bold" style="color: #27ae60;">Alamat</h5>
                 <p class="small text-muted">Tempursari RT 04/03 Desa Tempursari Kecamatan Sambi 
                 Kabupaten Boyolali 57376</p>
             </div>
+
             <div class="col-md-4 mb-4">
                 <h5 class="fw-bold" style="color: #27ae60;">Hubungi Kami</h5>
                 <a href="https://wa.me/628123456789" class="btn btn-success btn-sm rounded-pill px-4 shadow-sm mb-3">
@@ -188,6 +195,7 @@
                     </a>
                 </div>
             </div>
+
         </div>
         <hr>
         <div class="text-center">
