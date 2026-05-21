@@ -33,15 +33,8 @@
         }
         .nav-link:hover { color: #f1c40f !important; }
 
-        /* PERUBAHAN DISINI: Mengubah margin-top menjadi 25px agar posisi dropdown lebih turun ke bawah */
         @media (min-width: 992px) {
-            .nav-item.dropdown:hover .dropdown-menu { 
-                display: block; 
-                margin-top: 25px; 
-            }
-            .nav-item.dropdown .dropdown-toggle {
-                pointer-events: none;
-            }
+            .nav-item.dropdown:hover .dropdown-menu { display: block; margin-top: 0; }
         }
 
         .dropdown-menu { 
@@ -226,18 +219,6 @@
             btnText.innerHTML = "Lihat Selengkapnya...";
         }
     }
-
-    window.addEventListener('resize', function() {
-        if (window.innerWidth >= 992) {
-            document.querySelectorAll('.dropdown-menu.show').forEach(function(menu) {
-                menu.classList.remove('show');
-            });
-            document.querySelectorAll('.dropdown-toggle.show').forEach(function(toggle) {
-                toggle.classList.remove('show');
-                toggle.setAttribute('aria-expanded', 'false');
-            });
-        }
-    });
 </script>
 
 </body>
