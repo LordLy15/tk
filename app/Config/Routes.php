@@ -8,6 +8,7 @@ use CodeIgniter\Router\RouteCollection;
 
 // Halaman Utama Langsung Dashboard Publik
 $routes->get('/', 'Home::index');
+$routes->get('/pendaftaran', 'Home::pendaftaran');
 
 // Login & Auth
 $routes->get('/login', 'Auth::index');

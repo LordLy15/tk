@@ -193,7 +193,7 @@
                     <ul class="dropdown-menu shadow-sm">
                         <li><a class="dropdown-item" href="#program">Program Sekolah</a></li>
                         <li><a class="dropdown-item" href="#seragam">Seragam Sekolah</a></li>
-                        <li><a class="dropdown-item" href="#pendaftaran">Pendaftaran</a></li>
+                        <li><a class="dropdown-item" href="<?= base_url('pendaftaran') ?>">Pendaftaran</a></li>
                         <li><a class="dropdown-item" href="#kegiatan">Kegiatan Sekolah</a></li>
                     </ul>
                 </li>

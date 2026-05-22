@@ -16,4 +16,9 @@ class Home extends BaseController {
         
         return view('home', $data);
     }
+
+    public function pendaftaran()
+    {
+        return view('pendaftaran');
+    }
 }
