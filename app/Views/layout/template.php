@@ -33,8 +33,15 @@
         }
         .nav-link:hover { color: #f1c40f !important; }
 
+        /* PERUBAHAN DISINI: Optimasi Hover Desktop agar tidak konflik dengan fungsi Klik Mobile */
         @media (min-width: 992px) {
-            .nav-item.dropdown:hover .dropdown-menu { display: block; margin-top: 0; }
+            .nav-item.dropdown:hover .dropdown-menu { 
+                display: block; 
+                margin-top: 0; 
+            }
+            .nav-item.dropdown .dropdown-toggle {
+                pointer-events: none;
+            }
         }
 
         .dropdown-menu { 
@@ -219,6 +226,19 @@
             btnText.innerHTML = "Lihat Selengkapnya...";
         }
     }
+
+    /* PERUBAHAN DISINI: Script Pembersih Event agar Dropdown tidak tersangkut saat Resize Layar */
+    window.addEventListener('resize', function() {
+        if (window.innerWidth >= 992) {
+            document.querySelectorAll('.dropdown-menu.show').forEach(function(menu) {
+                menu.classList.remove('show');
+            });
+            document.querySelectorAll('.dropdown-toggle.show').forEach(function(toggle) {
+                toggle.classList.remove('show');
+                toggle.setAttribute('aria-expanded', 'false');
+            });
+        }
+    });
 </script>
 
 </body>
