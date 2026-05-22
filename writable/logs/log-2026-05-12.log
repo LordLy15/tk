@@ -1,0 +1,2037 @@
+ERROR - 2026-05-12 05:22:49 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', '', Object(SensitiveParameterValue), '', 3306, '', 0)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#9 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#5 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#6 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#13 {main}
+CRITICAL - 2026-05-12 05:22:49 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+[Method: GET, Route: murid]
+in SYSTEMPATH\Database\BaseConnection.php on line 606.
+ 1 SYSTEMPATH\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `murid`', [], false)
+ 3 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Murid->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+ERROR - 2026-05-12 05:24:28 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', '', Object(SensitiveParameterValue), '', 3306, '', 0)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#9 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#5 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#6 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#13 {main}
+CRITICAL - 2026-05-12 05:24:28 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+[Method: GET, Route: murid]
+in SYSTEMPATH\Database\BaseConnection.php on line 606.
+ 1 SYSTEMPATH\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `murid`', [], false)
+ 3 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Murid->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+ERROR - 2026-05-12 05:24:35 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', '', Object(SensitiveParameterValue), '', 3306, '', 0)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#9 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#5 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#6 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#13 {main}
+CRITICAL - 2026-05-12 05:24:35 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+[Method: GET, Route: murid]
+in SYSTEMPATH\Database\BaseConnection.php on line 606.
+ 1 SYSTEMPATH\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `murid`', [], false)
+ 3 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Murid->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+ERROR - 2026-05-12 05:26:22 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', '', Object(SensitiveParameterValue), '', 3306, '', 0)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#9 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#5 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#6 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#13 {main}
+CRITICAL - 2026-05-12 05:26:22 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+[Method: GET, Route: murid]
+in SYSTEMPATH\Database\BaseConnection.php on line 606.
+ 1 SYSTEMPATH\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `murid`', [], false)
+ 3 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Murid->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+ERROR - 2026-05-12 05:26:32 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', '', Object(SensitiveParameterValue), '', 3306, '', 0)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#9 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#5 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#6 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#13 {main}
+CRITICAL - 2026-05-12 05:26:32 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+[Method: GET, Route: murid]
+in SYSTEMPATH\Database\BaseConnection.php on line 606.
+ 1 SYSTEMPATH\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `murid`', [], false)
+ 3 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Murid->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+ERROR - 2026-05-12 05:30:05 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', '', Object(SensitiveParameterValue), '', 3306, '', 0)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#9 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#5 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#6 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#13 {main}
+CRITICAL - 2026-05-12 05:30:05 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+[Method: GET, Route: murid]
+in SYSTEMPATH\Database\BaseConnection.php on line 606.
+ 1 SYSTEMPATH\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `murid`', [], false)
+ 3 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Murid->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+ERROR - 2026-05-12 05:32:44 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_tk', 3306, '', 0)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#9 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#5 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#6 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#13 {main}
+CRITICAL - 2026-05-12 05:32:44 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+[Method: GET, Route: murid]
+in SYSTEMPATH\Database\BaseConnection.php on line 606.
+ 1 SYSTEMPATH\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `murid`', [], false)
+ 3 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Murid->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+ERROR - 2026-05-12 05:33:33 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_tk', 3307, '', 0)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#9 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#5 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#6 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#13 {main}
+CRITICAL - 2026-05-12 05:33:33 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: YES)
+[Method: GET, Route: murid]
+in SYSTEMPATH\Database\BaseConnection.php on line 606.
+ 1 SYSTEMPATH\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `murid`', [], false)
+ 3 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Murid->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+ERROR - 2026-05-12 05:33:34 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_tk', 3307, '', 0)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#9 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#5 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#6 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#13 {main}
+CRITICAL - 2026-05-12 05:33:34 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: YES)
+[Method: GET, Route: murid]
+in SYSTEMPATH\Database\BaseConnection.php on line 606.
+ 1 SYSTEMPATH\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `murid`', [], false)
+ 3 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Murid->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+ERROR - 2026-05-12 05:33:37 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_tk', 3307, '', 0)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#9 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#5 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#6 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#13 {main}
+CRITICAL - 2026-05-12 05:33:37 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: YES)
+[Method: GET, Route: murid]
+in SYSTEMPATH\Database\BaseConnection.php on line 606.
+ 1 SYSTEMPATH\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `murid`', [], false)
+ 3 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Murid->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+CRITICAL - 2026-05-12 05:34:12 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "Admin/dashbboard.php"
+[Method: GET, Route: murid]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('Admin/dashbboard.php')
+ 2 SYSTEMPATH\View\View.php(256): CodeIgniter\View\View->render('Admin/dashbboard.php', [], true)
+ 3 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('murid/index', [], true)
+ 4 APPPATH\Controllers\Murid.php(21): view('murid/index', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Murid->index()
+ 6 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+ERROR - 2026-05-12 05:38:11 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_tk', 3306, '', 0)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#9 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#5 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#6 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#13 {main}
+CRITICAL - 2026-05-12 05:38:11 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+[Method: GET, Route: murid]
+in SYSTEMPATH\Database\BaseConnection.php on line 606.
+ 1 SYSTEMPATH\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `murid`', [], false)
+ 3 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Murid->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+ERROR - 2026-05-12 05:39:32 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_tk', 3306, '', 0)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#9 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#5 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#6 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#13 {main}
+CRITICAL - 2026-05-12 05:39:32 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+[Method: GET, Route: murid]
+in SYSTEMPATH\Database\BaseConnection.php on line 606.
+ 1 SYSTEMPATH\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `murid`', [], false)
+ 3 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Murid->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+ERROR - 2026-05-12 05:43:15 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_tk', 3306, '', 0)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#9 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#5 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#6 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#13 {main}
+CRITICAL - 2026-05-12 05:43:15 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+[Method: GET, Route: murid]
+in SYSTEMPATH\Database\BaseConnection.php on line 606.
+ 1 SYSTEMPATH\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `murid`', [], false)
+ 3 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Murid->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+ERROR - 2026-05-12 05:43:33 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_tk', 3306, '', 0)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#9 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#5 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#6 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#13 {main}
+CRITICAL - 2026-05-12 05:43:33 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+[Method: GET, Route: murid]
+in SYSTEMPATH\Database\BaseConnection.php on line 606.
+ 1 SYSTEMPATH\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `murid`', [], false)
+ 3 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Murid->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+ERROR - 2026-05-12 05:44:53 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_tk', 3306, '', 0)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#9 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#5 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#6 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#13 {main}
+CRITICAL - 2026-05-12 05:44:53 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+[Method: GET, Route: murid]
+in SYSTEMPATH\Database\BaseConnection.php on line 606.
+ 1 SYSTEMPATH\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `murid`', [], false)
+ 3 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Murid->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+ERROR - 2026-05-12 05:45:04 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_tk', 3306, '', 0)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#9 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#5 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#6 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#13 {main}
+CRITICAL - 2026-05-12 05:45:04 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+[Method: GET, Route: murid]
+in SYSTEMPATH\Database\BaseConnection.php on line 606.
+ 1 SYSTEMPATH\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `murid`', [], false)
+ 3 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Murid->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+ERROR - 2026-05-12 06:34:29 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_tk', 3306, '', 0)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#9 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#5 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#6 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#13 {main}
+CRITICAL - 2026-05-12 06:34:29 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+[Method: GET, Route: murid]
+in SYSTEMPATH\Database\BaseConnection.php on line 606.
+ 1 SYSTEMPATH\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `murid`', [], false)
+ 3 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Murid->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+ERROR - 2026-05-12 06:43:44 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_tk', 3306, '', 0)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#9 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#5 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#6 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#13 {main}
+CRITICAL - 2026-05-12 06:43:44 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+[Method: GET, Route: murid]
+in SYSTEMPATH\Database\BaseConnection.php on line 606.
+ 1 SYSTEMPATH\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `murid`', [], false)
+ 3 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Murid->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+ERROR - 2026-05-12 06:44:42 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_tk', 3306, '', 0)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#9 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#5 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#6 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#13 {main}
+CRITICAL - 2026-05-12 06:44:42 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+[Method: GET, Route: murid]
+in SYSTEMPATH\Database\BaseConnection.php on line 606.
+ 1 SYSTEMPATH\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `murid`', [], false)
+ 3 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Murid->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+ERROR - 2026-05-12 06:49:43 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_tk', 3306, '', 0)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#9 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#5 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#6 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#13 {main}
+CRITICAL - 2026-05-12 06:49:43 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+[Method: GET, Route: murid]
+in SYSTEMPATH\Database\BaseConnection.php on line 606.
+ 1 SYSTEMPATH\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `murid`', [], false)
+ 3 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Murid->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+ERROR - 2026-05-12 06:50:02 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_tk', 3306, '', 0)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#9 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp_new\htdocs\tk\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp_new\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp_new\htdocs\tk\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp_new\htdocs\tk\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp_new\htdocs\tk\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#5 C:\xampp_new\htdocs\tk\app\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+#6 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Murid->index()
+#7 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+#8 C:\xampp_new\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp_new\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp_new\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp_new\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\xampp_new\htdocs\tk\system\rewrite.php(44): require_once('C:\\xampp_new\\ht...')
+#13 {main}
+CRITICAL - 2026-05-12 06:50:02 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+[Method: GET, Route: murid]
+in SYSTEMPATH\Database\BaseConnection.php on line 606.
+ 1 SYSTEMPATH\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `murid`', [], false)
+ 3 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\Murid.php(19): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Murid->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+CRITICAL - 2026-05-12 07:28:04 --> ErrorException: Undefined variable $totalData
+[Method: GET, Route: /]
+in APPPATH\Views\Admin\home.php on line 47.
+ 1 APPPATH\Views\Admin\home.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $totalData', 'C:\\xampp_new\\htdocs\\tk\\app\\Views\\Admin\\home.php', 47)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp_new\\htdocs\\tk\\app\\Views\\Admin\\home.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('Admin/home', [], true)
+ 5 APPPATH\Controllers\Admin.php(9): view('Admin/home')
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+CRITICAL - 2026-05-12 08:32:00 --> ErrorException: Undefined array key "id"
+[Method: GET, Route: murid]
+in APPPATH\Views\Murid\index.php on line 48.
+ 1 APPPATH\Views\Murid\index.php(48): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id"', 'C:\\xampp_new\\htdocs\\tk\\app\\Views\\Murid\\index.php', 48)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp_new\\htdocs\\tk\\app\\Views\\Murid\\index.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('murid/index', [], true)
+ 5 APPPATH\Controllers\Murid.php(21): view('murid/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Murid->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+CRITICAL - 2026-05-12 08:59:33 --> ErrorException: Undefined variable $kelas
+[Method: GET, Route: murid/tambah]
+in APPPATH\Views\Murid\tambah.php on line 31.
+ 1 APPPATH\Views\Murid\tambah.php(31): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $kelas', 'C:\\xampp_new\\htdocs\\tk\\app\\Views\\Murid\\tambah.php', 31)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp_new\\htdocs\\tk\\app\\Views\\Murid\\tambah.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('murid/tambah', [], true)
+ 5 APPPATH\Controllers\Murid.php(30): view('murid/tambah')
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Murid->tambah()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+CRITICAL - 2026-05-12 09:05:12 --> ErrorException: Undefined variable $kelas
+[Method: GET, Route: murid/tambah]
+in APPPATH\Views\Murid\tambah.php on line 31.
+ 1 APPPATH\Views\Murid\tambah.php(31): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $kelas', 'C:\\xampp_new\\htdocs\\tk\\app\\Views\\Murid\\tambah.php', 31)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp_new\\htdocs\\tk\\app\\Views\\Murid\\tambah.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('murid/tambah', [], true)
+ 5 APPPATH\Controllers\Murid.php(30): view('murid/tambah')
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Murid->tambah()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+CRITICAL - 2026-05-12 09:05:13 --> ErrorException: Undefined variable $kelas
+[Method: GET, Route: murid/tambah]
+in APPPATH\Views\Murid\tambah.php on line 31.
+ 1 APPPATH\Views\Murid\tambah.php(31): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $kelas', 'C:\\xampp_new\\htdocs\\tk\\app\\Views\\Murid\\tambah.php', 31)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp_new\\htdocs\\tk\\app\\Views\\Murid\\tambah.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('murid/tambah', [], true)
+ 5 APPPATH\Controllers\Murid.php(30): view('murid/tambah')
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Murid->tambah()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+CRITICAL - 2026-05-12 09:07:51 --> ErrorException: Undefined variable $kelas
+[Method: GET, Route: murid/tambah]
+in APPPATH\Views\Murid\tambah.php on line 31.
+ 1 APPPATH\Views\Murid\tambah.php(31): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $kelas', 'C:\\xampp_new\\htdocs\\tk\\app\\Views\\Murid\\tambah.php', 31)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp_new\\htdocs\\tk\\app\\Views\\Murid\\tambah.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('murid/tambah', [], true)
+ 5 APPPATH\Controllers\Murid.php(30): view('murid/tambah')
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Murid->tambah()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+CRITICAL - 2026-05-12 09:07:53 --> ErrorException: Undefined variable $kelas
+[Method: GET, Route: murid/tambah]
+in APPPATH\Views\Murid\tambah.php on line 31.
+ 1 APPPATH\Views\Murid\tambah.php(31): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $kelas', 'C:\\xampp_new\\htdocs\\tk\\app\\Views\\Murid\\tambah.php', 31)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp_new\\htdocs\\tk\\app\\Views\\Murid\\tambah.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('murid/tambah', [], true)
+ 5 APPPATH\Controllers\Murid.php(30): view('murid/tambah')
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Murid->tambah()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+CRITICAL - 2026-05-12 09:12:36 --> Error: Class "App\Controllers\KelasModel" not found
+[Method: GET, Route: murid]
+in APPPATH\Controllers\Murid.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(921): App\Controllers\Murid->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(488): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+CRITICAL - 2026-05-12 09:12:38 --> Error: Class "App\Controllers\KelasModel" not found
+[Method: GET, Route: murid]
+in APPPATH\Controllers\Murid.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(921): App\Controllers\Murid->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(488): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+CRITICAL - 2026-05-12 09:14:12 --> Error: Class "App\Controllers\KelasModel" not found
+[Method: GET, Route: murid]
+in APPPATH\Controllers\Murid.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(921): App\Controllers\Murid->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(488): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+CRITICAL - 2026-05-12 09:17:39 --> ErrorException: Undefined variable $total_guru
+[Method: GET, Route: /]
+in APPPATH\Views\Admin\home.php on line 50.
+ 1 APPPATH\Views\Admin\home.php(50): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $total_guru', 'C:\\xampp_new\\htdocs\\tk\\app\\Views\\Admin\\home.php', 50)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp_new\\htdocs\\tk\\app\\Views\\Admin\\home.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('Admin/home', [], true)
+ 5 APPPATH\Controllers\Admin.php(17): view('Admin/home', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+CRITICAL - 2026-05-12 09:19:37 --> ErrorException: Undefined variable $total_guru
+[Method: GET, Route: /]
+in APPPATH\Views\Admin\home.php on line 50.
+ 1 APPPATH\Views\Admin\home.php(50): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $total_guru', 'C:\\xampp_new\\htdocs\\tk\\app\\Views\\Admin\\home.php', 50)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp_new\\htdocs\\tk\\app\\Views\\Admin\\home.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('Admin/home', [], true)
+ 5 APPPATH\Controllers\Admin.php(18): view('Admin/home', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+CRITICAL - 2026-05-12 09:19:38 --> ErrorException: Undefined variable $total_guru
+[Method: GET, Route: /]
+in APPPATH\Views\Admin\home.php on line 50.
+ 1 APPPATH\Views\Admin\home.php(50): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $total_guru', 'C:\\xampp_new\\htdocs\\tk\\app\\Views\\Admin\\home.php', 50)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp_new\\htdocs\\tk\\app\\Views\\Admin\\home.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('Admin/home', [], true)
+ 5 APPPATH\Controllers\Admin.php(18): view('Admin/home', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+CRITICAL - 2026-05-12 09:19:39 --> ErrorException: Undefined variable $total_guru
+[Method: GET, Route: /]
+in APPPATH\Views\Admin\home.php on line 50.
+ 1 APPPATH\Views\Admin\home.php(50): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $total_guru', 'C:\\xampp_new\\htdocs\\tk\\app\\Views\\Admin\\home.php', 50)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp_new\\htdocs\\tk\\app\\Views\\Admin\\home.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('Admin/home', [], true)
+ 5 APPPATH\Controllers\Admin.php(18): view('Admin/home', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+CRITICAL - 2026-05-12 09:19:40 --> ErrorException: Undefined variable $total_guru
+[Method: GET, Route: /]
+in APPPATH\Views\Admin\home.php on line 50.
+ 1 APPPATH\Views\Admin\home.php(50): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $total_guru', 'C:\\xampp_new\\htdocs\\tk\\app\\Views\\Admin\\home.php', 50)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp_new\\htdocs\\tk\\app\\Views\\Admin\\home.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('Admin/home', [], true)
+ 5 APPPATH\Controllers\Admin.php(18): view('Admin/home', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+CRITICAL - 2026-05-12 09:20:45 --> ErrorException: Undefined variable $total_murid
+[Method: GET, Route: /]
+in APPPATH\Views\Admin\home.php on line 31.
+ 1 APPPATH\Views\Admin\home.php(31): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $total_murid', 'C:\\xampp_new\\htdocs\\tk\\app\\Views\\Admin\\home.php', 31)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp_new\\htdocs\\tk\\app\\Views\\Admin\\home.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('Admin/home', [], true)
+ 5 APPPATH\Controllers\Admin.php(24): view('Admin/home', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+CRITICAL - 2026-05-12 09:21:31 --> ErrorException: Undefined variable $total_guru
+[Method: GET, Route: /]
+in APPPATH\Views\Admin\home.php on line 50.
+ 1 APPPATH\Views\Admin\home.php(50): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $total_guru', 'C:\\xampp_new\\htdocs\\tk\\app\\Views\\Admin\\home.php', 50)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp_new\\htdocs\\tk\\app\\Views\\Admin\\home.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('Admin/home', [], true)
+ 5 APPPATH\Controllers\Admin.php(18): view('Admin/home', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+CRITICAL - 2026-05-12 09:21:54 --> ErrorException: Undefined variable $total_guru
+[Method: GET, Route: /]
+in APPPATH\Views\Admin\home.php on line 50.
+ 1 APPPATH\Views\Admin\home.php(50): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $total_guru', 'C:\\xampp_new\\htdocs\\tk\\app\\Views\\Admin\\home.php', 50)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp_new\\htdocs\\tk\\app\\Views\\Admin\\home.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('Admin/home', [], true)
+ 5 APPPATH\Controllers\Admin.php(18): view('Admin/home', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+CRITICAL - 2026-05-12 09:21:55 --> ErrorException: Undefined variable $total_guru
+[Method: GET, Route: /]
+in APPPATH\Views\Admin\home.php on line 50.
+ 1 APPPATH\Views\Admin\home.php(50): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $total_guru', 'C:\\xampp_new\\htdocs\\tk\\app\\Views\\Admin\\home.php', 50)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp_new\\htdocs\\tk\\app\\Views\\Admin\\home.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('Admin/home', [], true)
+ 5 APPPATH\Controllers\Admin.php(18): view('Admin/home', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+CRITICAL - 2026-05-12 09:22:29 --> ErrorException: Undefined variable $total_guru
+[Method: GET, Route: /]
+in APPPATH\Views\Admin\home.php on line 50.
+ 1 APPPATH\Views\Admin\home.php(50): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $total_guru', 'C:\\xampp_new\\htdocs\\tk\\app\\Views\\Admin\\home.php', 50)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp_new\\htdocs\\tk\\app\\Views\\Admin\\home.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('Admin/home', [], true)
+ 5 APPPATH\Controllers\Admin.php(18): view('Admin/home', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp_new\\htdocs\\tk\\public\\index.php')
+ERROR - 2026-05-12 14:10:45 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\tk\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\tk\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_tk', 3307, '', 0)
+#1 C:\xampp\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\tk\system\Database\BaseBuilder.php(1678): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', NULL, false)
+#4 C:\xampp\htdocs\tk\system\Model.php(759): CodeIgniter\Database\BaseBuilder->countAll()
+#5 C:\xampp\htdocs\tk\app\Controllers\Admin.php(21): CodeIgniter\Model->__call('countAll', Array)
+#6 C:\xampp\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Admin->index()
+#7 C:\xampp\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 C:\xampp\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\tk\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\tk\system\Database\BaseBuilder.php(1678): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', NULL, false)
+#3 C:\xampp\htdocs\tk\system\Model.php(759): CodeIgniter\Database\BaseBuilder->countAll()
+#4 C:\xampp\htdocs\tk\app\Controllers\Admin.php(21): CodeIgniter\Model->__call('countAll', Array)
+#5 C:\xampp\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Admin->index()
+#6 C:\xampp\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\xampp\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2026-05-12 14:10:45 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 606.
+ 1 SYSTEMPATH\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1678): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows` FROM `murid`', null, false)
+ 3 SYSTEMPATH\Model.php(759): CodeIgniter\Database\BaseBuilder->countAll()
+ 4 APPPATH\Controllers\Admin.php(21): CodeIgniter\Model->__call('countAll', [])
+ 5 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin->index()
+ 6 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-12 14:13:17 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\tk\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\tk\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_tk', 3307, '', 0)
+#1 C:\xampp\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\tk\system\Database\BaseBuilder.php(1678): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', NULL, false)
+#4 C:\xampp\htdocs\tk\system\Model.php(759): CodeIgniter\Database\BaseBuilder->countAll()
+#5 C:\xampp\htdocs\tk\app\Controllers\Admin.php(21): CodeIgniter\Model->__call('countAll', Array)
+#6 C:\xampp\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Admin->index()
+#7 C:\xampp\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 C:\xampp\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\tk\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\tk\system\Database\BaseBuilder.php(1678): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', NULL, false)
+#3 C:\xampp\htdocs\tk\system\Model.php(759): CodeIgniter\Database\BaseBuilder->countAll()
+#4 C:\xampp\htdocs\tk\app\Controllers\Admin.php(21): CodeIgniter\Model->__call('countAll', Array)
+#5 C:\xampp\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Admin->index()
+#6 C:\xampp\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\xampp\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2026-05-12 14:13:17 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 606.
+ 1 SYSTEMPATH\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1678): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows` FROM `murid`', null, false)
+ 3 SYSTEMPATH\Model.php(759): CodeIgniter\Database\BaseBuilder->countAll()
+ 4 APPPATH\Controllers\Admin.php(21): CodeIgniter\Model->__call('countAll', [])
+ 5 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin->index()
+ 6 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-12 14:13:39 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\tk\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\tk\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_tk', 3307, '', 0)
+#1 C:\xampp\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\tk\system\Database\BaseBuilder.php(1678): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', NULL, false)
+#4 C:\xampp\htdocs\tk\system\Model.php(759): CodeIgniter\Database\BaseBuilder->countAll()
+#5 C:\xampp\htdocs\tk\app\Controllers\Admin.php(21): CodeIgniter\Model->__call('countAll', Array)
+#6 C:\xampp\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Admin->index()
+#7 C:\xampp\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 C:\xampp\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\tk\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\tk\system\Database\BaseBuilder.php(1678): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', NULL, false)
+#3 C:\xampp\htdocs\tk\system\Model.php(759): CodeIgniter\Database\BaseBuilder->countAll()
+#4 C:\xampp\htdocs\tk\app\Controllers\Admin.php(21): CodeIgniter\Model->__call('countAll', Array)
+#5 C:\xampp\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Admin->index()
+#6 C:\xampp\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\xampp\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2026-05-12 14:13:39 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 606.
+ 1 SYSTEMPATH\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1678): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows` FROM `murid`', null, false)
+ 3 SYSTEMPATH\Model.php(759): CodeIgniter\Database\BaseBuilder->countAll()
+ 4 APPPATH\Controllers\Admin.php(21): CodeIgniter\Model->__call('countAll', [])
+ 5 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin->index()
+ 6 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-12 14:14:14 --> Table 'db_tk.kelas' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT COUNT(*) AS `numrows` FROM `kelas`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows` FROM `kelas`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows` FROM `kelas`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1678): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows` FROM `kelas`', null, false)
+ 5 SYSTEMPATH\Model.php(759): CodeIgniter\Database\BaseBuilder->countAll()
+ 6 APPPATH\Controllers\Admin.php(25): CodeIgniter\Model->__call('countAll', [])
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin->index()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-12 14:14:14 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'db_tk.kelas' doesn't exist
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 865.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1678): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows` FROM `kelas`', null, false)
+ 2 SYSTEMPATH\Model.php(759): CodeIgniter\Database\BaseBuilder->countAll()
+ 3 APPPATH\Controllers\Admin.php(25): CodeIgniter\Model->__call('countAll', [])
+ 4 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin->index()
+ 5 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-12 14:14:14 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'db_tk.kelas' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 310.
+ 1 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows` FROM `kelas`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows` FROM `kelas`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1678): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows` FROM `kelas`', null, false)
+ 4 SYSTEMPATH\Model.php(759): CodeIgniter\Database\BaseBuilder->countAll()
+ 5 APPPATH\Controllers\Admin.php(25): CodeIgniter\Model->__call('countAll', [])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-12 14:14:14 --> [Caused by] mysqli_sql_exception: Table 'db_tk.kelas' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT COUNT(*) AS `numrows` FROM `kelas`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows` FROM `kelas`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows` FROM `kelas`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1678): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows` FROM `kelas`', null, false)
+ 5 SYSTEMPATH\Model.php(759): CodeIgniter\Database\BaseBuilder->countAll()
+ 6 APPPATH\Controllers\Admin.php(25): CodeIgniter\Model->__call('countAll', [])
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin->index()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-12 14:14:16 --> Table 'db_tk.kelas' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT COUNT(*) AS `numrows` FROM `kelas`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows` FROM `kelas`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows` FROM `kelas`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1678): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows` FROM `kelas`', null, false)
+ 5 SYSTEMPATH\Model.php(759): CodeIgniter\Database\BaseBuilder->countAll()
+ 6 APPPATH\Controllers\Admin.php(25): CodeIgniter\Model->__call('countAll', [])
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin->index()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-12 14:14:16 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'db_tk.kelas' doesn't exist
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 865.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1678): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows` FROM `kelas`', null, false)
+ 2 SYSTEMPATH\Model.php(759): CodeIgniter\Database\BaseBuilder->countAll()
+ 3 APPPATH\Controllers\Admin.php(25): CodeIgniter\Model->__call('countAll', [])
+ 4 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin->index()
+ 5 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-12 14:14:16 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'db_tk.kelas' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 310.
+ 1 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows` FROM `kelas`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows` FROM `kelas`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1678): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows` FROM `kelas`', null, false)
+ 4 SYSTEMPATH\Model.php(759): CodeIgniter\Database\BaseBuilder->countAll()
+ 5 APPPATH\Controllers\Admin.php(25): CodeIgniter\Model->__call('countAll', [])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-12 14:14:16 --> [Caused by] mysqli_sql_exception: Table 'db_tk.kelas' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT COUNT(*) AS `numrows` FROM `kelas`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows` FROM `kelas`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows` FROM `kelas`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1678): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows` FROM `kelas`', null, false)
+ 5 SYSTEMPATH\Model.php(759): CodeIgniter\Database\BaseBuilder->countAll()
+ 6 APPPATH\Controllers\Admin.php(25): CodeIgniter\Model->__call('countAll', [])
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin->index()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-12 14:19:29 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\tk\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\tk\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_tk', 3307, '', 0)
+#1 C:\xampp\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\tk\system\Database\BaseBuilder.php(1678): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', NULL, false)
+#4 C:\xampp\htdocs\tk\system\Model.php(759): CodeIgniter\Database\BaseBuilder->countAll()
+#5 C:\xampp\htdocs\tk\app\Controllers\Admin.php(21): CodeIgniter\Model->__call('countAll', Array)
+#6 C:\xampp\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Admin->index()
+#7 C:\xampp\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 C:\xampp\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\tk\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\tk\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\tk\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\tk\system\Database\BaseBuilder.php(1678): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', NULL, false)
+#3 C:\xampp\htdocs\tk\system\Model.php(759): CodeIgniter\Database\BaseBuilder->countAll()
+#4 C:\xampp\htdocs\tk\app\Controllers\Admin.php(21): CodeIgniter\Model->__call('countAll', Array)
+#5 C:\xampp\htdocs\tk\system\CodeIgniter.php(951): App\Controllers\Admin->index()
+#6 C:\xampp\htdocs\tk\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\xampp\htdocs\tk\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\tk\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\tk\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\tk\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2026-05-12 14:19:29 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 606.
+ 1 SYSTEMPATH\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1678): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows` FROM `murid`', null, false)
+ 3 SYSTEMPATH\Model.php(759): CodeIgniter\Database\BaseBuilder->countAll()
+ 4 APPPATH\Controllers\Admin.php(21): CodeIgniter\Model->__call('countAll', [])
+ 5 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin->index()
+ 6 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-12 14:19:38 --> Table 'db_tk.kelas' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT COUNT(*) AS `numrows` FROM `kelas`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows` FROM `kelas`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows` FROM `kelas`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1678): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows` FROM `kelas`', null, false)
+ 5 SYSTEMPATH\Model.php(759): CodeIgniter\Database\BaseBuilder->countAll()
+ 6 APPPATH\Controllers\Admin.php(25): CodeIgniter\Model->__call('countAll', [])
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin->index()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-12 14:19:38 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'db_tk.kelas' doesn't exist
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 865.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1678): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows` FROM `kelas`', null, false)
+ 2 SYSTEMPATH\Model.php(759): CodeIgniter\Database\BaseBuilder->countAll()
+ 3 APPPATH\Controllers\Admin.php(25): CodeIgniter\Model->__call('countAll', [])
+ 4 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin->index()
+ 5 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-12 14:19:38 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'db_tk.kelas' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 310.
+ 1 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows` FROM `kelas`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows` FROM `kelas`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1678): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows` FROM `kelas`', null, false)
+ 4 SYSTEMPATH\Model.php(759): CodeIgniter\Database\BaseBuilder->countAll()
+ 5 APPPATH\Controllers\Admin.php(25): CodeIgniter\Model->__call('countAll', [])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-12 14:19:38 --> [Caused by] mysqli_sql_exception: Table 'db_tk.kelas' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT COUNT(*) AS `numrows` FROM `kelas`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows` FROM `kelas`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows` FROM `kelas`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1678): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows` FROM `kelas`', null, false)
+ 5 SYSTEMPATH\Model.php(759): CodeIgniter\Database\BaseBuilder->countAll()
+ 6 APPPATH\Controllers\Admin.php(25): CodeIgniter\Model->__call('countAll', [])
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin->index()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-12 15:12:00 --> Table 'db_tk.kelas' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT COUNT(*) AS `numrows` FROM `kelas`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows` FROM `kelas`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows` FROM `kelas`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1678): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows` FROM `kelas`', null, false)
+ 5 SYSTEMPATH\Model.php(759): CodeIgniter\Database\BaseBuilder->countAll()
+ 6 APPPATH\Controllers\Admin.php(25): CodeIgniter\Model->__call('countAll', [])
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin->index()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-12 15:12:00 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'db_tk.kelas' doesn't exist
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 865.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1678): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows` FROM `kelas`', null, false)
+ 2 SYSTEMPATH\Model.php(759): CodeIgniter\Database\BaseBuilder->countAll()
+ 3 APPPATH\Controllers\Admin.php(25): CodeIgniter\Model->__call('countAll', [])
+ 4 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin->index()
+ 5 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-12 15:12:00 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'db_tk.kelas' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 310.
+ 1 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows` FROM `kelas`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows` FROM `kelas`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1678): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows` FROM `kelas`', null, false)
+ 4 SYSTEMPATH\Model.php(759): CodeIgniter\Database\BaseBuilder->countAll()
+ 5 APPPATH\Controllers\Admin.php(25): CodeIgniter\Model->__call('countAll', [])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-12 15:12:00 --> [Caused by] mysqli_sql_exception: Table 'db_tk.kelas' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT COUNT(*) AS `numrows` FROM `kelas`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows` FROM `kelas`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows` FROM `kelas`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1678): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows` FROM `kelas`', null, false)
+ 5 SYSTEMPATH\Model.php(759): CodeIgniter\Database\BaseBuilder->countAll()
+ 6 APPPATH\Controllers\Admin.php(25): CodeIgniter\Model->__call('countAll', [])
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin->index()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-12 15:12:10 --> Table 'db_tk.kelas' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT COUNT(*) AS `numrows` FROM `kelas`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows` FROM `kelas`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows` FROM `kelas`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1678): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows` FROM `kelas`', null, false)
+ 5 SYSTEMPATH\Model.php(759): CodeIgniter\Database\BaseBuilder->countAll()
+ 6 APPPATH\Controllers\Admin.php(25): CodeIgniter\Model->__call('countAll', [])
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin->index()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-12 15:12:10 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'db_tk.kelas' doesn't exist
+[Method: GET, Route: admin]
+in SYSTEMPATH\Database\BaseConnection.php on line 865.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1678): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows` FROM `kelas`', null, false)
+ 2 SYSTEMPATH\Model.php(759): CodeIgniter\Database\BaseBuilder->countAll()
+ 3 APPPATH\Controllers\Admin.php(25): CodeIgniter\Model->__call('countAll', [])
+ 4 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin->index()
+ 5 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-12 15:12:10 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'db_tk.kelas' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 310.
+ 1 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows` FROM `kelas`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows` FROM `kelas`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1678): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows` FROM `kelas`', null, false)
+ 4 SYSTEMPATH\Model.php(759): CodeIgniter\Database\BaseBuilder->countAll()
+ 5 APPPATH\Controllers\Admin.php(25): CodeIgniter\Model->__call('countAll', [])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-12 15:12:10 --> [Caused by] mysqli_sql_exception: Table 'db_tk.kelas' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT COUNT(*) AS `numrows` FROM `kelas`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows` FROM `kelas`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows` FROM `kelas`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1678): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows` FROM `kelas`', null, false)
+ 5 SYSTEMPATH\Model.php(759): CodeIgniter\Database\BaseBuilder->countAll()
+ 6 APPPATH\Controllers\Admin.php(25): CodeIgniter\Model->__call('countAll', [])
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin->index()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-12 15:13:18 --> Table 'db_tk.kelas' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT COUNT(*) AS `numrows` FROM `kelas`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows` FROM `kelas`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows` FROM `kelas`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1678): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows` FROM `kelas`', null, false)
+ 5 SYSTEMPATH\Model.php(759): CodeIgniter\Database\BaseBuilder->countAll()
+ 6 APPPATH\Controllers\Admin.php(25): CodeIgniter\Model->__call('countAll', [])
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin->index()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-12 15:13:18 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'db_tk.kelas' doesn't exist
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 865.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1678): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows` FROM `kelas`', null, false)
+ 2 SYSTEMPATH\Model.php(759): CodeIgniter\Database\BaseBuilder->countAll()
+ 3 APPPATH\Controllers\Admin.php(25): CodeIgniter\Model->__call('countAll', [])
+ 4 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin->index()
+ 5 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-12 15:13:18 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'db_tk.kelas' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 310.
+ 1 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows` FROM `kelas`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows` FROM `kelas`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1678): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows` FROM `kelas`', null, false)
+ 4 SYSTEMPATH\Model.php(759): CodeIgniter\Database\BaseBuilder->countAll()
+ 5 APPPATH\Controllers\Admin.php(25): CodeIgniter\Model->__call('countAll', [])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-12 15:13:18 --> [Caused by] mysqli_sql_exception: Table 'db_tk.kelas' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT COUNT(*) AS `numrows` FROM `kelas`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows` FROM `kelas`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows` FROM `kelas`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1678): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows` FROM `kelas`', null, false)
+ 5 SYSTEMPATH\Model.php(759): CodeIgniter\Database\BaseBuilder->countAll()
+ 6 APPPATH\Controllers\Admin.php(25): CodeIgniter\Model->__call('countAll', [])
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin->index()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-05-12 15:21:49 --> Table 'guru' already exists
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('CREATE TABLE `guru` (
+	`id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`nama_guru` VARCHAR(100) NOT NULL,
+	`nip_nik` VARCHAR(20) NOT NULL,
+	`jabatan` VARCHAR(50) NOT NULL,
+	`pendidikan` VARCHAR(50) NOT NULL,
+	CONSTRAINT `pk_guru` PRIMARY KEY(`id`)
+) DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `guru` (
+	`id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`nama_guru` VARCHAR(100) NOT NULL,
+	`nip_nik` VARCHAR(20) NOT NULL,
+	`jabatan` VARCHAR(50) NOT NULL,
+	`pendidikan` VARCHAR(50) NOT NULL,
+	CONSTRAINT `pk_guru` PRIMARY KEY(`id`)
+) DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `guru` (
+	`id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`nama_guru` VARCHAR(100) NOT NULL,
+	`nip_nik` VARCHAR(20) NOT NULL,
+	`jabatan` VARCHAR(50) NOT NULL,
+	`pendidikan` VARCHAR(50) NOT NULL,
+	CONSTRAINT `pk_guru` PRIMARY KEY(`id`)
+) DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci')
+ 4 SYSTEMPATH\Database\Forge.php(570): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `guru` (
+	`id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`nama_guru` VARCHAR(100) NOT NULL,
+	`nip_nik` VARCHAR(20) NOT NULL,
+	`jabatan` VARCHAR(50) NOT NULL,
+	`pendidikan` VARCHAR(50) NOT NULL,
+	CONSTRAINT `pk_guru` PRIMARY KEY(`id`)
+) DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci')
+ 5 APPPATH\Database\Migrations\2026-05-12-151942_CreateGuruTable.php(36): CodeIgniter\Database\Forge->createTable('guru')
+ 6 SYSTEMPATH\Database\MigrationRunner.php(1014): App\Database\Migrations\CreateGuruTable->up()
+ 7 SYSTEMPATH\Database\MigrationRunner.php(202): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+ 8 SYSTEMPATH\Commands\Database\Migrate.php(89): CodeIgniter\Database\MigrationRunner->latest(null)
+ 9 SYSTEMPATH\CLI\SignalTrait.php(245): CodeIgniter\Commands\Database\Migrate::CodeIgniter\Commands\Database\{closure}()
+10 SYSTEMPATH\Commands\Database\Migrate.php(88): CodeIgniter\Commands\Database\Migrate->withSignalsBlocked(Object(Closure))
+11 SYSTEMPATH\CLI\Commands.php(74): CodeIgniter\Commands\Database\Migrate->run([])
+12 SYSTEMPATH\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('migrate', [])
+13 SYSTEMPATH\Boot.php(442): CodeIgniter\CLI\Console->run()
+14 SYSTEMPATH\Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+15 ROOTPATH\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+ERROR - 2026-05-12 15:23:09 --> Table 'guru' already exists
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('CREATE TABLE `guru` (
+	`id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`nama_guru` VARCHAR(100) NOT NULL,
+	`nip_nik` VARCHAR(20) NOT NULL,
+	`jabatan` VARCHAR(50) NOT NULL,
+	`pendidikan` VARCHAR(50) NOT NULL,
+	CONSTRAINT `pk_guru` PRIMARY KEY(`id`)
+) DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `guru` (
+	`id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`nama_guru` VARCHAR(100) NOT NULL,
+	`nip_nik` VARCHAR(20) NOT NULL,
+	`jabatan` VARCHAR(50) NOT NULL,
+	`pendidikan` VARCHAR(50) NOT NULL,
+	CONSTRAINT `pk_guru` PRIMARY KEY(`id`)
+) DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `guru` (
+	`id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`nama_guru` VARCHAR(100) NOT NULL,
+	`nip_nik` VARCHAR(20) NOT NULL,
+	`jabatan` VARCHAR(50) NOT NULL,
+	`pendidikan` VARCHAR(50) NOT NULL,
+	CONSTRAINT `pk_guru` PRIMARY KEY(`id`)
+) DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci')
+ 4 SYSTEMPATH\Database\Forge.php(570): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `guru` (
+	`id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`nama_guru` VARCHAR(100) NOT NULL,
+	`nip_nik` VARCHAR(20) NOT NULL,
+	`jabatan` VARCHAR(50) NOT NULL,
+	`pendidikan` VARCHAR(50) NOT NULL,
+	CONSTRAINT `pk_guru` PRIMARY KEY(`id`)
+) DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci')
+ 5 APPPATH\Database\Migrations\2026-05-12-151942_CreateGuruTable.php(36): CodeIgniter\Database\Forge->createTable('guru')
+ 6 SYSTEMPATH\Database\MigrationRunner.php(1014): App\Database\Migrations\CreateGuruTable->up()
+ 7 SYSTEMPATH\Database\MigrationRunner.php(202): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+ 8 SYSTEMPATH\Commands\Database\Migrate.php(89): CodeIgniter\Database\MigrationRunner->latest(null)
+ 9 SYSTEMPATH\CLI\SignalTrait.php(245): CodeIgniter\Commands\Database\Migrate::CodeIgniter\Commands\Database\{closure}()
+10 SYSTEMPATH\Commands\Database\Migrate.php(88): CodeIgniter\Commands\Database\Migrate->withSignalsBlocked(Object(Closure))
+11 SYSTEMPATH\CLI\Commands.php(74): CodeIgniter\Commands\Database\Migrate->run([...])
+12 SYSTEMPATH\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('migrate', [...])
+13 SYSTEMPATH\Boot.php(442): CodeIgniter\CLI\Console->run()
+14 SYSTEMPATH\Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+15 ROOTPATH\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+ERROR - 2026-05-12 15:26:03 --> Can't create table `db_tk`.`kelas` (errno: 150 "Foreign key constraint is incorrectly formed")
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('CREATE TABLE `kelas` (
+	`id_kelas` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`id_guru` INT(11) UNSIGNED NOT NULL,
+	`nama_kelas` VARCHAR(50) NOT NULL,
+	CONSTRAINT `pk_kelas` PRIMARY KEY(`id_kelas`),
+	CONSTRAINT `kelas_id_guru_foreign` FOREIGN KEY (`id_guru`) REFERENCES `guru`(`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `kelas` (
+	`id_kelas` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`id_guru` INT(11) UNSIGNED NOT NULL,
+	`nama_kelas` VARCHAR(50) NOT NULL,
+	CONSTRAINT `pk_kelas` PRIMARY KEY(`id_kelas`),
+	CONSTRAINT `kelas_id_guru_foreign` FOREIGN KEY (`id_guru`) REFERENCES `guru`(`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `kelas` (
+	`id_kelas` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`id_guru` INT(11) UNSIGNED NOT NULL,
+	`nama_kelas` VARCHAR(50) NOT NULL,
+	CONSTRAINT `pk_kelas` PRIMARY KEY(`id_kelas`),
+	CONSTRAINT `kelas_id_guru_foreign` FOREIGN KEY (`id_guru`) REFERENCES `guru`(`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci')
+ 4 SYSTEMPATH\Database\Forge.php(570): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `kelas` (
+	`id_kelas` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`id_guru` INT(11) UNSIGNED NOT NULL,
+	`nama_kelas` VARCHAR(50) NOT NULL,
+	CONSTRAINT `pk_kelas` PRIMARY KEY(`id_kelas`),
+	CONSTRAINT `kelas_id_guru_foreign` FOREIGN KEY (`id_guru`) REFERENCES `guru`(`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci')
+ 5 APPPATH\Database\Migrations\2026-05-12-152013_CreateKelasTable.php(30): CodeIgniter\Database\Forge->createTable('kelas')
+ 6 SYSTEMPATH\Database\MigrationRunner.php(1014): App\Database\Migrations\CreateKelasTable->up()
+ 7 SYSTEMPATH\Database\MigrationRunner.php(202): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+ 8 SYSTEMPATH\Commands\Database\Migrate.php(89): CodeIgniter\Database\MigrationRunner->latest(null)
+ 9 SYSTEMPATH\CLI\SignalTrait.php(245): CodeIgniter\Commands\Database\Migrate::CodeIgniter\Commands\Database\{closure}()
+10 SYSTEMPATH\Commands\Database\Migrate.php(88): CodeIgniter\Commands\Database\Migrate->withSignalsBlocked(Object(Closure))
+11 SYSTEMPATH\CLI\Commands.php(74): CodeIgniter\Commands\Database\Migrate->run([])
+12 SYSTEMPATH\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('migrate', [])
+13 SYSTEMPATH\Boot.php(442): CodeIgniter\CLI\Console->run()
+14 SYSTEMPATH\Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+15 ROOTPATH\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+CRITICAL - 2026-05-12 15:36:45 --> ErrorException: Undefined array key "id_murid"
+[Method: GET, Route: murid]
+in APPPATH\Views\Murid\index.php on line 50.
+ 1 APPPATH\Views\Murid\index.php(50): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_murid"', 'C:\\xampp\\htdocs\\tk\\app\\Views\\Murid\\index.php', 50)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\tk\\app\\Views\\Murid\\index.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('murid/index', [], true)
+ 5 APPPATH\Controllers\Murid.php(27): view('murid/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Murid->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-12 15:36:59 --> ErrorException: Undefined array key "id_murid"
+[Method: GET, Route: murid]
+in APPPATH\Views\Murid\index.php on line 50.
+ 1 APPPATH\Views\Murid\index.php(50): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_murid"', 'C:\\xampp\\htdocs\\tk\\app\\Views\\Murid\\index.php', 50)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\tk\\app\\Views\\Murid\\index.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('murid/index', [], true)
+ 5 APPPATH\Controllers\Murid.php(27): view('murid/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Murid->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-12 15:37:19 --> ErrorException: Undefined array key "id_murid"
+[Method: GET, Route: murid]
+in APPPATH\Views\Murid\index.php on line 50.
+ 1 APPPATH\Views\Murid\index.php(50): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_murid"', 'C:\\xampp\\htdocs\\tk\\app\\Views\\Murid\\index.php', 50)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\tk\\app\\Views\\Murid\\index.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('murid/index', [], true)
+ 5 APPPATH\Controllers\Murid.php(27): view('murid/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Murid->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Murid))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
