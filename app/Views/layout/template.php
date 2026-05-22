@@ -10,11 +10,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Quicksand', sans-serif; background-color: #ffffff; }
-        
-        section { scroll-margin-top: 100px; }
+        /* Menyembunyikan scrollbar vertikal tapi halaman tetap bisa di-scroll */
+        html, body {
+        scrollbar-width: none; /* Untuk Firefox */
+        -ms-overflow-style: none; /* Untuk Internet Explorer dan Edge */
+        }
 
+        html::-webkit-scrollbar, body::-webkit-scrollbar {
+        display: none; /* Untuk Chrome, Safari, Opera, dan Edge berbasis Chromium */
+        }
+        
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Quicksand', sans-serif; background-color: #ffffff; overflow-x: hidden; }
+        section { scroll-margin-top: 100px; }  
         .navbar { 
             background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%) !important;
             padding: 12px 0;
@@ -97,12 +105,57 @@
             margin-top: 10px;
             font-size: 0.9rem;
         }
+
+        /* Tampilan Menu Mobile Full-Width */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        position: absolute;
+        top: 100%; /* Muncul tepat di bawah garis kuning navbar */
+        left: 0;
+        width: 100%; /* Memenuhi layar 100% */
+        background-color: #ffffff; /* Background putih agar bersih */
+        padding: 10px 25px 25px;
+        box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+        z-index: 1000;
+    }
+    
+    .navbar-nav {
+        text-align: left !important; /* Menu rata kiri untuk mobile */
+    }
+    
+    .navbar-nav .nav-link {
+        color: #2c3e50 !important; /* Mengubah warna teks menjadi gelap */
+        padding: 12px 10px;
+        border-bottom: 1px solid #f1f2f6; /* Garis pemisah antar menu */
+    }
+    
+    .navbar-nav .nav-link:hover {
+        color: #27ae60 !important;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+    }
+
+    /* Penyesuaian Dropdown di Mobile */
+    .dropdown-menu {
+        border: none;
+        box-shadow: none;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        margin: 5px 0 10px 15px; /* Menjorok sedikit ke dalam */
+        padding: 5px 0;
+    }
+    
+    .dropdown-item {
+        border-bottom: none;
+        padding: 8px 15px;
+    }
+}
     </style>
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-    <div class="container">
+    <div class="container-fluid px-3 px-md-5">
         <a class="navbar-brand d-flex align-items-center" href="<?= base_url(); ?>">
             <img src="<?= base_url('assets/logo.png'); ?>" alt="Logo RA Perwanida" class="me-3">
             <div class="lh-1">
@@ -150,7 +203,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#kontak">Kontak</a>
+                    <a class="nav-link" href="https://wa.me/628123456789" target="_blank">Kontak</a>
                 </li>
             </ul>
         </div>

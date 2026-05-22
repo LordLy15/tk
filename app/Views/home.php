@@ -10,10 +10,11 @@
                     Selamat datang di RA PERWANIDA. Kami adalah lembaga pendidikan anak usia dini yang berfokus pada pengembangan karakter dan kreativitas. Dengan lingkungan yang aman dan menyenangkan, kami membantu buah hati Anda tumbuh menjadi pribadi yang berakhlak mulia dan cerdas.
                 </p>
             </div>
-            <div class="col-md-6">
-                <div class="bg-secondary text-white rounded-4 d-flex align-items-center justify-content-center shadow" style="height: 320px;">
-                    <span class="fw-bold letter-spacing-1">GAMBAR SEKOLAH</span>
-                </div>
+           <div class="col-md-6">
+                <img src="<?= base_url('assets/images/gambar-sekolah.jpeg') ?>" 
+                    alt="Gedung RA Perwanida" 
+                    class="img-fluid rounded-4 shadow w-100" 
+                    style="height: 320px; object-fit: cover;">
             </div>
         </div>
     </div>
