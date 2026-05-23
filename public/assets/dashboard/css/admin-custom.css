@@ -278,6 +278,39 @@ footer {
     padding-top: 1rem;
 }
 
+.profile-thumb {
+    background: #fff;
+    border: 1px solid #bbf7d0;
+    border-radius: 999px;
+    height: 44px;
+    object-fit: cover;
+    padding: 2px;
+    width: 44px;
+}
+
+.profile-photo-lg {
+    height: 150px;
+    object-fit: cover;
+    width: 150px;
+}
+
+.profile-upload-preview {
+    align-items: center;
+    background: var(--admin-soft);
+    border: 1px solid var(--admin-border);
+    border-radius: 8px;
+    display: inline-flex;
+    min-height: 86px;
+    padding: .5rem;
+}
+
+.profile-upload-preview img {
+    border-radius: 8px;
+    height: 72px;
+    object-fit: cover;
+    width: 72px;
+}
+
 .address-builder {
     background: var(--admin-soft);
     border: 1px solid var(--admin-border);
@@ -312,13 +345,96 @@ footer {
 
 .table-actions {
     align-items: center;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
     display: inline-flex;
-    flex-wrap: fixed;
-    gap: .35rem;
+    flex-wrap: nowrap;
+    gap: .3rem;
+    justify-content: center;
+    padding: .25rem;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: max-content;
+}
+
+.table-actions.compact-actions {
+    gap: .3rem;
 }
 
 .table-actions .btn {
     min-height: 30px;
+}
+
+.table-actions .action-icon-btn {
+    align-items: center;
+    border: 0;
+    display: inline-flex;
+    height: 36px;
+    justify-content: center;
+    min-height: 36px;
+    padding: 0;
+    transition: box-shadow .15s ease, filter .15s ease, transform .15s ease;
+    width: 36px;
+}
+
+.table-actions .action-icon-btn i {
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.table-actions .action-icon-btn:hover {
+    filter: brightness(.97);
+    transform: translateY(-1px);
+}
+
+.table-actions .action-icon-btn:focus-visible,
+.status-toggle-form .form-check-input:focus-visible {
+    box-shadow: 0 0 0 .18rem rgba(22, 163, 74, .24);
+    outline: 0;
+}
+
+.status-toggle-form {
+    align-items: center;
+    display: inline-flex;
+    margin: 0;
+    min-height: 36px;
+    width: 40px;
+}
+
+.status-toggle-form .form-check {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    margin: 0;
+    min-height: 36px;
+    padding-left: 0;
+    width: 40px;
+}
+
+.status-toggle-form .form-check-input {
+    cursor: pointer;
+    flex: 0 0 auto;
+    margin-left: 0;
+    margin-top: 0;
+}
+
+.status-toggle-form .form-check-label {
+    display: inline-flex;
+    margin: 0;
+}
+
+.action-cell {
+    padding-left: .5rem !important;
+    padding-right: .5rem !important;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 1%;
+}
+
+.action-cell .table-actions {
+    margin-inline: auto;
 }
 
 .empty-state {

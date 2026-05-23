@@ -117,7 +117,7 @@
                         <th>Ayah</th>
                         <th>Ibu</th>
                         <th>Kontak Utama</th>
-                        <th width="160">Aksi</th>
+                        <th class="action-cell text-center">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -134,21 +134,29 @@
                                 <td><?= esc($ot['nama_ayah']) ?></td>
                                 <td><?= esc($ot['nama_ibu']) ?></td>
                                 <td><?= esc($ot['no_hp_ayah'] ?: $ot['no_hp_ibu']) ?></td>
-                                <td>
+                                <td class="action-cell">
                                     <div class="table-actions">
-                                        <a href="<?= base_url('orang-tua/detail/' . $ot['id']) ?>" class="btn btn-info btn-sm">
+                                        <a href="<?= base_url('orang-tua/detail/' . $ot['id']) ?>"
+                                           class="btn btn-info btn-sm action-icon-btn"
+                                           title="Detail orang tua"
+                                           aria-label="Detail orang tua <?= esc($ot['nama_murid'], 'attr') ?>">
                                             <i class="ti ti-eye"></i>
-                                            Detail
+                                            <span class="visually-hidden">Detail</span>
                                         </a>
-                                        <a href="<?= base_url('orang-tua/edit/' . $ot['id']) ?>" class="btn btn-warning btn-sm">
+                                        <a href="<?= base_url('orang-tua/edit/' . $ot['id']) ?>"
+                                           class="btn btn-warning btn-sm action-icon-btn"
+                                           title="Edit orang tua"
+                                           aria-label="Edit orang tua <?= esc($ot['nama_murid'], 'attr') ?>">
                                             <i class="ti ti-edit"></i>
-                                            Edit
+                                            <span class="visually-hidden">Edit</span>
                                         </a>
                                         <a href="<?= base_url('orang-tua/hapus/' . $ot['id']) ?>"
-                                           class="btn btn-danger btn-sm"
+                                           class="btn btn-danger btn-sm action-icon-btn"
+                                           title="Hapus orang tua"
+                                           aria-label="Hapus orang tua <?= esc($ot['nama_murid'], 'attr') ?>"
                                            onclick="return confirm('Hapus data orang tua ini?')">
                                             <i class="ti ti-trash"></i>
-                                            Hapus
+                                            <span class="visually-hidden">Hapus</span>
                                         </a>
                                     </div>
                                 </td>

@@ -26,7 +26,7 @@
         </div>
 
         <div class="card-body">
-            <form action="<?= base_url('guru/simpan') ?>" method="post">
+            <form action="<?= base_url('guru/simpan') ?>" method="post" enctype="multipart/form-data">
                 <?= csrf_field() ?>
 
                 <div class="form-section">
@@ -74,6 +74,16 @@
                                    value="<?= esc(old('pendidikan')) ?>"
                                    placeholder="Contoh: S1 PAUD"
                                    required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="foto_guru" class="form-label">Foto Profil</label>
+                            <input id="foto_guru"
+                                   type="file"
+                                   name="foto_guru"
+                                   class="form-control"
+                                   accept="image/jpeg,image/png,image/webp">
+                            <div class="form-hint">Format JPG, PNG, atau WEBP. Maksimal 2 MB.</div>
                         </div>
                     </div>
                 </div>

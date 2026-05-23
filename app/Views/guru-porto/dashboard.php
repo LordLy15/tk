@@ -34,7 +34,7 @@
                     <th>Nama</th>
                     <th>NISN</th>
                     <th>Kelas</th>
-                    <th>Aksi</th>
+                    <th class="text-center" style="width: 1%; white-space: nowrap;">Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -43,8 +43,18 @@
                     <td><?= $s['nama_siswa'] ?></td>
                     <td><?= $s['nisn'] ?></td>
                     <td><?= $s['kelas'] ?></td>
-                    <td>
-                        <a href="/dashboard/deleteSiswa/<?= $s['id'] ?>" class="btn btn-sm btn-danger">Hapus</a>
+                    <td class="text-center" style="width: 1%; white-space: nowrap;">
+                        <div class="d-inline-flex align-items-center justify-content-center gap-1 p-1 bg-light border rounded">
+                            <a href="/dashboard/deleteSiswa/<?= $s['id'] ?>"
+                               class="btn btn-danger btn-sm d-inline-flex align-items-center justify-content-center"
+                               style="width: 36px; height: 36px; padding: 0;"
+                               title="Hapus siswa"
+                               aria-label="Hapus <?= esc($s['nama_siswa'], 'attr') ?>"
+                               onclick="return confirm('Hapus data siswa ini?')">
+                                <i class="fa-solid fa-trash"></i>
+                                <span class="visually-hidden">Hapus</span>
+                            </a>
+                        </div>
                     </td>
                 </tr>
                 <?php endforeach; ?>

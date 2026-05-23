@@ -10,30 +10,28 @@
   - Data sampel untuk testing
   - Sudah siap untuk dijalankan di phpMyAdmin
 
-### 2. Models (9 file baru)
+### 2. Models (8 file baru)
 ```
 app/Models/
-├── UserModel.php                  ✅ Manajemen pengguna
-├── OrangTuaModel.php             ✅ Data orang tua/wali
-├── KehadiranModel.php            ✅ Pencatatan kehadiran
-├── AktivitasModel.php            ✅ Aktivitas pembelajaran
-├── AktivitasKelasModel.php       ✅ Aktivitas per kelas
-├── JadwalKelasModel.php          ✅ Jadwal kelas harian
-├── PengumumanModel.php           ✅ Pengumuman sekolah
-├── LiburSekolahModel.php         ✅ Data libur sekolah
-└── FasilitasSekolahModel.php     ✅ Inventaris fasilitas
+├── UserModel.php                  `✅` Manajemen pengguna
+├── OrangTuaModel.php             `✅` Data orang tua/wali
+├── KehadiranModel.php            `✅` Pencatatan kehadiran
+├── AktivitasModel.php            `✅` Aktivitas pembelajaran
+├── AktivitasKelasModel.php       `✅` Aktivitas per kelas
+├── JadwalKelasModel.php          `✅` Jadwal kelas harian
+├── PengumumanModel.php           `✅` Pengumuman sekolah
+└── LiburSekolahModel.php         `✅` Data libur sekolah
 ```
 
-### 3. Controllers (7 file baru)
+### 3. Controllers (6 file baru)
 ```
 app/Controllers/
-├── Kehadiran.php      ✅ Input & laporan kehadiran
-├── Aktivitas.php      ✅ CRUD aktivitas pembelajaran
-├── OrangTua.php       ✅ CRUD data orang tua
-├── Jadwal.php         ✅ CRUD jadwal kelas
-├── Pengumuman.php     ✅ CRUD pengumuman
-├── Libur.php          ✅ CRUD libur sekolah
-└── Fasilitas.php      ✅ CRUD fasilitas sekolah
+├── Kehadiran.php      `✅` Input & laporan kehadiran
+├── Aktivitas.php      `✅` CRUD aktivitas pembelajaran
+├── OrangTua.php       `✅` CRUD data orang tua
+├── Jadwal.php         `✅` CRUD jadwal kelas
+├── Pengumuman.php     `✅` CRUD pengumuman
+└── Libur.php          `✅` CRUD libur sekolah
 ```
 
 Admin.php juga diupdate untuk dashboard yang lebih lengkap
@@ -55,11 +53,8 @@ app/Views/
 │   ├── index.php          ✅ Lihat aktivitas
 │   └── form.php           ✅ Form tambah/edit
 ├── Pengumuman/
-│   ├── index.php          ✅ Lihat pengumuman
-│   └── form.php           ✅ Form tambah/edit
-├── Fasilitas/
-│   ├── index.php          ✅ Lihat fasilitas
-│   └── (form files)
+│   ├── index.php          `✅` Lihat pengumuman
+│   └── form.php           `✅` Form tambah/edit
 ├── OrangTua/
 ├── Jadwal/
 └── Libur/
@@ -70,7 +65,7 @@ app/Views/
 
 ---
 
-## 🎯 8 Fitur Utama yang Ditambahkan
+## 🎯 7 Fitur Utama yang Ditambahkan
 
 | No | Fitur | URL | Fungsi Utama |
 |----|-------|-----|--------------|
@@ -80,8 +75,7 @@ app/Views/
 | 4 | **Jadwal** | `/jadwal` | Atur jadwal kelas harian per hari |
 | 5 | **Pengumuman** | `/pengumuman` | Buat pengumuman dengan prioritas & durasi |
 | 6 | **Libur Sekolah** | `/libur` | Manajemen tanggal libur & cuti |
-| 7 | **Fasilitas** | `/fasilitas` | Inventaris & kondisi fasilitas sekolah |
-| 8 | **Dashboard** | `/` atau `/admin` | Ringkasan statistik semua modul |
+| 7 | **Dashboard** | `/` atau `/admin` | Ringkasan statistik semua modul |
 
 ---
 
@@ -117,10 +111,9 @@ Pastikan semua folder dan file sudah ada:
 
 ### Langkah 4: Lengkapi View Files
 Template dasar sudah dibuat untuk:
-- ✅ Kehadiran (index, input, laporan)
-- ✅ Aktivitas (index, form)
-- ✅ Pengumuman (index, form)
-- ✅ Fasilitas (index)
+- `✅` Kehadiran (index, input, laporan)
+- `✅` Aktivitas (index, form)
+- `✅` Pengumuman (index, form)
 
 Lengkapi view files lainnya dengan mengikuti pola yang sama
 
@@ -139,7 +132,6 @@ guru ──────┬── kelas ──────── murid ───�
 
 pengumuman (standalone)
 libur_sekolah (standalone)
-fasilitas_sekolah (standalone)
 users (standalone - for auth)
 log_aktivitas (standalone - for audit)
 ```
@@ -181,13 +173,7 @@ log_aktivitas (standalone - for audit)
 - ✅ Jenis: Nasional, Lokal, Cuti Bersama
 - ✅ Validasi otomatis untuk kehadiran
 
-### Fasilitas
-- ✅ Inventaris lengkap
-- ✅ Status: Baik, Cukup, Rusak
-- ✅ Rekap kondisi fasilitas
-- ✅ Laporan
 
----
 
 ## 🚀 Next Steps
 

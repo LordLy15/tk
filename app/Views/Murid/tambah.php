@@ -26,7 +26,7 @@
         </div>
 
         <div class="card-body">
-            <form action="<?= base_url('murid/simpan') ?>" method="post">
+            <form action="<?= base_url('murid/simpan') ?>" method="post" enctype="multipart/form-data">
                 <?= csrf_field() ?>
 
                 <div class="form-section">
@@ -96,6 +96,16 @@
                                    class="form-control"
                                    value="<?= esc(old('tanggal_lahir')) ?>"
                                    required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="foto_murid" class="form-label">Foto Profil</label>
+                            <input id="foto_murid"
+                                   type="file"
+                                   name="foto_murid"
+                                   class="form-control"
+                                   accept="image/jpeg,image/png,image/webp">
+                            <div class="form-hint">Format JPG, PNG, atau WEBP. Maksimal 2 MB.</div>
                         </div>
                     </div>
                 </div>

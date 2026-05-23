@@ -11,7 +11,6 @@ class Admin extends BaseController
         $today = date('Y-m-d');
         $requiredTables = [
             'aktivitas',
-            'fasilitas_sekolah',
             'kehadiran',
             'pengumuman',
             'pendaftaran', // <-- Ditambahkan ke pengecekan tabel
@@ -22,10 +21,8 @@ class Admin extends BaseController
             'total_guru' => $this->countRows('guru'),
             'total_kelas' => $this->countRows('kelas'),
             'total_aktivitas' => $this->countRows('aktivitas'),
-            'total_fasilitas' => $this->countRows('fasilitas_sekolah'),
             'total_pendaftar' => $this->countRows('pendaftaran'), // <-- Ditambahkan untuk Dashboard
             'pengumuman_aktif' => $this->getPengumumanAktif($today),
-            'fasilitas_status' => $this->getRekapFasilitas(),
             'kehadiran_hari_ini' => $this->countRows('kehadiran', ['tanggal' => $today]),
             'missing_tables' => array_values(array_filter(
                 $requiredTables,
@@ -85,15 +82,7 @@ class Admin extends BaseController
             ->getResultArray();
     }
 
-    private function getRekapFasilitas(): array
-    {
-        return [
-            'total' => $this->countRows('fasilitas_sekolah'),
-            'baik' => $this->countRows('fasilitas_sekolah', ['kondisi' => 'baik']),
-            'cukup' => $this->countRows('fasilitas_sekolah', ['kondisi' => 'cukup']),
-            'rusak' => $this->countRows('fasilitas_sekolah', ['kondisi' => 'rusak']),
-        ];
-    }
+
     
     private function tableExists(string $table): bool
     {

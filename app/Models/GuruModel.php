@@ -14,6 +14,7 @@ class GuruModel extends Model
         'nama_guru',
         'nip_nik',
         'jabatan',
-        'pendidikan'
+        'pendidikan',
+        'foto_guru',
     ];
 }

@@ -8,12 +8,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="<?= base_url('assets/dashboard/images/logo-ra.svg') ?>">
+    <link rel="shortcut icon" type="image/svg+xml" href="<?= base_url('assets/dashboard/images/logo-ra.svg') ?>">
     
     <style>
         /* Menyembunyikan scrollbar vertikal tapi halaman tetap bisa di-scroll */
         html, body {
         scrollbar-width: none; /* Untuk Firefox */
         -ms-overflow-style: none; /* Untuk Internet Explorer dan Edge */
+        overflow-x: hidden;
         }
 
         html::-webkit-scrollbar, body::-webkit-scrollbar {
@@ -160,7 +163,7 @@
             <img src="<?= base_url('assets/logo.png'); ?>" alt="Logo RA Perwanida" class="me-3">
             <div class="lh-1">
                 <span class="d-block">RA PERWANIDA</span>
-                <small style="color: #f1c40f; font-size: 0.7rem;">TEMPURSARI</small>
+                <small style="color: #ffffff; font-size: 0.7rem;">TEMPURSARI</small>
             </div>
         </a>
 
@@ -179,10 +182,10 @@
                         Tentang
                     </a>
                     <ul class="dropdown-menu shadow-sm">
-                        <li><a class="dropdown-item" href="#tentang">Tentang Kami</a></li>
-                        <li><a class="dropdown-item" href="#visi-misi">Visi Misi</a></li>
-                        <li><a class="dropdown-item" href="#pimpinan">Pimpinan Sekolah</a></li>
-                        <li><a class="dropdown-item" href="#guru">Guru Guru</a></li>
+                        <li><a class="dropdown-item" href="<?= base_url('#tentang') ?>">Tentang Kami</a></li>
+                        <li><a class="dropdown-item" href="<?= base_url('#visi-misi') ?>">Visi Misi</a></li>
+                        <li><a class="dropdown-item" href="<?= base_url('#pimpinan') ?>">Pimpinan Sekolah</a></li>
+                        <li><a class="dropdown-item" href="<?= base_url('#guru') ?>">Guru Guru</a></li>
                     </ul>
                 </li>
 
@@ -191,10 +194,10 @@
                         Program Sekolah
                     </a>
                     <ul class="dropdown-menu shadow-sm">
-                        <li><a class="dropdown-item" href="#program">Program Sekolah</a></li>
-                        <li><a class="dropdown-item" href="#seragam">Seragam Sekolah</a></li>
+                        <li><a class="dropdown-item" href="<?= base_url('#program') ?>">Program Sekolah</a></li>
+                        <li><a class="dropdown-item" href="<?= base_url('#seragam') ?>">Seragam Sekolah</a></li>
                         <li><a class="dropdown-item" href="<?= base_url('pendaftaran') ?>">Pendaftaran</a></li>
-                        <li><a class="dropdown-item" href="#kegiatan">Kegiatan Sekolah</a></li>
+                        <li><a class="dropdown-item" href="<?= base_url('#kegiatan') ?>">Kegiatan Sekolah</a></li>
                     </ul>
                 </li>
 

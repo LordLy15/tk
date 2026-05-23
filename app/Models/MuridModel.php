@@ -18,7 +18,8 @@ class MuridModel extends Model
         'jenis_kelamin',
         'tempat_lahir',
         'tanggal_lahir',
-        'alamat'
+        'alamat',
+        'foto_murid',
 
     ];
 }

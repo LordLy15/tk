@@ -28,7 +28,7 @@
                         <th>Selesai</th>
                         <th>Jenis</th>
                         <th>Status</th>
-                        <th width="160">Aksi</th>
+                        <th class="action-cell text-center">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -50,17 +50,22 @@
                                         <?= esc(ucfirst($l['status'])) ?>
                                     </span>
                                 </td>
-                                <td>
+                                <td class="action-cell">
                                     <div class="table-actions">
-                                        <a href="<?= base_url('libur/edit/' . $l['id']) ?>" class="btn btn-warning btn-sm">
+                                        <a href="<?= base_url('libur/edit/' . $l['id']) ?>"
+                                           class="btn btn-warning btn-sm action-icon-btn"
+                                           title="Edit libur"
+                                           aria-label="Edit <?= esc($l['nama_libur'], 'attr') ?>">
                                             <i class="ti ti-edit"></i>
-                                            Edit
+                                            <span class="visually-hidden">Edit</span>
                                         </a>
                                         <a href="<?= base_url('libur/hapus/' . $l['id']) ?>"
-                                           class="btn btn-danger btn-sm"
+                                           class="btn btn-danger btn-sm action-icon-btn"
+                                           title="Hapus libur"
+                                           aria-label="Hapus <?= esc($l['nama_libur'], 'attr') ?>"
                                            onclick="return confirm('Hapus data libur ini?')">
                                             <i class="ti ti-trash"></i>
-                                            Hapus
+                                            <span class="visually-hidden">Hapus</span>
                                         </a>
                                     </div>
                                 </td>

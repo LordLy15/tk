@@ -3,23 +3,20 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title><?= esc($title ?? 'Dashboard Sekolah TK') ?></title>
+    <title><?= esc($title ?? 'Dashboard RA PERWANIDA') ?></title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" sizes="180x180"
-        href="<?= base_url('assets/dashboard/images/apple-touch-icon.png') ?>">
+    <link rel="icon" type="image/svg+xml"
+        href="<?= base_url('assets/dashboard/images/logo-ra.svg') ?>">
 
-    <link rel="icon" type="image/png" sizes="32x32"
-        href="<?= base_url('assets/dashboard/images/favicon-32x32.png') ?>">
-
-    <link rel="icon" type="image/png" sizes="16x16"
-        href="<?= base_url('assets/dashboard/images/favicon-16x16.png') ?>">
+    <link rel="shortcut icon" type="image/svg+xml"
+        href="<?= base_url('assets/dashboard/images/logo-ra.svg') ?>">
 
     <link rel="stylesheet"
         href="<?= base_url('assets/dashboard/css/main.css?v=20260519') ?>">
     <link rel="stylesheet"
-        href="<?= base_url('assets/dashboard/css/admin-custom.css?v=20260521c') ?>">
+        href="<?= base_url('assets/dashboard/css/admin-custom.css?v=20260523e') ?>">
 
 </head>
 
