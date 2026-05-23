@@ -4,6 +4,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 :root {
@@ -31,6 +32,7 @@ body {
 
 main#content {
     flex: 1;
+    overflow: hidden;
 }
 
 footer {
@@ -495,9 +497,12 @@ table thead th {
 
 .content .form-control,
 .content .form-select {
-    border-color: #dbe3ef;
+    border-color: #000000;
     border-radius: 7px;
     min-height: 40px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .content .form-control:focus,
@@ -948,3 +953,4 @@ table thead th {
     --attendance-border: #cbd5e1;
     --attendance-text: #475569;
 }
+

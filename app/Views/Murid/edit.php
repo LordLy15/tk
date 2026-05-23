@@ -68,16 +68,25 @@
                                 <?php endforeach; ?>
                             </select>
                         </div>
+                        
+                        <div class="w-100">
+                            <label for="jenis_kelamin" class="form-label">
+                                Jenis Kelamin <span class="required-mark">*</span>
+                            </label>
 
-                        <div class="col-md-6">
-                            <label for="jenis_kelamin" class="form-label">Jenis Kelamin <span class="required-mark">*</span></label>
                             <?php $selectedGender = old('jenis_kelamin', $murid['jenis_kelamin'] ?? ''); ?>
-                            <select id="jenis_kelamin" name="jenis_kelamin" class="form-select" required>
+
+                            <select id="jenis_kelamin"
+                                    name="jenis_kelamin"
+                                    class="form-select"
+                                    required>
+                                    
                                 <option value="">Pilih Jenis Kelamin</option>
                                 <option value="L" <?= $selectedGender === 'L' ? 'selected' : '' ?>>Laki-laki</option>
                                 <option value="P" <?= $selectedGender === 'P' ? 'selected' : '' ?>>Perempuan</option>
                             </select>
                         </div>
+                        
 
                         <div class="col-md-6">
                             <label for="tempat_lahir" class="form-label">Tempat Lahir <span class="required-mark">*</span></label>
