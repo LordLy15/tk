@@ -1,31 +1,36 @@
 <?php
+$currentRole = session('role') ?: '';
+$canAccess = static function (array $roles) use ($currentRole): bool {
+    return $roles === [] || in_array($currentRole, $roles, true);
+};
+
 $navGroups = [
     [
         'label' => 'Utama',
         'items' => [
-            ['label' => 'Dashboard', 'url' => 'admin', 'icon' => 'ti-home'],
-            ['label' => 'Data Murid', 'url' => 'murid', 'icon' => 'ti-school'],
-            ['label' => 'Data Guru', 'url' => 'guru', 'icon' => 'ti-user'],
-            ['label' => 'Data Kelas', 'url' => 'kelas', 'icon' => 'ti-users'],
-            ['label' => 'Data Pendidikan', 'url' => 'pendidikan', 'icon' => 'ti-school'],
+            ['label' => 'Dashboard', 'url' => 'admin', 'icon' => 'ti-home', 'roles' => ['SuperAdmin', 'Admin', 'Staff']],
+            ['label' => 'Data Murid', 'url' => 'murid', 'icon' => 'ti-school', 'roles' => ['SuperAdmin', 'Admin']],
+            ['label' => 'Data Guru', 'url' => 'guru', 'icon' => 'ti-user', 'roles' => ['SuperAdmin', 'Admin']],
+            ['label' => 'Data Kelas', 'url' => 'kelas', 'icon' => 'ti-users', 'roles' => ['SuperAdmin', 'Admin']],
+            ['label' => 'Data Pendidikan', 'url' => 'pendidikan', 'icon' => 'ti-school', 'roles' => ['SuperAdmin', 'Admin']],
             // MENU PENDAFTARAN DITAMBAHKAN DI SINI
-            ['label' => 'Data Pendaftaran', 'url' => 'admin/pendaftaran', 'icon' => 'ti-clipboard-list'],
+            ['label' => 'Data Pendaftaran', 'url' => 'admin/pendaftaran', 'icon' => 'ti-clipboard-list', 'roles' => ['SuperAdmin', 'Admin']],
         ],
     ],
     [
         'label' => 'Manajemen',
         'items' => [
-            ['label' => 'Kehadiran', 'url' => 'kehadiran', 'icon' => 'ti-clipboard-check'],
-            ['label' => 'Aktivitas', 'url' => 'aktivitas', 'icon' => 'ti-target'],
-            ['label' => 'Orang Tua', 'url' => 'orang-tua', 'icon' => 'ti-users-group'],
-            ['label' => 'Jadwal Kelas', 'url' => 'jadwal', 'icon' => 'ti-calendar'],
+            ['label' => 'Kehadiran', 'url' => 'kehadiran', 'icon' => 'ti-clipboard-check', 'roles' => ['SuperAdmin', 'Admin', 'Staff']],
+            ['label' => 'Aktivitas', 'url' => 'aktivitas', 'icon' => 'ti-target', 'roles' => ['SuperAdmin', 'Admin', 'Staff']],
+            ['label' => 'Orang Tua', 'url' => 'orang-tua', 'icon' => 'ti-users-group', 'roles' => ['SuperAdmin', 'Admin']],
+            ['label' => 'Jadwal Kelas', 'url' => 'jadwal', 'icon' => 'ti-calendar', 'roles' => ['SuperAdmin', 'Admin', 'Staff']],
         ],
     ],
     [
         'label' => 'Informasi',
         'items' => [
-            ['label' => 'Pengumuman', 'url' => 'pengumuman', 'icon' => 'ti-bell'],
-            ['label' => 'Libur Sekolah', 'url' => 'libur', 'icon' => 'ti-calendar-off'],
+            ['label' => 'Pengumuman', 'url' => 'pengumuman', 'icon' => 'ti-bell', 'roles' => ['SuperAdmin', 'Admin', 'Staff']],
+            ['label' => 'Libur Sekolah', 'url' => 'libur', 'icon' => 'ti-calendar-off', 'roles' => ['SuperAdmin', 'Admin', 'Staff']],
         ],
     ],
 ];
@@ -45,11 +50,16 @@ $navGroups = [
 
     <ul class="nav flex-column">
         <?php foreach ($navGroups as $group) : ?>
+            <?php $items = array_values(array_filter($group['items'], static fn ($item) => $canAccess($item['roles'] ?? []))); ?>
+            <?php if ($items === []) : ?>
+                <?php continue; ?>
+            <?php endif; ?>
+
             <li class="px-4 pt-3 pb-2">
                 <small class="nav-text nav-section-label"><?= esc($group['label']) ?></small>
             </li>
 
-            <?php foreach ($group['items'] as $item) : ?>
+            <?php foreach ($items as $item) : ?>
                 <li>
                     <a class="nav-link"
                        href="<?= base_url($item['url']) ?>">

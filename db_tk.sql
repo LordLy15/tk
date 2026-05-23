@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 22 Bulan Mei 2026 pada 12.43
--- Versi server: 10.4.32-MariaDB
--- Versi PHP: 8.2.12
+-- Generation Time: May 23, 2026 at 07:17 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `admin_users`
+-- Table structure for table `admin_users`
 --
 
 CREATE TABLE `admin_users` (
@@ -37,7 +37,7 @@ CREATE TABLE `admin_users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `admin_users`
+-- Dumping data for table `admin_users`
 --
 
 INSERT INTO `admin_users` (`id`, `name`, `username`, `password`, `is_active`, `created_at`) VALUES
@@ -46,7 +46,7 @@ INSERT INTO `admin_users` (`id`, `name`, `username`, `password`, `is_active`, `c
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `aktivitas`
+-- Table structure for table `aktivitas`
 --
 
 CREATE TABLE `aktivitas` (
@@ -64,17 +64,16 @@ CREATE TABLE `aktivitas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `aktivitas`
+-- Dumping data for table `aktivitas`
 --
 
 INSERT INTO `aktivitas` (`id`, `judul_aktivitas`, `deskripsi`, `jenis_aktivitas`, `kategori`, `tujuan`, `metode`, `durasi_menit`, `bahan_alat`, `created_at`, `updated_at`) VALUES
-(1, 'senam pagi', 'senam jas mani besok kita party', 'olahraga', 'senam', 'jasmani', '---', 30, 'tidak ada', '2026-05-15 08:40:11', '2026-05-15 08:40:11'),
-(2, 'aldmad', 'damDKANWdAWd\r\nawdlmA:Wdl', 'pembelajaran', 'mendalam', 'daLMDAd\r\nadKAd', 'dAdkpaOwd', 50, 'tidak ada', '2026-05-18 10:41:10', '2026-05-18 10:41:10');
+(1, 'senam pagi', 'senam jas mani besok kita party', 'olahraga', 'senam', 'jasmani', '---', 30, 'tidak ada', '2026-05-15 08:40:11', '2026-05-15 08:40:11');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `aktivitas_kelas`
+-- Table structure for table `aktivitas_kelas`
 --
 
 CREATE TABLE `aktivitas_kelas` (
@@ -92,10 +91,8 @@ CREATE TABLE `aktivitas_kelas` (
 
 -- --------------------------------------------------------
 
--- --------------------------------------------------------
-
 --
--- Struktur dari tabel `guru`
+-- Table structure for table `guru`
 --
 
 CREATE TABLE `guru` (
@@ -108,23 +105,24 @@ CREATE TABLE `guru` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `guru`
+-- Dumping data for table `guru`
 --
 
-INSERT INTO `guru` (`id`, `nama_guru`, `nip_nik`, `jabatan`, `pendidikan`) VALUES
-(1, 'Ahmad Surya', '1234567890', 'Guru Kelas A', 'S1'),
-(2, 'Siti Aminah', '987654321', 'Guru Kelas A', 'S1'),
-(3, 'Adi N', '2147483647', 'Guru Kelas A', 'S1'),
-(4, 'Sulistya', '2147483647', 'Guru Kelas B', 'S1'),
-(5, 'Kepin', '2147483647', 'Guru Kelas B', 'S1'),
-(7, 'Adnan', '664686568', 'Guru Kelas B', 'S1'),
-(11, 'test 1', '214748364654646468', 'jkhjh', 'khukh'),
-(12, 'test 2', '654686468465465216', 'akd', 'ajhd');
+INSERT INTO `guru` (`id`, `nama_guru`, `nip_nik`, `jabatan`, `pendidikan`, `foto_guru`) VALUES
+(1, 'Ahmad Surya', '1234567890', 'Guru Kelas A', 'S1', NULL),
+(2, 'Siti Aminah', '987654321', 'Guru Kelas A', 'S1', NULL),
+(3, 'Adi N', '2147483647', 'Guru Kelas A', 'S1', NULL),
+(4, 'Sulistya', '2147483647', 'Guru Kelas B', 'S1', NULL),
+(5, 'Kepin', '2147483647', 'Guru Kelas B', 'S1', '1779475341_398d29dfe0359fd2970f.png'),
+(7, 'Adnan', '664686568', 'Guru Kelas B', 'S1', NULL),
+(11, 'test 1', '214748364654646468', 'jkhjh', 'khukh', NULL),
+(12, 'test 2', '654686468465465216', 'akd', 'ajhd', NULL),
+(13, 'ahmar supriadi', '1234567890', 'Guru Kelas A', 'S3', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `jadwal_kelas`
+-- Table structure for table `jadwal_kelas`
 --
 
 CREATE TABLE `jadwal_kelas` (
@@ -140,7 +138,7 @@ CREATE TABLE `jadwal_kelas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `jadwal_kelas`
+-- Dumping data for table `jadwal_kelas`
 --
 
 INSERT INTO `jadwal_kelas` (`id`, `id_kelas`, `hari`, `jam_masuk`, `jam_keluar`, `aktivitas`, `ruangan`, `created_at`, `updated_at`) VALUES
@@ -149,7 +147,7 @@ INSERT INTO `jadwal_kelas` (`id`, `id_kelas`, `hari`, `jam_masuk`, `jam_keluar`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kehadiran`
+-- Table structure for table `kehadiran`
 --
 
 CREATE TABLE `kehadiran` (
@@ -164,16 +162,21 @@ CREATE TABLE `kehadiran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `kehadiran`
+-- Dumping data for table `kehadiran`
 --
 
 INSERT INTO `kehadiran` (`id`, `id_murid`, `id_kelas`, `tanggal`, `status`, `keterangan`, `created_at`, `updated_at`) VALUES
-(1, 8, 16, '2026-05-19', 'izin', 'berak berak', '2026-05-18 10:45:24', '2026-05-18 10:45:24');
+(1, 8, 16, '2026-05-19', 'izin', 'berak berak', '2026-05-18 10:45:24', '2026-05-18 10:45:24'),
+(2, 8, 16, '2026-05-21', 'hadir', 'luka luka', '2026-05-21 02:01:11', '2026-05-21 02:18:47'),
+(3, 9, 16, '2026-05-21', 'alpha', 'membolos', '2026-05-21 02:01:11', '2026-05-21 02:18:47'),
+(4, 10, 13, '2026-05-21', 'sakit', 'panas men', '2026-05-21 02:29:04', '2026-05-21 02:29:04'),
+(5, 9, 16, '2026-05-22', 'hadir', '', '2026-05-22 05:30:35', '2026-05-22 08:52:04'),
+(6, 8, 16, '2026-05-22', 'hadir', '', '2026-05-22 05:30:35', '2026-05-22 08:52:04');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kelas`
+-- Table structure for table `kelas`
 --
 
 CREATE TABLE `kelas` (
@@ -184,7 +187,7 @@ CREATE TABLE `kelas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `kelas`
+-- Dumping data for table `kelas`
 --
 
 INSERT INTO `kelas` (`id_kelas`, `id_guru`, `id_pendidikan`, `nama_kelas`) VALUES
@@ -198,28 +201,7 @@ INSERT INTO `kelas` (`id_kelas`, `id_guru`, `id_pendidikan`, `nama_kelas`) VALUE
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kesehatan_murid`
---
-
-CREATE TABLE `kesehatan_murid` (
-  `id` int(11) UNSIGNED NOT NULL,
-  `id_murid` int(11) UNSIGNED NOT NULL,
-  `golongan_darah` varchar(5) DEFAULT NULL,
-  `tinggi_badan` decimal(5,2) DEFAULT NULL,
-  `berat_badan` decimal(5,2) DEFAULT NULL,
-  `alergi` text DEFAULT NULL,
-  `penyakit_bawaan` text DEFAULT NULL,
-  `imunisasi` text DEFAULT NULL,
-  `keterangan_kesehatan` text DEFAULT NULL,
-  `tanggal_pemeriksaan` date DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `libur_sekolah`
+-- Table structure for table `libur_sekolah`
 --
 
 CREATE TABLE `libur_sekolah` (
@@ -237,7 +219,7 @@ CREATE TABLE `libur_sekolah` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `log_aktivitas`
+-- Table structure for table `log_aktivitas`
 --
 
 CREATE TABLE `log_aktivitas` (
@@ -253,7 +235,30 @@ CREATE TABLE `log_aktivitas` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `murid`
+-- Table structure for table `migrations`
+--
+
+CREATE TABLE `migrations` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `version` varchar(255) NOT NULL,
+  `class` varchar(255) NOT NULL,
+  `group` varchar(255) NOT NULL,
+  `namespace` varchar(255) NOT NULL,
+  `time` int(11) NOT NULL,
+  `batch` int(11) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `migrations`
+--
+
+INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`, `batch`) VALUES
+(1, '2026-05-23-000001', 'App\\Database\\Migrations\\AddFotoProfilGuruMurid', 'default', 'App', 1779473881, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `murid`
 --
 
 CREATE TABLE `murid` (
@@ -270,16 +275,18 @@ CREATE TABLE `murid` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `murid`
+-- Dumping data for table `murid`
 --
 
-INSERT INTO `murid` (`id`, `id_kelas`, `id_tk`, `nisn`, `nama_murid`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `alamat`) VALUES
-(8, 16, 0, '5465464654', 'test', 'L', 'bekasi', '2026-05-13', 'adhaiuw');
+INSERT INTO `murid` (`id`, `id_kelas`, `id_tk`, `nisn`, `nama_murid`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `foto_murid`) VALUES
+(8, 16, 0, '5465464654', 'test', 'L', 'bekasi', '2026-05-13', 'adhaiuw', NULL),
+(9, 16, 0, '1537176473', 'Ahmar rafly', 'L', 'nganjuk', '2026-05-21', 'knwuhbjbwdAMBWd/lkasbd\nRT 007/RW 014, Kel. Kebalen, Kec. Bebelan, Bekasi, Jawa Barat, Kode Pos 17610\nPatokan: Pinggir Jalan banjir', NULL),
+(10, 13, 0, '1537176473', 'yanto basnan', 'L', 'Bandung', '2026-05-21', 'kouBJbdAKLdaljaiwda\nRT 008/RW 019, Kel. Kebalen, Kec. Bebelan, Bekasi, DKI Jakarta, Kode Pos 17610\nPatokan: Pinggir Jalan', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `orang_tua`
+-- Table structure for table `orang_tua`
 --
 
 CREATE TABLE `orang_tua` (
@@ -298,16 +305,17 @@ CREATE TABLE `orang_tua` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `orang_tua`
+-- Dumping data for table `orang_tua`
 --
 
 INSERT INTO `orang_tua` (`id`, `id_murid`, `nama_ayah`, `no_hp_ayah`, `pekerjaan_ayah`, `nama_ibu`, `no_hp_ibu`, `pekerjaan_ibu`, `alamat`, `email`, `created_at`, `updated_at`) VALUES
-(4, 8, 'gua', '111111111111111', 'ojol', 'kpein', '684846464646484', 'ojol', 'Jl. Melati N15 No. 15, Bekasi, Jawa Barat\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\nRT 007/RW 014, Kel. Kebalen, Kec. Bebelan, Bekasi, Aceh, Kode Pos 17610\nPatokan: Pinggir Jalan', 'admin@example.com', '2026-05-18 01:28:00', '2026-05-18 01:42:30');
+(4, 8, 'gua', '111111111111111', 'ojol', 'kpein', '684846464646484', 'ojol', 'Jl. Melati N15 No. 15, Bekasi, Jawa Barat\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\r\na\nRT 007/RW 014, Kel. Kebalen, Kec. Bebelan, Bekasi, Aceh, Kode Pos 17610\nPatokan: Pinggir Jalan', 'admin@example.com', '2026-05-18 01:28:00', '2026-05-18 01:42:30'),
+(5, 9, 'gua', '111111111111111', 'ojol', 'kpein', '684846464646484', 'ojol', 'ssfsfeEF wefvwefvwevfzs\nRT 007/RW 014, Kel. Kebalen, Kec. Bebelan, Bekasi, Jawa Barat, Kode Pos 17610\nPatokan: Pinggir Jalan banjir', 'admin@example.com', '2026-05-23 00:46:47', '2026-05-23 00:46:47');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pendaftaran`
+-- Table structure for table `pendaftaran`
 --
 
 CREATE TABLE `pendaftaran` (
@@ -324,10 +332,17 @@ CREATE TABLE `pendaftaran` (
   `created_at` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `pendaftaran`
+--
+
+INSERT INTO `pendaftaran` (`id_pendaftaran`, `nama_siswa`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `nama_ayah`, `nama_ibu`, `no_hp`, `alamat`, `akta_kelahiran`, `created_at`) VALUES
+(1, 'yanto', 'Jakarta', '2026-05-07', 'Laki-laki', 'gua', 'dia', '0884132876', 'yufhjfc,hnfcjyfliufyi\r\nd\r\nad\r\na\r\nda\r\nd\r\nAd\r\na\r\ndA\r\nda\r\n', '1779479094_b3f2695db6f38a9c6980.pdf', '2026-05-23 02:44:54');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pendidikan`
+-- Table structure for table `pendidikan`
 --
 
 CREATE TABLE `pendidikan` (
@@ -336,7 +351,7 @@ CREATE TABLE `pendidikan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `pendidikan`
+-- Dumping data for table `pendidikan`
 --
 
 INSERT INTO `pendidikan` (`id_pendidikan`, `nama`) VALUES
@@ -346,7 +361,7 @@ INSERT INTO `pendidikan` (`id_pendidikan`, `nama`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pengumuman`
+-- Table structure for table `pengumuman`
 --
 
 CREATE TABLE `pengumuman` (
@@ -362,10 +377,17 @@ CREATE TABLE `pengumuman` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `pengumuman`
+--
+
+INSERT INTO `pengumuman` (`id`, `judul`, `konten`, `tanggal_mulai`, `tanggal_selesai`, `prioritas`, `status`, `created_by`, `created_at`, `updated_at`) VALUES
+(4, 'mengingatkan pembayaran sekolah', 'a\r\na\r\na\r\na\r\na\r\na\r\n\r\na\r\na\r\na\r\na\r\na\r\na\r\n\r\na\r\n', '2026-05-21', '2026-05-25', 'rendah', 'nonaktif', NULL, '2026-05-21 05:04:49', '2026-05-23 00:43:01');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `perkembangan_murid`
+-- Table structure for table `perkembangan_murid`
 --
 
 CREATE TABLE `perkembangan_murid` (
@@ -387,47 +409,67 @@ CREATE TABLE `perkembangan_murid` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users`
+-- Table structure for table `role`
+--
+
+CREATE TABLE `role` (
+  `id_role` int(11) UNSIGNED NOT NULL,
+  `nama_role` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `role`
+--
+
+INSERT INTO `role` (`id_role`, `nama_role`) VALUES
+(1, 'SuperAdmin'),
+(2, 'Admin'),
+(3, 'Staff');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
-  `id` int(11) UNSIGNED NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `email` varchar(100) NOT NULL,
+  `id_users` int(11) UNSIGNED NOT NULL,
+  `id_role` int(11) UNSIGNED DEFAULT NULL,
+  `username` varchar(25) NOT NULL,
   `password` varchar(255) NOT NULL,
+  `email` varchar(30) NOT NULL,
   `nama_lengkap` varchar(100) NOT NULL,
-  `role` enum('admin','guru') NOT NULL DEFAULT 'guru',
   `status` enum('aktif','nonaktif') NOT NULL DEFAULT 'aktif',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `users`
+-- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `email`, `password`, `nama_lengkap`, `role`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin@tk.com', '$2y$10$92IXUNpkm1rq/p7F9oueme', 'Administrator', 'admin', 'aktif', '2026-05-15 15:05:39', '2026-05-15 15:05:39');
+INSERT INTO `users` (`id_users`, `id_role`, `username`, `password`, `email`, `nama_lengkap`, `status`, `created_at`, `updated_at`) VALUES
+(1, 1, 'adingrh', '$2y$10$gE17VIq39B60Lcv6R0GfvOa7svhg9tDGRbHGTlZm5L4Sym54/Nfjq', 'adi@gmail.com', 'Adi Nugroho', 'aktif', '2026-05-23 17:12:23', '2026-05-23 17:12:23');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `admin_users`
+-- Indexes for table `admin_users`
 --
 ALTER TABLE `admin_users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- Indeks untuk tabel `aktivitas`
+-- Indexes for table `aktivitas`
 --
 ALTER TABLE `aktivitas`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `aktivitas_kelas`
+-- Indexes for table `aktivitas_kelas`
 --
 ALTER TABLE `aktivitas_kelas`
   ADD PRIMARY KEY (`id`),
@@ -435,20 +477,20 @@ ALTER TABLE `aktivitas_kelas`
   ADD KEY `aktivitas_kelas_id_kelas_foreign` (`id_kelas`);
 
 --
--- Indeks untuk tabel `guru`
+-- Indexes for table `guru`
 --
 ALTER TABLE `guru`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `jadwal_kelas`
+-- Indexes for table `jadwal_kelas`
 --
 ALTER TABLE `jadwal_kelas`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `jadwal_unique` (`id_kelas`,`hari`);
 
 --
--- Indeks untuk tabel `kehadiran`
+-- Indexes for table `kehadiran`
 --
 ALTER TABLE `kehadiran`
   ADD PRIMARY KEY (`id`),
@@ -456,7 +498,7 @@ ALTER TABLE `kehadiran`
   ADD KEY `kehadiran_id_kelas_foreign` (`id_kelas`);
 
 --
--- Indeks untuk tabel `kelas`
+-- Indexes for table `kelas`
 --
 ALTER TABLE `kelas`
   ADD PRIMARY KEY (`id_kelas`),
@@ -465,26 +507,25 @@ ALTER TABLE `kelas`
   ADD KEY `id_pendidikan_2` (`id_pendidikan`);
 
 --
--- Indeks untuk tabel `kesehatan_murid`
---
-ALTER TABLE `kesehatan_murid`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `kesehatan_id_murid_unique` (`id_murid`);
-
---
--- Indeks untuk tabel `libur_sekolah`
+-- Indexes for table `libur_sekolah`
 --
 ALTER TABLE `libur_sekolah`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `log_aktivitas`
+-- Indexes for table `log_aktivitas`
 --
 ALTER TABLE `log_aktivitas`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `murid`
+-- Indexes for table `migrations`
+--
+ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `murid`
 --
 ALTER TABLE `murid`
   ADD PRIMARY KEY (`id`),
@@ -492,32 +533,32 @@ ALTER TABLE `murid`
   ADD KEY `id_tk` (`id_tk`);
 
 --
--- Indeks untuk tabel `orang_tua`
+-- Indexes for table `orang_tua`
 --
 ALTER TABLE `orang_tua`
   ADD PRIMARY KEY (`id`),
   ADD KEY `orang_tua_id_murid_foreign` (`id_murid`);
 
 --
--- Indeks untuk tabel `pendaftaran`
+-- Indexes for table `pendaftaran`
 --
 ALTER TABLE `pendaftaran`
   ADD PRIMARY KEY (`id_pendaftaran`);
 
 --
--- Indeks untuk tabel `pendidikan`
+-- Indexes for table `pendidikan`
 --
 ALTER TABLE `pendidikan`
   ADD PRIMARY KEY (`id_pendidikan`);
 
 --
--- Indeks untuk tabel `pengumuman`
+-- Indexes for table `pengumuman`
 --
 ALTER TABLE `pengumuman`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `perkembangan_murid`
+-- Indexes for table `perkembangan_murid`
 --
 ALTER TABLE `perkembangan_murid`
   ADD PRIMARY KEY (`id`),
@@ -525,173 +566,184 @@ ALTER TABLE `perkembangan_murid`
   ADD KEY `perkembangan_id_guru_foreign` (`id_guru`);
 
 --
--- Indeks untuk tabel `users`
+-- Indexes for table `role`
+--
+ALTER TABLE `role`
+  ADD PRIMARY KEY (`id_role`);
+
+--
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `username` (`username`),
-  ADD UNIQUE KEY `email` (`email`);
+  ADD PRIMARY KEY (`id_users`),
+  ADD KEY `id_role` (`id_role`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `admin_users`
+-- AUTO_INCREMENT for table `admin_users`
 --
 ALTER TABLE `admin_users`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `aktivitas`
+-- AUTO_INCREMENT for table `aktivitas`
 --
 ALTER TABLE `aktivitas`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `aktivitas_kelas`
+-- AUTO_INCREMENT for table `aktivitas_kelas`
 --
 ALTER TABLE `aktivitas_kelas`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `guru`
+-- AUTO_INCREMENT for table `guru`
 --
 ALTER TABLE `guru`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT untuk tabel `jadwal_kelas`
+-- AUTO_INCREMENT for table `jadwal_kelas`
 --
 ALTER TABLE `jadwal_kelas`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `kehadiran`
+-- AUTO_INCREMENT for table `kehadiran`
 --
 ALTER TABLE `kehadiran`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `kelas`
+-- AUTO_INCREMENT for table `kelas`
 --
 ALTER TABLE `kelas`
   MODIFY `id_kelas` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT untuk tabel `kesehatan_murid`
---
-ALTER TABLE `kesehatan_murid`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `libur_sekolah`
+-- AUTO_INCREMENT for table `libur_sekolah`
 --
 ALTER TABLE `libur_sekolah`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `log_aktivitas`
+-- AUTO_INCREMENT for table `log_aktivitas`
 --
 ALTER TABLE `log_aktivitas`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `murid`
+-- AUTO_INCREMENT for table `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `murid`
 --
 ALTER TABLE `murid`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT untuk tabel `orang_tua`
+-- AUTO_INCREMENT for table `orang_tua`
 --
 ALTER TABLE `orang_tua`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `pendaftaran`
+-- AUTO_INCREMENT for table `pendaftaran`
 --
 ALTER TABLE `pendaftaran`
-  MODIFY `id_pendaftaran` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pendaftaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `pendidikan`
+-- AUTO_INCREMENT for table `pendidikan`
 --
 ALTER TABLE `pendidikan`
   MODIFY `id_pendidikan` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `pengumuman`
+-- AUTO_INCREMENT for table `pengumuman`
 --
 ALTER TABLE `pengumuman`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `perkembangan_murid`
+-- AUTO_INCREMENT for table `perkembangan_murid`
 --
 ALTER TABLE `perkembangan_murid`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `users`
+-- AUTO_INCREMENT for table `role`
+--
+ALTER TABLE `role`
+  MODIFY `id_role` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_users` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `aktivitas_kelas`
+-- Constraints for table `aktivitas_kelas`
 --
 ALTER TABLE `aktivitas_kelas`
   ADD CONSTRAINT `aktivitas_kelas_id_aktivitas_foreign` FOREIGN KEY (`id_aktivitas`) REFERENCES `aktivitas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `aktivitas_kelas_id_kelas_foreign` FOREIGN KEY (`id_kelas`) REFERENCES `kelas` (`id_kelas`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `jadwal_kelas`
+-- Constraints for table `jadwal_kelas`
 --
 ALTER TABLE `jadwal_kelas`
   ADD CONSTRAINT `jadwal_kelas_id_kelas_foreign` FOREIGN KEY (`id_kelas`) REFERENCES `kelas` (`id_kelas`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `kehadiran`
+-- Constraints for table `kehadiran`
 --
 ALTER TABLE `kehadiran`
   ADD CONSTRAINT `kehadiran_id_kelas_foreign` FOREIGN KEY (`id_kelas`) REFERENCES `kelas` (`id_kelas`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `kehadiran_id_murid_foreign` FOREIGN KEY (`id_murid`) REFERENCES `murid` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `kelas`
+-- Constraints for table `kelas`
 --
 ALTER TABLE `kelas`
   ADD CONSTRAINT `kelas_id_guru_foreign` FOREIGN KEY (`id_guru`) REFERENCES `guru` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `kesehatan_murid`
---
-ALTER TABLE `kesehatan_murid`
-  ADD CONSTRAINT `kesehatan_murid_id_murid_foreign` FOREIGN KEY (`id_murid`) REFERENCES `murid` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `murid`
+-- Constraints for table `murid`
 --
 ALTER TABLE `murid`
   ADD CONSTRAINT `murid_id_kelas_foreign` FOREIGN KEY (`id_kelas`) REFERENCES `kelas` (`id_kelas`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `orang_tua`
+-- Constraints for table `orang_tua`
 --
 ALTER TABLE `orang_tua`
   ADD CONSTRAINT `orang_tua_id_murid_foreign` FOREIGN KEY (`id_murid`) REFERENCES `murid` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `perkembangan_murid`
+-- Constraints for table `perkembangan_murid`
 --
 ALTER TABLE `perkembangan_murid`
   ADD CONSTRAINT `perkembangan_murid_id_guru_foreign` FOREIGN KEY (`id_guru`) REFERENCES `guru` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `perkembangan_murid_id_murid_foreign` FOREIGN KEY (`id_murid`) REFERENCES `murid` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`id_role`) REFERENCES `role` (`id_role`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

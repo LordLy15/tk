@@ -1,3 +1,7 @@
+<?php
+$currentUserName = session('nama_lengkap') ?: session('nama') ?: 'Pengguna';
+$currentUserRole = session('role') ?: 'User';
+?>
 <!DOCTYPE html>
 <html lang="id">
 
@@ -54,11 +58,11 @@
             <div>
 
                 <span class="fw-bold d-block text-dark">
-                    Admin
+                    <?= esc($currentUserName) ?>
                 </span>
 
                 <small class="text-muted">
-                    Administrator
+                    <?= esc($currentUserRole) ?>
                 </small>
 
             </div>
