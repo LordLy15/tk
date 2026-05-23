@@ -30,7 +30,7 @@
                         <th>Jenis</th>
                         <th>Kategori</th>
                         <th>Durasi</th>
-                        <th width="160">Aksi</th>
+                        <th class="action-cell text-center">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -45,17 +45,22 @@
                                 <td><span class="badge badge-soft"><?= esc(ucfirst($a['jenis_aktivitas'])) ?></span></td>
                                 <td><?= esc($a['kategori']) ?></td>
                                 <td><?= ! empty($a['durasi_menit']) ? esc($a['durasi_menit']) . ' menit' : '-' ?></td>
-                                <td>
+                                <td class="action-cell">
                                     <div class="table-actions">
-                                        <a href="<?= base_url('aktivitas/edit/' . $a['id']) ?>" class="btn btn-warning btn-sm">
+                                        <a href="<?= base_url('aktivitas/edit/' . $a['id']) ?>"
+                                           class="btn btn-warning btn-sm action-icon-btn"
+                                           title="Edit aktivitas"
+                                           aria-label="Edit <?= esc($a['judul_aktivitas'], 'attr') ?>">
                                             <i class="ti ti-edit"></i>
-                                            Edit
+                                            <span class="visually-hidden">Edit</span>
                                         </a>
                                         <a href="<?= base_url('aktivitas/hapus/' . $a['id']) ?>"
-                                           class="btn btn-danger btn-sm"
+                                           class="btn btn-danger btn-sm action-icon-btn"
+                                           title="Hapus aktivitas"
+                                           aria-label="Hapus <?= esc($a['judul_aktivitas'], 'attr') ?>"
                                            onclick="return confirm('Hapus aktivitas ini?')">
                                             <i class="ti ti-trash"></i>
-                                            Hapus
+                                            <span class="visually-hidden">Hapus</span>
                                         </a>
                                     </div>
                                 </td>

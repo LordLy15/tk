@@ -8,6 +8,9 @@ use App\Models\PendidikanModel;
 
 class Murid extends BaseController
 {
+    private const FOTO_FIELD = 'foto_murid';
+    private const FOTO_DIRECTORY = 'foto_murid';
+
     protected $murid;
     protected $kelas;
     protected $pendidikan;
@@ -67,6 +70,10 @@ class Murid extends BaseController
             'alamat' => 'required',
         ];
 
+        if ($this->hasUploadedFile(self::FOTO_FIELD)) {
+            $rules[self::FOTO_FIELD] = $this->profilePhotoValidationRule(self::FOTO_FIELD, 'Foto murid');
+        }
+
         if (! $this->validate($rules)) {
             return redirect()->back()
                 ->withInput()
@@ -74,8 +81,9 @@ class Murid extends BaseController
         }
 
         $post = $this->request->getPost();
+        $fotoMurid = $this->storeUploadedProfilePhoto(self::FOTO_FIELD, self::FOTO_DIRECTORY);
 
-        $this->murid->save([
+        $data = [
             'id_kelas' => $post['id_kelas'] ?? null,
             'nisn' => $post['nisn'] ?? null,
             'nama_murid' => $post['nama_murid'] ?? null,
@@ -83,7 +91,13 @@ class Murid extends BaseController
             'tempat_lahir' => $post['tempat_lahir'] ?? null,
             'tanggal_lahir' => $post['tanggal_lahir'] ?? null,
             'alamat' => tk_compose_address_from_post($post),
-        ]);
+        ];
+
+        if ($fotoMurid !== null) {
+            $data[self::FOTO_FIELD] = $fotoMurid;
+        }
+
+        $this->murid->save($data);
 
         return redirect()->to('/murid')->with('success', 'Data murid berhasil ditambahkan.');
     }
@@ -104,6 +118,12 @@ class Murid extends BaseController
     // update
     public function update($id_murid)
     {
+        $murid = $this->murid->find($id_murid);
+
+        if (! $murid) {
+            return redirect()->to('/murid')->with('error', 'Data murid tidak ditemukan.');
+        }
+
         $rules = [
             'id_kelas' => 'required|integer',
             'nisn' => 'required|numeric|max_length[20]',
@@ -114,6 +134,10 @@ class Murid extends BaseController
             'alamat' => 'required',
         ];
 
+        if ($this->hasUploadedFile(self::FOTO_FIELD)) {
+            $rules[self::FOTO_FIELD] = $this->profilePhotoValidationRule(self::FOTO_FIELD, 'Foto murid');
+        }
+
         if (! $this->validate($rules)) {
             return redirect()->back()
                 ->withInput()
@@ -121,8 +145,9 @@ class Murid extends BaseController
         }
 
         $post = $this->request->getPost();
+        $fotoMurid = $this->storeUploadedProfilePhoto(self::FOTO_FIELD, self::FOTO_DIRECTORY);
 
-        $this->murid->update($id_murid, [
+        $data = [
             'id_kelas' => $post['id_kelas'] ?? null,
             'nisn' => $post['nisn'] ?? null,
             'nama_murid' => $post['nama_murid'] ?? null,
@@ -130,7 +155,14 @@ class Murid extends BaseController
             'tempat_lahir' => $post['tempat_lahir'] ?? null,
             'tanggal_lahir' => $post['tanggal_lahir'] ?? null,
             'alamat' => tk_compose_address_from_post($post),
-        ]);
+        ];
+
+        if ($fotoMurid !== null) {
+            $this->deleteUploadedProfilePhoto($murid[self::FOTO_FIELD] ?? null, self::FOTO_DIRECTORY);
+            $data[self::FOTO_FIELD] = $fotoMurid;
+        }
+
+        $this->murid->update($id_murid, $data);
 
         return redirect()->to('/murid')->with('success', 'Data murid berhasil diperbarui.');
     }
@@ -138,6 +170,13 @@ class Murid extends BaseController
     // hapus
     public function hapus($id)
     {
+        $murid = $this->murid->find($id);
+
+        if (! $murid) {
+            return redirect()->to('/murid')->with('error', 'Data murid tidak ditemukan.');
+        }
+
+        $this->deleteUploadedProfilePhoto($murid[self::FOTO_FIELD] ?? null, self::FOTO_DIRECTORY);
         $this->murid->delete($id);
 
         return redirect()->to('/murid')->with('success', 'Data murid berhasil dihapus.');

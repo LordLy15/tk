@@ -76,6 +76,27 @@ class Pengumuman extends BaseController
         return redirect()->back()->with('error', 'Gagal memperbarui pengumuman');
     }
 
+    public function toggleStatus($id)
+    {
+        $pengumuman = $this->pengumumanModel->find($id);
+
+        if (! $pengumuman) {
+            return redirect()->to('/pengumuman')->with('error', 'Pengumuman tidak ditemukan');
+        }
+
+        $status = $this->request->getPost('status');
+
+        if (! in_array($status, ['aktif', 'nonaktif'], true)) {
+            $status = ($pengumuman['status'] ?? '') === 'aktif' ? 'nonaktif' : 'aktif';
+        }
+
+        if ($this->pengumumanModel->update($id, ['status' => $status])) {
+            return redirect()->to('/pengumuman')->with('success', 'Status pengumuman berhasil diubah');
+        }
+
+        return redirect()->back()->with('error', 'Gagal mengubah status pengumuman');
+    }
+
     public function hapus($id)
     {
         if ($this->pengumumanModel->delete($id)) {

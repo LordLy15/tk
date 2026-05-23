@@ -92,22 +92,6 @@ CREATE TABLE `aktivitas_kelas` (
 
 -- --------------------------------------------------------
 
---
--- Struktur dari tabel `fasilitas_sekolah`
---
-
-CREATE TABLE `fasilitas_sekolah` (
-  `id` int(11) UNSIGNED NOT NULL,
-  `nama_fasilitas` varchar(150) NOT NULL,
-  `jenis_fasilitas` enum('ruangan','alat_pembelajaran','alat_olahraga','alat_musik','lainnya') NOT NULL,
-  `jumlah` int(11) NOT NULL DEFAULT 1,
-  `kondisi` enum('baik','cukup','rusak') NOT NULL DEFAULT 'baik',
-  `lokasi` varchar(100) DEFAULT NULL,
-  `catatan` text DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 -- --------------------------------------------------------
 
 --
@@ -119,7 +103,8 @@ CREATE TABLE `guru` (
   `nama_guru` varchar(100) NOT NULL,
   `nip_nik` varchar(18) NOT NULL,
   `jabatan` varchar(50) NOT NULL,
-  `pendidikan` varchar(50) NOT NULL
+  `pendidikan` varchar(50) NOT NULL,
+  `foto_guru` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -280,7 +265,8 @@ CREATE TABLE `murid` (
   `jenis_kelamin` enum('L','P') NOT NULL,
   `tempat_lahir` varchar(50) NOT NULL,
   `tanggal_lahir` date NOT NULL,
-  `alamat` text NOT NULL
+  `alamat` text NOT NULL,
+  `foto_murid` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -449,12 +435,6 @@ ALTER TABLE `aktivitas_kelas`
   ADD KEY `aktivitas_kelas_id_kelas_foreign` (`id_kelas`);
 
 --
--- Indeks untuk tabel `fasilitas_sekolah`
---
-ALTER TABLE `fasilitas_sekolah`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indeks untuk tabel `guru`
 --
 ALTER TABLE `guru`
@@ -572,12 +552,6 @@ ALTER TABLE `aktivitas`
 -- AUTO_INCREMENT untuk tabel `aktivitas_kelas`
 --
 ALTER TABLE `aktivitas_kelas`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `fasilitas_sekolah`
---
-ALTER TABLE `fasilitas_sekolah`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --

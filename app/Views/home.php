@@ -77,13 +77,19 @@
         <div class="row justify-content-center g-4">
             <?php if(!empty($total_guru)): ?>
                 <?php foreach($total_guru as $g): ?>
+                <?php $fotoGuru = ! empty($g['foto_guru']) ? base_url('uploads/foto_guru/' . rawurlencode($g['foto_guru'])) : base_url('assets/dashboard/images/avatar-1.jpg'); ?>
                 <div class="col-6 col-md-3">
                     <div class="card h-100 border-0 shadow-sm p-4 rounded-4">
-                        <div class="bg-secondary text-white rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center shadow-sm" style="width: 90px; height: 90px;">
-                            <span class="fs-2">👩‍🏫</span>
-                        </div>
-                        <h6 class="fw-bold mb-1"><?= $g['nama_guru'] ?></h6>
-                        <small class="fw-semibold" style="color: #27ae60;">Tenaga Pengajar</small>
+                        <img src="<?= $fotoGuru ?>"
+                             alt="Foto <?= esc($g['nama_guru'] ?? 'guru') ?>"
+                             class="rounded-circle mx-auto mb-3 shadow-sm"
+                             loading="lazy"
+                             style="width: 96px; height: 96px; object-fit: cover; border: 3px solid #eaf8ef;">
+                        <h6 class="fw-bold mb-1"><?= esc($g['nama_guru'] ?? '-') ?></h6>
+                        <small class="fw-semibold" style="color: #27ae60;"><?= esc($g['jabatan'] ?? 'Tenaga Pengajar') ?></small>
+                        <?php if (! empty($g['pendidikan'])) : ?>
+                            <small class="d-block text-muted mt-1"><?= esc($g['pendidikan']) ?></small>
+                        <?php endif; ?>
                     </div>
                 </div>
                 <?php endforeach; ?>

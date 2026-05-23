@@ -38,13 +38,7 @@
 - Keterangan libur
 - Otomatis mengecek tanggal untuk pencatatan kehadiran
 
-### 7. **Fasilitas Sekolah (School Facilities)**
-- Inventaris fasilitas sekolah
-- Jenis: Ruangan, Alat Pembelajaran, Alat Olahraga, Alat Musik
-- Status kondisi: Baik, Cukup, Rusak
-- Laporan rekap fasilitas
-
-### 8. **User Management**
+### 7. **User Management**
 - Tabel users untuk login admin
 - Role: Admin, Guru
 - Status: Aktif, Nonaktif
@@ -76,7 +70,6 @@ mysql -u root -p db_tk < sql_tambahan_fitur_admin.sql
 - `JadwalKelasModel.php`
 - `PengumumanModel.php`
 - `LiburSekolahModel.php`
-- `FasilitasSekolahModel.php`
 
 **Controllers** (di `app/Controllers/`):
 - `Kehadiran.php`
@@ -85,7 +78,6 @@ mysql -u root -p db_tk < sql_tambahan_fitur_admin.sql
 - `Jadwal.php`
 - `Pengumuman.php`
 - `Libur.php`
-- `Fasilitas.php`
 
 **Routes** (di `app/Config/Routes.php`):
 Sudah ditambahkan semua endpoint untuk fitur-fitur baru
@@ -120,10 +112,6 @@ app/Views/
 ├── Libur/
 │   ├── index.php
 │   └── form.php
-├── Fasilitas/
-│   ├── index.php
-│   ├── form.php
-│   ├── laporan.php
 ```
 
 ---
@@ -156,10 +144,7 @@ app/Views/
 8. **libur_sekolah**
    - id, nama_libur, tanggal_mulai, tanggal_selesai, keterangan, jenis_libur, status
 
-9. **fasilitas_sekolah**
-    - id, nama_fasilitas, jenis_fasilitas, jumlah, kondisi, lokasi, catatan
-
-10. **log_aktivitas**
+9. **log_aktivitas**
     - id, id_user, aksi, modul, deskripsi, ip_address
 
 ---
@@ -196,9 +181,6 @@ app/Views/
 | Lihat Pengumuman | `/pengumuman` | GET |
 | **Libur** | | |
 | Lihat Libur | `/libur` | GET |
-| **Fasilitas** | | |
-| Lihat Fasilitas | `/fasilitas` | GET |
-| Laporan Fasilitas | `/fasilitas/laporan` | GET |
 
 ---
 

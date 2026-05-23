@@ -27,7 +27,7 @@
                         <th>NIP/NIK</th>
                         <th>Jabatan</th>
                         <th>Pendidikan</th>
-                        <th width="200">Aksi</th>
+                        <th class="action-cell text-center">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,25 +40,34 @@
                         <?php foreach ($guru as $g) : ?>
                             <tr>
                                 <td><?= $no++ ?></td>
+
                                 <td class="fw-semibold"><?= esc($g['nama_guru']) ?></td>
                                 <td><span class="badge badge-soft"><?= esc($g['nip_nik']) ?></span></td>
                                 <td><?= esc($g['jabatan']) ?></td>
                                 <td><?= esc($g['pendidikan']) ?></td>
-                                <td>
+                                <td class="action-cell">
                                     <div class="table-actions">
-                                        <a href="<?= base_url('guru/detail/' . $g['id']) ?>" class="btn btn-info btn-sm">
+                                        <a href="<?= base_url('guru/detail/' . $g['id']) ?>"
+                                           class="btn btn-info btn-sm action-icon-btn"
+                                           title="Detail guru"
+                                           aria-label="Detail <?= esc($g['nama_guru'], 'attr') ?>">
                                             <i class="ti ti-eye"></i>
-                                            Detail
+                                            <span class="visually-hidden">Detail</span>
                                         </a>
-                                        <a href="<?= base_url('guru/edit/' . $g['id']) ?>" class="btn btn-warning btn-sm">
+                                        <a href="<?= base_url('guru/edit/' . $g['id']) ?>"
+                                           class="btn btn-warning btn-sm action-icon-btn"
+                                           title="Edit guru"
+                                           aria-label="Edit <?= esc($g['nama_guru'], 'attr') ?>">
                                             <i class="ti ti-edit"></i>
-                                            Edit
+                                            <span class="visually-hidden">Edit</span>
                                         </a>
                                         <a href="<?= base_url('guru/hapus/' . $g['id']) ?>"
-                                           class="btn btn-danger btn-sm"
+                                           class="btn btn-danger btn-sm action-icon-btn"
+                                           title="Hapus guru"
+                                           aria-label="Hapus <?= esc($g['nama_guru'], 'attr') ?>"
                                            onclick="return confirm('Hapus data guru ini?')">
                                             <i class="ti ti-trash"></i>
-                                            Hapus
+                                            <span class="visually-hidden">Hapus</span>
                                         </a>
                                     </div>
                                 </td>

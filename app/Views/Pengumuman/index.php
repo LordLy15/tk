@@ -26,7 +26,7 @@
                         <th>Prioritas</th>
                         <th>Periode</th>
                         <th>Status</th>
-                        <th width="160">Aksi</th>
+                        <th class="action-cell text-center">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -38,6 +38,8 @@
                         <?php foreach ($pengumuman as $p) : ?>
                             <?php
                             $judul = $p['judul'] ?? '-';
+                            $status = $p['status'] ?? 'nonaktif';
+                            $isActive = $status === 'aktif';
                             $priorityClass = $p['prioritas'] === 'tinggi' ? 'danger' : ($p['prioritas'] === 'normal' ? 'warning' : 'info');
                             ?>
                             <tr>
@@ -53,21 +55,47 @@
                                     <?= esc(date('d-m-Y', strtotime($p['tanggal_selesai']))) ?>
                                 </td>
                                 <td>
-                                    <span class="badge bg-<?= ($p['status'] ?? '') === 'aktif' ? 'success' : 'secondary' ?>">
-                                        <?= esc(ucfirst($p['status'])) ?>
+                                    <span class="badge bg-<?= $isActive ? 'success' : 'secondary' ?>">
+                                        <?= esc(ucfirst($status)) ?>
                                     </span>
                                 </td>
-                                <td>
-                                    <div class="table-actions">
-                                        <a href="<?= base_url('pengumuman/edit/' . $p['id']) ?>" class="btn btn-warning btn-sm">
+                                <td class="action-cell">
+                                    <div class="table-actions compact-actions">
+                                        <form action="<?= base_url('pengumuman/toggle-status/' . $p['id']) ?>"
+                                              method="post"
+                                              class="status-toggle-form">
+                                            <?= csrf_field() ?>
+                                            <input type="hidden" name="status" value="nonaktif">
+                                            <div class="form-check form-switch mb-0">
+                                                <input class="form-check-input"
+                                                       type="checkbox"
+                                                       role="switch"
+                                                       id="status-pengumuman-<?= esc($p['id'], 'attr') ?>"
+                                                       name="status"
+                                                       value="aktif"
+                                                       title="Ubah status pengumuman"
+                                                       aria-label="Ubah status <?= esc($judul, 'attr') ?>"
+                                                       onchange="this.form.submit()"
+                                                       <?= $isActive ? 'checked' : '' ?>>
+                                                <label class="form-check-label" for="status-pengumuman-<?= esc($p['id'], 'attr') ?>">
+                                                    <span class="visually-hidden">Ubah status pengumuman</span>
+                                                </label>
+                                            </div>
+                                        </form>
+                                        <a href="<?= base_url('pengumuman/edit/' . $p['id']) ?>"
+                                           class="btn btn-warning btn-sm action-icon-btn"
+                                           title="Edit pengumuman"
+                                           aria-label="Edit <?= esc($judul, 'attr') ?>">
                                             <i class="ti ti-edit"></i>
-                                            Edit
+                                            <span class="visually-hidden">Edit</span>
                                         </a>
                                         <a href="<?= base_url('pengumuman/hapus/' . $p['id']) ?>"
-                                           class="btn btn-danger btn-sm"
+                                           class="btn btn-danger btn-sm action-icon-btn"
+                                           title="Hapus pengumuman"
+                                           aria-label="Hapus <?= esc($judul, 'attr') ?>"
                                            onclick="return confirm('Hapus pengumuman ini?')">
                                             <i class="ti ti-trash"></i>
-                                            Hapus
+                                            <span class="visually-hidden">Hapus</span>
                                         </a>
                                     </div>
                                 </td>

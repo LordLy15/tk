@@ -3,23 +3,18 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title><?= esc($title ?? 'Dashboard Sekolah TK') ?></title>
+    <title><?= esc($title ?? 'Dashboard RA PERWANIDA') ?></title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" sizes="180x180"
-        href="<?= base_url('assets/dashboard/images/apple-touch-icon.png') ?>">
+    <link rel="icon" type="image/svg+xml"
+        href="/tk/public/assets/dashboard/images/logo-ra.svg">
 
-    <link rel="icon" type="image/png" sizes="32x32"
-        href="<?= base_url('assets/dashboard/images/favicon-32x32.png') ?>">
+    <link rel="shortcut icon" type="image/svg+xml"
+        href="/tk/public/assets/dashboard/images/logo-ra.svg">
 
-    <link rel="icon" type="image/png" sizes="16x16"
-        href="<?= base_url('assets/dashboard/images/favicon-16x16.png') ?>">
-
-    <link rel="stylesheet"
-        href="<?= base_url('assets/dashboard/css/main.css?v=20260519') ?>">
-    <link rel="stylesheet"
-        href="<?= base_url('assets/dashboard/css/admin-custom.css?v=20260521c') ?>">
+    <link rel="stylesheet" href="/tk/public/assets/dashboard/css/main.css?v=20260523a">
+    <link rel="stylesheet" href="/tk/public/assets/dashboard/css/admin-custom.css?v=20260523a">
 
 </head>
 
@@ -27,7 +22,6 @@
 
 <div id="overlay" class="overlay"></div>
 
-<!-- TOPBAR -->
 <nav id="topbar" class="navbar bg-white border-bottom fixed-top topbar px-3">
 
     <button id="toggleBtn"
@@ -52,7 +46,7 @@
            class="d-flex align-items-center text-decoration-none"
            data-bs-toggle="dropdown">
 
-            <img src="<?= base_url('assets/dashboard/images/avatar-1.jpg') ?>"
+            <img src="/tk/public/assets/dashboard/images/avatar-1.jpg"
                  class="rounded-circle me-2"
                  width="40"
                  height="40">
@@ -109,10 +103,8 @@
 
 </nav>
 
-<!-- SIDEBAR -->
 <?= $this->include('Admin/partials/sidebar') ?>
 
-<!-- MAIN CONTENT -->
 <main id="content" class="content py-4">
 
     <div class="container-fluid admin-content">
@@ -145,9 +137,8 @@
 
 </footer>
 
-<script src="<?= base_url('assets/dashboard/js/main.js') ?>"
-        type="module"></script>
-<script src="<?= base_url('assets/dashboard/js/admin-form.js') ?>"></script>
+<script src="/tk/public/assets/dashboard/js/main.js" type="module"></script>
+<script src="/tk/public/assets/dashboard/js/admin-form.js"></script>
 <script>
     window.addEventListener('load', function () {
         const currentPath = window.location.pathname.replace(/\/$/, '');

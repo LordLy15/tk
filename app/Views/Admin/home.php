@@ -25,6 +25,12 @@ $dashboardGroups = [
                 'icon' => 'ti-users',
                 'tone' => 'info',
             ],
+            [
+                'label' => 'Total Pendaftar',
+                'value' => $total_pendaftar ?? 0,
+                'icon' => 'ti-clipboard-list',
+                'tone' => 'danger',
+            ],
         ],
     ],
     [
@@ -44,41 +50,35 @@ $dashboardGroups = [
             ],
         ],
     ],
-    [
-        'title' => 'Fasilitas Sekolah',
-        'cards' => [
-            [
-                'label' => 'Total Fasilitas',
-                'value' => $total_fasilitas ?? 0,
-                'icon' => 'ti-home-2',
-                'tone' => 'rose',
-            ],
-            [
-                'label' => 'Fasilitas Baik',
-                'value' => $fasilitas_status['baik'] ?? 0,
-                'icon' => 'ti-check',
-                'tone' => 'green',
-            ],
-            [
-                'label' => 'Fasilitas Cukup',
-                'value' => $fasilitas_status['cukup'] ?? 0,
-                'icon' => 'ti-alert-circle',
-                'tone' => 'amber',
-            ],
-            [
-                'label' => 'Fasilitas Rusak',
-                'value' => $fasilitas_status['rusak'] ?? 0,
-                'icon' => 'ti-x',
-                'tone' => 'danger',
-            ],
-        ],
-    ],
+
 ];
 ?>
 
 <div class="dashboard-header">
     <h1 class="mb-1">Dashboard</h1>
-    <p class="mb-0 text-secondary">Control Panel Sekolah TK</p>
+    <p class="mb-0 text-secondary">RA PERWANIDA</p>
+</div>
+
+<div class="card border rounded-2 mb-4">
+    <div class="card-header bg-white border-bottom">
+        <h5 class="mb-0">
+            <i class="ti ti-bell me-2"></i>
+            Pengumuman Aktif
+        </h5>
+    </div>
+    <div class="card-body">
+        <?php if (!empty($pengumuman_aktif)) : ?>
+            <?php foreach ($pengumuman_aktif as $p) : ?>
+                <div class="alert alert-<?= $p['prioritas'] == 'tinggi' ? 'danger' : ($p['prioritas'] == 'normal' ? 'warning' : 'info') ?> alert-dismissible fade show" role="alert">
+                    <strong><?= esc($p['judul']) ?></strong><br>
+                    <small><?= esc(substr($p['konten'], 0, 100)) ?>...</small>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php endforeach; ?>
+        <?php else : ?>
+            <p class="mb-0 text-secondary">Belum ada pengumuman aktif.</p>
+        <?php endif; ?>
+    </div>
 </div>
 
 <?php if (!empty($missing_tables)) : ?>
@@ -112,33 +112,16 @@ $dashboardGroups = [
     <?php endforeach; ?>
 </div>
 
-<?php if (!empty($pengumuman_aktif)) : ?>
-    <div class="card border rounded-2">
-        <div class="card-header bg-white border-bottom">
-            <h5 class="mb-0">
-                <i class="ti ti-bell me-2"></i>
-                Pengumuman Aktif
-            </h5>
-        </div>
-
-        <div class="card-body">
-            <?php foreach ($pengumuman_aktif as $p) : ?>
-                <div class="alert alert-<?= $p['prioritas'] == 'tinggi' ? 'danger' : ($p['prioritas'] == 'normal' ? 'warning' : 'info') ?> alert-dismissible fade show" role="alert">
-                    <strong><?= esc($p['judul']) ?></strong><br>
-                    <small><?= esc(substr($p['konten'], 0, 100)) ?>...</small>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            <?php endforeach; ?>
-        </div>
-    </div>
-<?php endif; ?>
-
 <script>
     const today = new Date();
     const yyyy = today.getFullYear();
     const mm = String(today.getMonth() + 1).padStart(2, '0');
     const dd = String(today.getDate()).padStart(2, '0');
-    document.getElementById('kalenderHariIni').value = `${yyyy}-${mm}-${dd}`;
+    const kalenderHariIni = document.getElementById('kalenderHariIni');
+
+    if (kalenderHariIni) {
+        kalenderHariIni.value = `${yyyy}-${mm}-${dd}`;
+    }
 </script>
 
 <?= $this->endSection() ?>

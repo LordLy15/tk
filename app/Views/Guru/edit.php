@@ -14,19 +14,10 @@
             Kembali
         </a>
     </div>
-</div>
-
-<div class="crud-form-shell">
-    <div class="card crud-form-card">
-        <div class="card-header">
-            <div>
-                <h2 class="card-title">Form Edit Guru</h2>
-                <p class="card-subtitle"><?= esc($guru['nama_guru'] ?? 'Data guru') ?></p>
-            </div>
-        </div>
+    </div>
 
         <div class="card-body">
-            <form action="<?= base_url('guru/update/' . $guru['id']) ?>" method="post">
+            <form action="<?= base_url('guru/update/' . $guru['id']) ?>" method="post" enctype="multipart/form-data">
                 <?= csrf_field() ?>
 
                 <div class="form-section">
@@ -73,6 +64,26 @@
                                    value="<?= esc(old('pendidikan', $guru['pendidikan'] ?? '')) ?>"
                                    required>
                         </div>
+
+                        <div class="col-md-6">
+                            <label for="foto_guru" class="form-label">Ganti Foto Profil</label>
+                            <input id="foto_guru"
+                                   type="file"
+                                   name="foto_guru"
+                                   class="form-control"
+                                   accept="image/jpeg,image/png,image/webp">
+                            <div class="form-hint">Kosongkan jika tidak ingin mengganti foto. Maksimal 2 MB.</div>
+                        </div>
+
+                        <?php if (! empty($guru['foto_guru'])) : ?>
+                            <div class="col-md-7">
+                                <label class="form-label">Foto Saat Ini</label>
+                                <div class="profile-upload-preview">
+                                    <img src="<?= base_url('uploads/foto_guru/' . rawurlencode($guru['foto_guru'])) ?>"
+                                         alt="Foto <?= esc($guru['nama_guru'] ?? 'guru') ?>">
+                                </div>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
 

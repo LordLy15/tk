@@ -24,7 +24,7 @@
                     <tr>
                         <th>No</th>
                         <th>Nama Pendidikan</th>
-                        <th width="180">Aksi</th>
+                        <th class="action-cell text-center">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -38,17 +38,22 @@
                             <tr>
                                 <td><?= $no++ ?></td>
                                 <td class="fw-semibold"><?= esc($pen['nama']) ?></td>
-                                <td>
+                                <td class="action-cell">
                                     <div class="table-actions">
-                                        <a href="<?= base_url('pendidikan/edit/' . $pen['id_pendidikan']) ?>" class="btn btn-warning btn-sm">
+                                        <a href="<?= base_url('pendidikan/edit/' . $pen['id_pendidikan']) ?>"
+                                           class="btn btn-warning btn-sm action-icon-btn"
+                                           title="Edit pendidikan"
+                                           aria-label="Edit <?= esc($pen['nama'], 'attr') ?>">
                                             <i class="ti ti-edit"></i>
-                                            Edit
+                                            <span class="visually-hidden">Edit</span>
                                         </a>
                                         <a href="<?= base_url('pendidikan/hapus/' . $pen['id_pendidikan']) ?>"
-                                           class="btn btn-danger btn-sm"
+                                           class="btn btn-danger btn-sm action-icon-btn"
+                                           title="Hapus pendidikan"
+                                           aria-label="Hapus <?= esc($pen['nama'], 'attr') ?>"
                                            onclick="return confirm('Hapus data pendidikan ini?')">
                                             <i class="ti ti-trash"></i>
-                                            Hapus
+                                            <span class="visually-hidden">Hapus</span>
                                         </a>
                                     </div>
                                 </td>

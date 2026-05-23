@@ -39,7 +39,7 @@ $navGroups = [
                  width="28"
                  height="28">
 
-            <span class="brand-text nav-text">Sekolah TK</span>
+            <span class="brand-text nav-text">RA PERWANIDA</span>
         </a>
     </div>
 

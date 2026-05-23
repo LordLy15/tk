@@ -3,6 +3,8 @@
 <head>
     <meta charset="utf-8">
     <title><?= lang('Errors.badRequest') ?></title>
+    <link rel="icon" type="image/svg+xml" href="<?= function_exists('base_url') ? base_url('assets/dashboard/images/logo-ra.svg') : '/tk/public/assets/dashboard/images/logo-ra.svg' ?>">
+    <link rel="shortcut icon" type="image/svg+xml" href="<?= function_exists('base_url') ? base_url('assets/dashboard/images/logo-ra.svg') : '/tk/public/assets/dashboard/images/logo-ra.svg' ?>">
 
     <style>
         div.logo {

@@ -27,7 +27,7 @@
                         <th>Nama Murid</th>
                         <th>Kelas</th>
                         <th>Jenis Kelamin</th>
-                        <th width="220">Aksi</th>
+                        <th class="action-cell text-center">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -44,21 +44,29 @@
                                 <td class="fw-semibold"><?= esc($m['nama_murid']) ?></td>
                                 <td><?= esc($m['nama_kelas'] ?? '-') ?></td>
                                 <td><?= ($m['jenis_kelamin'] ?? '') === 'L' ? 'Laki-laki' : 'Perempuan' ?></td>
-                                <td>
+                                <td class="action-cell">
                                     <div class="table-actions">
-                                        <a href="<?= base_url('murid/detail/' . $m['id']) ?>" class="btn btn-info btn-sm">
+                                        <a href="<?= base_url('murid/detail/' . $m['id']) ?>"
+                                           class="btn btn-info btn-sm action-icon-btn"
+                                           title="Detail murid"
+                                           aria-label="Detail <?= esc($m['nama_murid'], 'attr') ?>">
                                             <i class="ti ti-eye"></i>
-                                            Detail
+                                            <span class="visually-hidden">Detail</span>
                                         </a>
-                                        <a href="<?= base_url('murid/edit/' . $m['id']) ?>" class="btn btn-warning btn-sm">
+                                        <a href="<?= base_url('murid/edit/' . $m['id']) ?>"
+                                           class="btn btn-warning btn-sm action-icon-btn"
+                                           title="Edit murid"
+                                           aria-label="Edit <?= esc($m['nama_murid'], 'attr') ?>">
                                             <i class="ti ti-edit"></i>
-                                            Edit
+                                            <span class="visually-hidden">Edit</span>
                                         </a>
                                         <a href="<?= base_url('murid/hapus/' . $m['id']) ?>"
-                                           class="btn btn-danger btn-sm"
+                                           class="btn btn-danger btn-sm action-icon-btn"
+                                           title="Hapus murid"
+                                           aria-label="Hapus <?= esc($m['nama_murid'], 'attr') ?>"
                                            onclick="return confirm('Hapus data murid ini?')">
                                             <i class="ti ti-trash"></i>
-                                            Hapus
+                                            <span class="visually-hidden">Hapus</span>
                                         </a>
                                     </div>
                                 </td>

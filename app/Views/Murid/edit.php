@@ -26,7 +26,7 @@
         </div>
 
         <div class="card-body">
-            <form action="<?= base_url('murid/update/' . $murid['id']) ?>" method="post">
+            <form action="<?= base_url('murid/update/' . $murid['id']) ?>" method="post" enctype="multipart/form-data">
                 <?= csrf_field() ?>
 
                 <div class="form-section">
@@ -68,16 +68,25 @@
                                 <?php endforeach; ?>
                             </select>
                         </div>
+                        
+                        <div class="w-100">
+                            <label for="jenis_kelamin" class="form-label">
+                                Jenis Kelamin <span class="required-mark">*</span>
+                            </label>
 
-                        <div class="col-md-6">
-                            <label for="jenis_kelamin" class="form-label">Jenis Kelamin <span class="required-mark">*</span></label>
                             <?php $selectedGender = old('jenis_kelamin', $murid['jenis_kelamin'] ?? ''); ?>
-                            <select id="jenis_kelamin" name="jenis_kelamin" class="form-select" required>
+
+                            <select id="jenis_kelamin"
+                                    name="jenis_kelamin"
+                                    class="form-select"
+                                    required>
+                                    
                                 <option value="">Pilih Jenis Kelamin</option>
                                 <option value="L" <?= $selectedGender === 'L' ? 'selected' : '' ?>>Laki-laki</option>
                                 <option value="P" <?= $selectedGender === 'P' ? 'selected' : '' ?>>Perempuan</option>
                             </select>
                         </div>
+                        
 
                         <div class="col-md-6">
                             <label for="tempat_lahir" class="form-label">Tempat Lahir <span class="required-mark">*</span></label>
@@ -98,6 +107,26 @@
                                    value="<?= esc(old('tanggal_lahir', $murid['tanggal_lahir'] ?? '')) ?>"
                                    required>
                         </div>
+
+                        <div class="col-md-6">
+                            <label for="foto_murid" class="form-label">Ganti Foto Profil</label>
+                            <input id="foto_murid"
+                                   type="file"
+                                   name="foto_murid"
+                                   class="form-control"
+                                   accept="image/jpeg,image/png,image/webp">
+                            <div class="form-hint">Kosongkan jika tidak ingin mengganti foto. Maksimal 2 MB.</div>
+                        </div>
+
+                        <?php if (! empty($murid['foto_murid'])) : ?>
+                            <div class="col-md-6">
+                                <label class="form-label">Foto Saat Ini</label>
+                                <div class="profile-upload-preview">
+                                    <img src="<?= base_url('uploads/foto_murid/' . rawurlencode($murid['foto_murid'])) ?>"
+                                         alt="Foto <?= esc($murid['nama_murid'] ?? 'murid') ?>">
+                                </div>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
 

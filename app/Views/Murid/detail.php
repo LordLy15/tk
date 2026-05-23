@@ -24,10 +24,9 @@
     <div class="card-body">
         <div class="row g-4">
             <div class="col-md-4 text-center">
-                <img src="<?= base_url('assets/dashboard/images/avatar-1.jpg') ?>"
-                     width="150"
-                     height="150"
-                     class="rounded-circle border p-2"
+                <?php $fotoMurid = ! empty($murid['foto_murid']) ? base_url('uploads/foto_murid/' . rawurlencode($murid['foto_murid'])) : base_url('assets/dashboard/images/avatar-1.jpg'); ?>
+                <img src="<?= $fotoMurid ?>"
+                     class="profile-photo-lg rounded-circle border p-2"
                      alt="Avatar murid">
 
                 <h2 class="fs-4 mt-3 mb-1"><?= esc($murid['nama_murid']) ?></h2>

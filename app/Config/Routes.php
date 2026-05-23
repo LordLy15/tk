@@ -118,6 +118,7 @@ $routes->get('/pengumuman/tambah', 'Pengumuman::tambah');
 $routes->post('/pengumuman/simpan', 'Pengumuman::simpan');
 $routes->get('/pengumuman/edit/(:num)', 'Pengumuman::edit/$1');
 $routes->post('/pengumuman/update/(:num)', 'Pengumuman::update/$1');
+$routes->post('/pengumuman/toggle-status/(:num)', 'Pengumuman::toggleStatus/$1');
 $routes->get('/pengumuman/hapus/(:num)', 'Pengumuman::hapus/$1');
 
 // LIBUR SEKOLAH (School Holidays)
@@ -128,11 +129,3 @@ $routes->get('/libur/edit/(:num)', 'Libur::edit/$1');
 $routes->post('/libur/update/(:num)', 'Libur::update/$1');
 $routes->get('/libur/hapus/(:num)', 'Libur::hapus/$1');
 
-// FASILITAS SEKOLAH (School Facilities)
-$routes->get('/fasilitas', 'Fasilitas::index');
-$routes->get('/fasilitas/tambah', 'Fasilitas::tambah');
-$routes->post('/fasilitas/simpan', 'Fasilitas::simpan');
-$routes->get('/fasilitas/edit/(:num)', 'Fasilitas::edit/$1');
-$routes->post('/fasilitas/update/(:num)', 'Fasilitas::update/$1');
-$routes->get('/fasilitas/hapus/(:num)', 'Fasilitas::hapus/$1');
-$routes->get('/fasilitas/laporan', 'Fasilitas::laporan');
