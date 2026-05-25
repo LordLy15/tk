@@ -75,7 +75,6 @@ public function index()
     public function tambah()
     {
         $id_kelas = $this->request->getGet('kelas');
-
         $data['kelas'] = $this->kelasModel->findAll();
 
         $data['murid_list'] = [];
@@ -89,7 +88,7 @@ public function index()
 
         $data['id_kelas'] = $id_kelas;
 
-        return view('OrangTua/form', $data);
+        return view('OrangTua/tambah', $data);
     }
 
     public function simpan()
@@ -135,19 +134,35 @@ public function index()
 
     public function edit($id)
     {
-        $orangTua = $this->orangTuaModel->find($id);
+    $orangTua = $this->orangTuaModel
+        ->select('orang_tua.*, murid.id_kelas')
+        ->join('murid', 'murid.id = orang_tua.id_murid')
+        ->where('orang_tua.id', $id)
+        ->first();
 
-        if (!$orangTua) {
-            return redirect()->to('orang-tua')->with('error', 'Data tidak ditemukan');
-        }
+    if (!$orangTua) {
+        return redirect()
+            ->to('orang-tua')
+            ->with('error', 'Data tidak ditemukan');
+    }
 
-        $data = [
-            'orang_tua' => $orangTua,
-            'murid_list' => $this->muridModel->findAll(),
-            'validation' => null
-        ];
+    // ambil id_kelas dari murid
+    $id_kelas = $orangTua['id_kelas'];
 
-        return view('OrangTua/form', $data);
+    // tampilkan murid sesuai kelas
+    $murid_list = $this->muridModel
+        ->where('id_kelas', $id_kelas)
+        ->findAll();
+
+    $data = [
+        'orang_tua' => $orangTua,
+        'murid_list' => $murid_list,
+        'kelas' => $this->kelasModel->findAll(),
+        'id_kelas' => $id_kelas,
+        'validation' => null
+    ];
+
+    return view('OrangTua/edit', $data);
     }
 
     public function update($id)
@@ -178,6 +193,7 @@ public function index()
         }
 
         $data = [
+            'id_kelas' => $post['id_kelas'] ?? null,
             'id_murid' => $post['id_murid'] ?? null,
             'nama_ayah' => $post['nama_ayah'] ?? null,
             'no_hp_ayah' => $post['no_hp_ayah'] ?? null,
