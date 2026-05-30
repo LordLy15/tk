@@ -56,7 +56,7 @@ class RoleFilter implements FilterInterface
 
     private function defaultPathForRole(string $role): string
     {
-        return strtolower($role) === 'staff' ? 'kehadiran' : 'admin';
+        return 'admin';
     }
 
     private function url(string $path): string

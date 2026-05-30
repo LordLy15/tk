@@ -100,8 +100,17 @@ class Aktivitas extends BaseController
         $id_kelas = $this->request->getGet('kelas');
         $tanggal = $this->request->getGet('tanggal') ?? date('Y-m-d');
 
+        if (strtolower((string) session('role')) === 'guru') {
+            $assignedKelas = $this->kelasModel->where('id_guru', session('id_guru'))->first();
+            $myKelasId = $assignedKelas ? (int) $assignedKelas['id_kelas'] : 0;
+            $id_kelas = $myKelasId;
+            $kelasList = $this->kelasModel->where('id_kelas', $myKelasId)->findAll();
+        } else {
+            $kelasList = $this->kelasModel->findAll();
+        }
+
         $data = [
-            'kelas_list' => $this->kelasModel->findAll(),
+            'kelas_list' => $kelasList,
             'id_kelas_selected' => $id_kelas,
             'tanggal' => $tanggal
         ];
@@ -115,8 +124,16 @@ class Aktivitas extends BaseController
 
     public function tambahJadwalKelas()
     {
+        if (strtolower((string) session('role')) === 'guru') {
+            $assignedKelas = $this->kelasModel->where('id_guru', session('id_guru'))->first();
+            $myKelasId = $assignedKelas ? (int) $assignedKelas['id_kelas'] : 0;
+            $kelasList = $this->kelasModel->where('id_kelas', $myKelasId)->findAll();
+        } else {
+            $kelasList = $this->kelasModel->findAll();
+        }
+
         $data = [
-            'kelas_list' => $this->kelasModel->findAll(),
+            'kelas_list' => $kelasList,
             'aktivitas_list' => $this->aktivitasModel->findAll()
         ];
 
@@ -125,9 +142,19 @@ class Aktivitas extends BaseController
 
     public function simpanJadwalKelas()
     {
+        $id_kelas = $this->request->getPost('id_kelas');
+
+        if (strtolower((string) session('role')) === 'guru') {
+            $assignedKelas = $this->kelasModel->where('id_guru', session('id_guru'))->first();
+            $myKelasId = $assignedKelas ? (int) $assignedKelas['id_kelas'] : 0;
+            if ((int)$id_kelas !== $myKelasId) {
+                return redirect()->back()->with('error', 'Anda tidak diperbolehkan menambah jadwal untuk kelas lain.');
+            }
+        }
+
         $data = [
             'id_aktivitas' => $this->request->getPost('id_aktivitas'),
-            'id_kelas' => $this->request->getPost('id_kelas'),
+            'id_kelas' => $id_kelas,
             'tanggal' => $this->request->getPost('tanggal'),
             'waktu_mulai' => $this->request->getPost('waktu_mulai'),
             'waktu_selesai' => $this->request->getPost('waktu_selesai'),

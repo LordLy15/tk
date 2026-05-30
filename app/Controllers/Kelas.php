@@ -57,6 +57,22 @@ class Kelas extends BaseController
 
         $post = $this->request->getPost();
 
+        // Cek apakah guru sudah ditugaskan di kelas lain
+        $existingGuru = $this->kelas->where('id_guru', $post['id_guru'])->first();
+        if ($existingGuru) {
+            return redirect()->back()
+                ->withInput()
+                ->with('error', 'Guru ini sudah ditugaskan sebagai Wali Kelas di kelas lain.');
+        }
+
+        // Cek apakah nama kelas sudah digunakan
+        $existingNama = $this->kelas->where('nama_kelas', $post['nama_kelas'])->first();
+        if ($existingNama) {
+            return redirect()->back()
+                ->withInput()
+                ->with('error', 'Nama kelas ini sudah digunakan.');
+        }
+
         $this->kelas->save([
             'id_guru' => $post['id_guru'] ?? null,
             'id_pendidikan' => $post['id_pendidikan'] ?? null,
@@ -97,6 +113,22 @@ class Kelas extends BaseController
         }
 
         $post = $this->request->getPost();
+
+        // Cek apakah guru sudah ditugaskan di kelas lain
+        $existingGuru = $this->kelas->where('id_guru', $post['id_guru'])->where('id_kelas !=', $id)->first();
+        if ($existingGuru) {
+            return redirect()->back()
+                ->withInput()
+                ->with('error', 'Guru ini sudah ditugaskan sebagai Wali Kelas di kelas lain.');
+        }
+
+        // Cek apakah nama kelas sudah digunakan
+        $existingNama = $this->kelas->where('nama_kelas', $post['nama_kelas'])->where('id_kelas !=', $id)->first();
+        if ($existingNama) {
+            return redirect()->back()
+                ->withInput()
+                ->with('error', 'Nama kelas ini sudah digunakan.');
+        }
 
         $this->kelas->update($id, [
             'nama_kelas' => $post['nama_kelas'] ?? null,

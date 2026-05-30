@@ -41,7 +41,7 @@ class Auth extends BaseController
         if (($user['status'] ?? '') !== 'aktif') {
             return redirect()->back()
                 ->withInput()
-                ->with('error', 'Akun ini sedang nonaktif. Hubungi SuperAdmin.');
+                ->with('error', 'Akun ini sedang nonaktif. Hubungi Administrator.');
         }
 
         if ($this->passwordNeedsUpgrade((string) $user['password'])) {
@@ -61,6 +61,7 @@ class Auth extends BaseController
             'user_id'     => (int) $user['id_users'],
             'id_users'    => (int) $user['id_users'],
             'id_role'     => (int) ($user['id_role'] ?? 0),
+            'id_guru'     => $user['id_guru'] ? (int) $user['id_guru'] : null,
             'username'    => $user['username'],
             'nama'        => $user['nama_lengkap'],
             'nama_lengkap' => $user['nama_lengkap'],
@@ -115,10 +116,7 @@ class Auth extends BaseController
 
     private function redirectForRole(string $role): string
     {
-        return match (strtolower($role)) {
-            'staff' => base_url('kehadiran'),
-            default => base_url('admin'),
-        };
+        return base_url('admin');
     }
 
     private function isSafeRedirect(mixed $url): bool

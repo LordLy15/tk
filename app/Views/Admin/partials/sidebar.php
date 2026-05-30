@@ -8,29 +8,29 @@ $navGroups = [
     [
         'label' => 'Utama',
         'items' => [
-            ['label' => 'Dashboard', 'url' => 'admin', 'icon' => 'ti-home', 'roles' => ['SuperAdmin', 'Admin', 'Staff']],
-            ['label' => 'Data Murid', 'url' => 'murid', 'icon' => 'ti-school', 'roles' => ['SuperAdmin', 'Admin']],
-            ['label' => 'Data Guru', 'url' => 'guru', 'icon' => 'ti-user', 'roles' => ['SuperAdmin', 'Admin']],
-            ['label' => 'Data Kelas', 'url' => 'kelas', 'icon' => 'ti-users', 'roles' => ['SuperAdmin', 'Admin']],
-            ['label' => 'Data Pendidikan', 'url' => 'pendidikan', 'icon' => 'ti-school', 'roles' => ['SuperAdmin', 'Admin']],
+            ['label' => 'Dashboard', 'url' => 'admin', 'icon' => 'ti-home', 'roles' => ['Administrator', 'Admin', 'Guru', 'Staff']],
+            ['label' => 'Data Murid', 'url' => 'murid', 'icon' => 'ti-school', 'roles' => ['Administrator', 'Admin', 'Staff']],
+            ['label' => 'Data Guru', 'url' => 'guru', 'icon' => 'ti-user', 'roles' => ['Administrator', 'Admin', 'Staff']],
+            ['label' => 'Data Kelas', 'url' => 'kelas', 'icon' => 'ti-users', 'roles' => ['Administrator', 'Admin', 'Staff']],
+            ['label' => 'Data Pendidikan', 'url' => 'pendidikan', 'icon' => 'ti-school', 'roles' => ['Administrator', 'Admin']],
             // MENU PENDAFTARAN DITAMBAHKAN DI SINI
-            ['label' => 'Data Pendaftaran', 'url' => 'admin/pendaftaran', 'icon' => 'ti-clipboard-list', 'roles' => ['SuperAdmin', 'Admin']],
+            ['label' => 'Data Pendaftaran', 'url' => 'admin/pendaftaran', 'icon' => 'ti-clipboard-list', 'roles' => ['Administrator', 'Admin', 'Staff']],
         ],
     ],
     [
         'label' => 'Manajemen',
         'items' => [
-            ['label' => 'Kehadiran', 'url' => 'kehadiran', 'icon' => 'ti-clipboard-check', 'roles' => ['SuperAdmin', 'Admin', 'Staff']],
-            ['label' => 'Aktivitas', 'url' => 'aktivitas', 'icon' => 'ti-target', 'roles' => ['SuperAdmin', 'Admin', 'Staff']],
-            ['label' => 'Orang Tua', 'url' => 'orang-tua', 'icon' => 'ti-users-group', 'roles' => ['SuperAdmin', 'Admin']],
-            ['label' => 'Jadwal Kelas', 'url' => 'jadwal', 'icon' => 'ti-calendar', 'roles' => ['SuperAdmin', 'Admin', 'Staff']],
+            ['label' => 'Kehadiran', 'url' => 'kehadiran', 'icon' => 'ti-clipboard-check', 'roles' => ['Administrator', 'Admin', 'Guru']],
+            ['label' => 'Aktivitas', 'url' => 'aktivitas', 'icon' => 'ti-target', 'roles' => ['Administrator', 'Admin', 'Guru']],
+            ['label' => 'Orang Tua', 'url' => 'orang-tua', 'icon' => 'ti-users-group', 'roles' => ['Administrator', 'Admin']],
+            ['label' => 'Jadwal Kelas', 'url' => 'jadwal', 'icon' => 'ti-calendar', 'roles' => ['Administrator', 'Admin', 'Guru']],
         ],
     ],
     [
         'label' => 'Informasi',
         'items' => [
-            ['label' => 'Pengumuman', 'url' => 'pengumuman', 'icon' => 'ti-bell', 'roles' => ['SuperAdmin', 'Admin', 'Staff']],
-            ['label' => 'Libur Sekolah', 'url' => 'libur', 'icon' => 'ti-calendar-off', 'roles' => ['SuperAdmin', 'Admin', 'Staff']],
+            ['label' => 'Pengumuman', 'url' => 'pengumuman', 'icon' => 'ti-bell', 'roles' => ['Administrator', 'Admin', 'Staff']],
+            ['label' => 'Libur Sekolah', 'url' => 'libur', 'icon' => 'ti-calendar-off', 'roles' => ['Administrator', 'Admin', 'Guru', 'Staff']],
         ],
     ],
 ];

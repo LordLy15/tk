@@ -422,9 +422,10 @@ CREATE TABLE `role` (
 --
 
 INSERT INTO `role` (`id_role`, `nama_role`) VALUES
-(1, 'SuperAdmin'),
+(1, 'Administrator'),
 (2, 'Admin'),
-(3, 'Staff');
+(3, 'Staff'),
+(4, 'Guru');
 
 -- --------------------------------------------------------
 
@@ -435,6 +436,7 @@ INSERT INTO `role` (`id_role`, `nama_role`) VALUES
 CREATE TABLE `users` (
   `id_users` int(11) UNSIGNED NOT NULL,
   `id_role` int(11) UNSIGNED DEFAULT NULL,
+  `id_guru` int(11) UNSIGNED DEFAULT NULL,
   `username` varchar(25) NOT NULL,
   `password` varchar(255) NOT NULL,
   `email` varchar(30) NOT NULL,
@@ -448,8 +450,10 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id_users`, `id_role`, `username`, `password`, `email`, `nama_lengkap`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, 'adingrh', '$2y$10$gE17VIq39B60Lcv6R0GfvOa7svhg9tDGRbHGTlZm5L4Sym54/Nfjq', 'adi@gmail.com', 'Adi Nugroho', 'aktif', '2026-05-23 17:12:23', '2026-05-23 17:12:23');
+INSERT INTO `users` (`id_users`, `id_role`, `id_guru`, `username`, `password`, `email`, `nama_lengkap`, `status`, `created_at`, `updated_at`) VALUES
+(1, 1, NULL, 'adingrh', '$2y$10$gE17VIq39B60Lcv6R0GfvOa7svhg9tDGRbHGTlZm5L4Sym54/Nfjq', 'adi@gmail.com', 'Adi Nugroho', 'aktif', '2026-05-23 17:12:23', '2026-05-23 17:12:23'),
+(2, 4, 1, 'ahmadsurya', '$2y$10$7Yjgw3RewGjspqLveBVRk./nIYLR29mCYIlyGEdEQ21fvtqMoPyCS', 'ahmad@example.com', 'Ahmad Surya', 'aktif', '2026-05-30 15:15:00', '2026-05-30 15:15:00'),
+(3, 3, NULL, 'stafftu', '$2y$10$7Yjgw3RewGjspqLveBVRk./nIYLR29mCYIlyGEdEQ21fvtqMoPyCS', 'staff@example.com', 'Staff Tata Usaha', 'aktif', '2026-05-30 15:15:00', '2026-05-30 15:15:00');
 
 --
 -- Indexes for dumped tables
@@ -502,7 +506,8 @@ ALTER TABLE `kehadiran`
 --
 ALTER TABLE `kelas`
   ADD PRIMARY KEY (`id_kelas`),
-  ADD KEY `kelas_id_guru_foreign` (`id_guru`),
+  ADD UNIQUE KEY `kelas_id_guru_unique` (`id_guru`),
+  ADD UNIQUE KEY `kelas_nama_kelas_unique` (`nama_kelas`),
   ADD KEY `id_pendidikan` (`id_pendidikan`),
   ADD KEY `id_pendidikan_2` (`id_pendidikan`);
 
@@ -576,7 +581,8 @@ ALTER TABLE `role`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id_users`),
-  ADD KEY `id_role` (`id_role`);
+  ADD KEY `id_role` (`id_role`),
+  ADD KEY `id_guru` (`id_guru`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -688,7 +694,7 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_users` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_users` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
@@ -743,7 +749,8 @@ ALTER TABLE `perkembangan_murid`
 -- Constraints for table `users`
 --
 ALTER TABLE `users`
-  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`id_role`) REFERENCES `role` (`id_role`);
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`id_role`) REFERENCES `role` (`id_role`),
+  ADD CONSTRAINT `users_ibfk_2` FOREIGN KEY (`id_guru`) REFERENCES `guru` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

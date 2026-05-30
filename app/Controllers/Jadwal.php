@@ -20,8 +20,17 @@ class Jadwal extends BaseController
     {
         $id_kelas = $this->request->getGet('kelas');
 
+        if (strtolower((string) session('role')) === 'guru') {
+            $assignedKelas = $this->kelasModel->where('id_guru', session('id_guru'))->first();
+            $myKelasId = $assignedKelas ? (int) $assignedKelas['id_kelas'] : 0;
+            $id_kelas = $myKelasId;
+            $kelasList = $this->kelasModel->where('id_kelas', $myKelasId)->findAll();
+        } else {
+            $kelasList = $this->kelasModel->findAll();
+        }
+
         $data = [
-            'kelas_list' => $this->kelasModel->findAll(),
+            'kelas_list' => $kelasList,
             'id_kelas_selected' => $id_kelas
         ];
 
@@ -34,8 +43,16 @@ class Jadwal extends BaseController
 
     public function tambah()
     {
+        if (strtolower((string) session('role')) === 'guru') {
+            $assignedKelas = $this->kelasModel->where('id_guru', session('id_guru'))->first();
+            $myKelasId = $assignedKelas ? (int) $assignedKelas['id_kelas'] : 0;
+            $kelasList = $this->kelasModel->where('id_kelas', $myKelasId)->findAll();
+        } else {
+            $kelasList = $this->kelasModel->findAll();
+        }
+
         $data = [
-            'kelas_list' => $this->kelasModel->findAll(),
+            'kelas_list' => $kelasList,
             'hari_list' => ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu']
         ];
 
@@ -44,8 +61,18 @@ class Jadwal extends BaseController
 
     public function simpan()
     {
+        $id_kelas = $this->request->getPost('id_kelas');
+
+        if (strtolower((string) session('role')) === 'guru') {
+            $assignedKelas = $this->kelasModel->where('id_guru', session('id_guru'))->first();
+            $myKelasId = $assignedKelas ? (int) $assignedKelas['id_kelas'] : 0;
+            if ((int)$id_kelas !== $myKelasId) {
+                return redirect()->back()->with('error', 'Anda tidak diperbolehkan menambah jadwal untuk kelas lain.');
+            }
+        }
+
         $data = [
-            'id_kelas' => $this->request->getPost('id_kelas'),
+            'id_kelas' => $id_kelas,
             'hari' => $this->request->getPost('hari'),
             'jam_masuk' => $this->request->getPost('jam_masuk'),
             'jam_keluar' => $this->request->getPost('jam_keluar'),
@@ -62,9 +89,23 @@ class Jadwal extends BaseController
 
     public function edit($id)
     {
+        $jadwal = $this->jadwalModel->find($id);
+
+        if (strtolower((string) session('role')) === 'guru') {
+            $assignedKelas = $this->kelasModel->where('id_guru', session('id_guru'))->first();
+            $myKelasId = $assignedKelas ? (int) $assignedKelas['id_kelas'] : 0;
+
+            if (!$jadwal || (int)$jadwal['id_kelas'] !== $myKelasId) {
+                return redirect()->to('/jadwal')->with('error', 'Anda tidak memiliki akses ke jadwal kelas ini.');
+            }
+            $kelasList = $this->kelasModel->where('id_kelas', $myKelasId)->findAll();
+        } else {
+            $kelasList = $this->kelasModel->findAll();
+        }
+
         $data = [
-            'jadwal' => $this->jadwalModel->find($id),
-            'kelas_list' => $this->kelasModel->findAll(),
+            'jadwal' => $jadwal,
+            'kelas_list' => $kelasList,
             'hari_list' => ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu']
         ];
 
@@ -77,8 +118,22 @@ class Jadwal extends BaseController
 
     public function update($id)
     {
+        $jadwal = $this->jadwalModel->find($id);
+
+        if (strtolower((string) session('role')) === 'guru') {
+            $assignedKelas = $this->kelasModel->where('id_guru', session('id_guru'))->first();
+            $myKelasId = $assignedKelas ? (int) $assignedKelas['id_kelas'] : 0;
+
+            if (!$jadwal || (int)$jadwal['id_kelas'] !== $myKelasId) {
+                return redirect()->to('/jadwal')->with('error', 'Anda tidak memiliki akses ke jadwal kelas ini.');
+            }
+            $id_kelas = $myKelasId;
+        } else {
+            $id_kelas = $this->request->getPost('id_kelas');
+        }
+
         $data = [
-            'id_kelas' => $this->request->getPost('id_kelas'),
+            'id_kelas' => $id_kelas,
             'hari' => $this->request->getPost('hari'),
             'jam_masuk' => $this->request->getPost('jam_masuk'),
             'jam_keluar' => $this->request->getPost('jam_keluar'),
@@ -95,6 +150,17 @@ class Jadwal extends BaseController
 
     public function hapus($id)
     {
+        $jadwal = $this->jadwalModel->find($id);
+
+        if (strtolower((string) session('role')) === 'guru') {
+            $assignedKelas = $this->kelasModel->where('id_guru', session('id_guru'))->first();
+            $myKelasId = $assignedKelas ? (int) $assignedKelas['id_kelas'] : 0;
+
+            if (!$jadwal || (int)$jadwal['id_kelas'] !== $myKelasId) {
+                return redirect()->to('/jadwal')->with('error', 'Anda tidak memiliki akses ke jadwal kelas ini.');
+            }
+        }
+
         if ($this->jadwalModel->delete($id)) {
             return redirect()->to('/jadwal')->with('success', 'Jadwal berhasil dihapus');
         }

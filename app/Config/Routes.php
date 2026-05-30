@@ -26,14 +26,22 @@ $routes->post('/auth/login', 'Auth::login', ['filter' => 'guest']);
 $routes->get('/logout', 'Auth::logout', ['filter' => 'auth']);
 $routes->post('/auth/logout', 'Auth::logout', ['filter' => 'auth']);
 
-$allRoles = ['filter' => 'role:SuperAdmin,Admin,Staff'];
-$adminRoles = ['filter' => 'role:SuperAdmin,Admin'];
+$dashboardRoles     = ['filter' => 'role:Administrator,Admin,Guru,Staff'];
+$muridGuruKelasRoles = ['filter' => 'role:Administrator,Admin,Staff'];
+$pendidikanRoles    = ['filter' => 'role:Administrator,Admin'];
+$pendaftaranRoles   = ['filter' => 'role:Administrator,Admin,Staff'];
+$kehadiranRoles     = ['filter' => 'role:Administrator,Admin,Guru'];
+$aktivitasRoles     = ['filter' => 'role:Administrator,Admin,Guru'];
+$orangTuaRoles      = ['filter' => 'role:Administrator,Admin'];
+$jadwalRoles        = ['filter' => 'role:Administrator,Admin,Guru'];
+$pengumumanRoles    = ['filter' => 'role:Administrator,Admin,Staff'];
+$liburRoles         = ['filter' => 'role:Administrator,Admin,Guru,Staff'];
 
 
 // =================================================================
 // 3. AREA DASHBOARD GURU / ADMIN INTERNAL (Dari branch dashboard-porto)
 // =================================================================
-$routes->group('admin', $allRoles, function($routes) {
+$routes->group('admin', $dashboardRoles, function($routes) {
     $routes->get('dashboard', 'Admin::index');
     $routes->post('saveSiswa', 'Dashboard::saveSiswa');
     $routes->get('deleteSiswa/(:num)', 'Dashboard::deleteSiswa/$1');
@@ -44,92 +52,92 @@ $routes->group('admin', $allRoles, function($routes) {
 // =================================================================
 // 4. AREA ADMIN MANAJEMEN DATA (Dari hasil merge dashboard)
 // =================================================================
-$routes->get('/admin', 'Admin::index', $allRoles);
-$routes->get('admin/pendaftaran', 'Admin::pendaftaran', $adminRoles);
+$routes->get('/admin', 'Admin::index', $dashboardRoles);
+$routes->get('admin/pendaftaran', 'Admin::pendaftaran', $pendaftaranRoles);
 
 // Murid
-$routes->get('murid', 'Murid::index', $adminRoles);
-$routes->get('murid/tambah', 'Murid::tambah', $adminRoles);
-$routes->post('murid/simpan', 'Murid::simpan', $adminRoles);
-$routes->get('murid/detail/(:num)', 'Murid::detail/$1', $adminRoles);
-$routes->get('murid/edit/(:num)', 'Murid::edit/$1', $adminRoles);
-$routes->post('murid/update/(:num)', 'Murid::update/$1', $adminRoles);
-$routes->get('murid/hapus/(:num)', 'Murid::hapus/$1', $adminRoles);
+$routes->get('murid', 'Murid::index', $muridGuruKelasRoles);
+$routes->get('murid/tambah', 'Murid::tambah', $muridGuruKelasRoles);
+$routes->post('murid/simpan', 'Murid::simpan', $muridGuruKelasRoles);
+$routes->get('murid/detail/(:num)', 'Murid::detail/$1', $muridGuruKelasRoles);
+$routes->get('murid/edit/(:num)', 'Murid::edit/$1', $muridGuruKelasRoles);
+$routes->post('murid/update/(:num)', 'Murid::update/$1', $muridGuruKelasRoles);
+$routes->get('murid/hapus/(:num)', 'Murid::hapus/$1', $muridGuruKelasRoles);
 
 // GURU
-$routes->get('/guru', 'Guru::index', $adminRoles);
-$routes->get('/guru/tambah', 'Guru::tambah', $adminRoles);
-$routes->post('/guru/simpan', 'Guru::simpan', $adminRoles);
-$routes->get('guru/detail/(:num)', 'Guru::detail/$1', $adminRoles);
-$routes->get('/guru/edit/(:num)', 'Guru::edit/$1', $adminRoles);
-$routes->post('/guru/update/(:num)', 'Guru::update/$1', $adminRoles);
-$routes->get('/guru/hapus/(:num)', 'Guru::hapus/$1', $adminRoles);
+$routes->get('/guru', 'Guru::index', $muridGuruKelasRoles);
+$routes->get('/guru/tambah', 'Guru::tambah', $muridGuruKelasRoles);
+$routes->post('/guru/simpan', 'Guru::simpan', $muridGuruKelasRoles);
+$routes->get('guru/detail/(:num)', 'Guru::detail/$1', $muridGuruKelasRoles);
+$routes->get('/guru/edit/(:num)', 'Guru::edit/$1', $muridGuruKelasRoles);
+$routes->post('/guru/update/(:num)', 'Guru::update/$1', $muridGuruKelasRoles);
+$routes->get('/guru/hapus/(:num)', 'Guru::hapus/$1', $muridGuruKelasRoles);
 
 // KELAS
-$routes->get('/kelas', 'Kelas::index', $adminRoles);
-$routes->get('/kelas/tambah', 'Kelas::tambah', $adminRoles);
-$routes->post('/kelas/simpan', 'Kelas::simpan', $adminRoles);
-$routes->get('/kelas/edit/(:num)', 'Kelas::edit/$1', $adminRoles);
-$routes->post('/kelas/update/(:num)', 'Kelas::update/$1', $adminRoles);
-$routes->get('/kelas/hapus/(:num)', 'Kelas::hapus/$1', $adminRoles);
-$routes->get('kelas/getGuru/(:num)', 'Kelas::getGuru/$1', $adminRoles);
+$routes->get('/kelas', 'Kelas::index', $muridGuruKelasRoles);
+$routes->get('/kelas/tambah', 'Kelas::tambah', $muridGuruKelasRoles);
+$routes->post('/kelas/simpan', 'Kelas::simpan', $muridGuruKelasRoles);
+$routes->get('/kelas/edit/(:num)', 'Kelas::edit/$1', $muridGuruKelasRoles);
+$routes->post('/kelas/update/(:num)', 'Kelas::update/$1', $muridGuruKelasRoles);
+$routes->get('/kelas/hapus/(:num)', 'Kelas::hapus/$1', $muridGuruKelasRoles);
+$routes->get('kelas/getGuru/(:num)', 'Kelas::getGuru/$1', $muridGuruKelasRoles);
 
 // PENDIDIKAN
-$routes->get('/pendidikan', 'Pendidikan::index', $adminRoles);
-$routes->get('/pendidikan/tambah', 'Pendidikan::tambah', $adminRoles);
-$routes->post('/pendidikan/simpan', 'Pendidikan::simpan', $adminRoles);
-$routes->get('/pendidikan/edit/(:num)', 'Pendidikan::edit/$1', $adminRoles);
-$routes->post('/pendidikan/update/(:num)', 'Pendidikan::update/$1', $adminRoles);
-$routes->get('/pendidikan/hapus/(:num)', 'Pendidikan::hapus/$1', $adminRoles);
+$routes->get('/pendidikan', 'Pendidikan::index', $pendidikanRoles);
+$routes->get('/pendidikan/tambah', 'Pendidikan::tambah', $pendidikanRoles);
+$routes->post('/pendidikan/simpan', 'Pendidikan::simpan', $pendidikanRoles);
+$routes->get('/pendidikan/edit/(:num)', 'Pendidikan::edit/$1', $pendidikanRoles);
+$routes->post('/pendidikan/update/(:num)', 'Pendidikan::update/$1', $pendidikanRoles);
+$routes->get('/pendidikan/hapus/(:num)', 'Pendidikan::hapus/$1', $pendidikanRoles);
 
 // KEHADIRAN (Attendance)
-$routes->get('/kehadiran', 'Kehadiran::index', $allRoles);
-$routes->get('/kehadiran/input', 'Kehadiran::input', $allRoles);
-$routes->post('/kehadiran/simpan', 'Kehadiran::simpan', $allRoles);
-$routes->get('/kehadiran/laporan', 'Kehadiran::laporan', $allRoles);
+$routes->get('/kehadiran', 'Kehadiran::index', $kehadiranRoles);
+$routes->get('/kehadiran/input', 'Kehadiran::input', $kehadiranRoles);
+$routes->post('/kehadiran/simpan', 'Kehadiran::simpan', $kehadiranRoles);
+$routes->get('/kehadiran/laporan', 'Kehadiran::laporan', $kehadiranRoles);
 
 // AKTIVITAS (Activities)
-$routes->get('/aktivitas', 'Aktivitas::index', $allRoles);
-$routes->get('/aktivitas/tambah', 'Aktivitas::tambah', $allRoles);
-$routes->post('/aktivitas/simpan', 'Aktivitas::simpan', $allRoles);
-$routes->get('/aktivitas/edit/(:num)', 'Aktivitas::edit/$1', $allRoles);
-$routes->post('/aktivitas/update/(:num)', 'Aktivitas::update/$1', $allRoles);
-$routes->get('/aktivitas/hapus/(:num)', 'Aktivitas::hapus/$1', $allRoles);
-$routes->get('/aktivitas/jadwal-kelas', 'Aktivitas::jadwalKelas', $allRoles);
-$routes->get('/aktivitas/tambah-jadwal-kelas', 'Aktivitas::tambahJadwalKelas', $allRoles);
-$routes->post('/aktivitas/simpan-jadwal-kelas', 'Aktivitas::simpanJadwalKelas', $allRoles);
+$routes->get('/aktivitas', 'Aktivitas::index', $aktivitasRoles);
+$routes->get('/aktivitas/tambah', 'Aktivitas::tambah', $aktivitasRoles);
+$routes->post('/aktivitas/simpan', 'Aktivitas::simpan', $aktivitasRoles);
+$routes->get('/aktivitas/edit/(:num)', 'Aktivitas::edit/$1', $aktivitasRoles);
+$routes->post('/aktivitas/update/(:num)', 'Aktivitas::update/$1', $aktivitasRoles);
+$routes->get('/aktivitas/hapus/(:num)', 'Aktivitas::hapus/$1', $aktivitasRoles);
+$routes->get('/aktivitas/jadwal-kelas', 'Aktivitas::jadwalKelas', $aktivitasRoles);
+$routes->get('/aktivitas/tambah-jadwal-kelas', 'Aktivitas::tambahJadwalKelas', $aktivitasRoles);
+$routes->post('/aktivitas/simpan-jadwal-kelas', 'Aktivitas::simpanJadwalKelas', $aktivitasRoles);
 
 // ORANG TUA (Parents)
-$routes->get('/orang-tua', 'OrangTua::index', $adminRoles);
-$routes->get('/orang-tua/tambah', 'OrangTua::tambah', $adminRoles);
-$routes->post('/orang-tua/simpan', 'OrangTua::simpan', $adminRoles);
-$routes->get('/orang-tua/detail/(:num)', 'OrangTua::detail/$1', $adminRoles);
-$routes->get('/orang-tua/edit/(:num)', 'OrangTua::edit/$1', $adminRoles);
-$routes->post('/orang-tua/update/(:num)', 'OrangTua::update/$1', $adminRoles);
-$routes->get('/orang-tua/hapus/(:num)', 'OrangTua::hapus/$1', $adminRoles);
+$routes->get('/orang-tua', 'OrangTua::index', $orangTuaRoles);
+$routes->get('/orang-tua/tambah', 'OrangTua::tambah', $orangTuaRoles);
+$routes->post('/orang-tua/simpan', 'OrangTua::simpan', $orangTuaRoles);
+$routes->get('/orang-tua/detail/(:num)', 'OrangTua::detail/$1', $orangTuaRoles);
+$routes->get('/orang-tua/edit/(:num)', 'OrangTua::edit/$1', $orangTuaRoles);
+$routes->post('/orang-tua/update/(:num)', 'OrangTua::update/$1', $orangTuaRoles);
+$routes->get('/orang-tua/hapus/(:num)', 'OrangTua::hapus/$1', $orangTuaRoles);
 
 // JADWAL KELAS (Class Schedule)
-$routes->get('/jadwal', 'Jadwal::index', $allRoles);
-$routes->get('/jadwal/tambah', 'Jadwal::tambah', $allRoles);
-$routes->post('/jadwal/simpan', 'Jadwal::simpan', $allRoles);
-$routes->get('/jadwal/edit/(:num)', 'Jadwal::edit/$1', $allRoles);
-$routes->post('/jadwal/update/(:num)', 'Jadwal::update/$1', $allRoles);
-$routes->get('/jadwal/hapus/(:num)', 'Jadwal::hapus/$1', $allRoles);
+$routes->get('/jadwal', 'Jadwal::index', $jadwalRoles);
+$routes->get('/jadwal/tambah', 'Jadwal::tambah', $jadwalRoles);
+$routes->post('/jadwal/simpan', 'Jadwal::simpan', $jadwalRoles);
+$routes->get('/jadwal/edit/(:num)', 'Jadwal::edit/$1', $jadwalRoles);
+$routes->post('/jadwal/update/(:num)', 'Jadwal::update/$1', $jadwalRoles);
+$routes->get('/jadwal/hapus/(:num)', 'Jadwal::hapus/$1', $jadwalRoles);
 
 // PENGUMUMAN (Announcements)
-$routes->get('/pengumuman', 'Pengumuman::index', $allRoles);
-$routes->get('/pengumuman/tambah', 'Pengumuman::tambah', $allRoles);
-$routes->post('/pengumuman/simpan', 'Pengumuman::simpan', $allRoles);
-$routes->get('/pengumuman/edit/(:num)', 'Pengumuman::edit/$1', $allRoles);
-$routes->post('/pengumuman/update/(:num)', 'Pengumuman::update/$1', $allRoles);
-$routes->post('/pengumuman/toggle-status/(:num)', 'Pengumuman::toggleStatus/$1', $allRoles);
-$routes->get('/pengumuman/hapus/(:num)', 'Pengumuman::hapus/$1', $allRoles);
+$routes->get('/pengumuman', 'Pengumuman::index', $pengumumanRoles);
+$routes->get('/pengumuman/tambah', 'Pengumuman::tambah', $pengumumanRoles);
+$routes->post('/pengumuman/simpan', 'Pengumuman::simpan', $pengumumanRoles);
+$routes->get('/pengumuman/edit/(:num)', 'Pengumuman::edit/$1', $pengumumanRoles);
+$routes->post('/pengumuman/update/(:num)', 'Pengumuman::update/$1', $pengumumanRoles);
+$routes->post('/pengumuman/toggle-status/(:num)', 'Pengumuman::toggleStatus/$1', $pengumumanRoles);
+$routes->get('/pengumuman/hapus/(:num)', 'Pengumuman::hapus/$1', $pengumumanRoles);
 
 // LIBUR SEKOLAH (School Holidays)
-$routes->get('/libur', 'Libur::index', $allRoles);
-$routes->get('/libur/tambah', 'Libur::tambah', $allRoles);
-$routes->post('/libur/simpan', 'Libur::simpan', $allRoles);
-$routes->get('/libur/edit/(:num)', 'Libur::edit/$1', $allRoles);
-$routes->post('/libur/update/(:num)', 'Libur::update/$1', $allRoles);
-$routes->get('/libur/hapus/(:num)', 'Libur::hapus/$1', $allRoles);
+$routes->get('/libur', 'Libur::index', $liburRoles);
+$routes->get('/libur/tambah', 'Libur::tambah', $liburRoles);
+$routes->post('/libur/simpan', 'Libur::simpan', $liburRoles);
+$routes->get('/libur/edit/(:num)', 'Libur::edit/$1', $liburRoles);
+$routes->post('/libur/update/(:num)', 'Libur::update/$1', $liburRoles);
+$routes->get('/libur/hapus/(:num)', 'Libur::hapus/$1', $liburRoles);
 

@@ -30,6 +30,12 @@ class Kehadiran extends BaseController
             $this->request->getGet('tahun')
         );
         $id_kelas = $this->request->getGet('kelas');
+
+        if (strtolower((string) session('role')) === 'guru') {
+            $assignedKelas = $this->kelasModel->where('id_guru', session('id_guru'))->first();
+            $id_kelas = $assignedKelas ? (int) $assignedKelas['id_kelas'] : 0;
+        }
+
         $kelasList = $this->getKelasList();
 
         $data = [
@@ -64,6 +70,12 @@ class Kehadiran extends BaseController
     {
         $tanggal = $this->resolveTanggal($this->request->getGet('tanggal'));
         $id_kelas = $this->request->getGet('kelas') ?? 0;
+
+        if (strtolower((string) session('role')) === 'guru') {
+            $assignedKelas = $this->kelasModel->where('id_guru', session('id_guru'))->first();
+            $id_kelas = $assignedKelas ? (int) $assignedKelas['id_kelas'] : 0;
+        }
+
         $kehadiranByMurid = [];
         $kelasList = $this->getKelasList();
 
@@ -102,6 +114,14 @@ class Kehadiran extends BaseController
 
         if (!$tanggal || !$id_kelas || !$kehadiran_data) {
             return redirect()->back()->with('error', 'Data tidak lengkap');
+        }
+
+        if (strtolower((string) session('role')) === 'guru') {
+            $assignedKelas = $this->kelasModel->where('id_guru', session('id_guru'))->first();
+            $myKelasId = $assignedKelas ? (int) $assignedKelas['id_kelas'] : 0;
+            if ((int)$id_kelas !== $myKelasId) {
+                return redirect()->back()->with('error', 'Anda tidak diperbolehkan memasukkan kehadiran untuk kelas lain.');
+            }
         }
 
         if ($this->isFutureDate($tanggal)) {
@@ -147,8 +167,29 @@ class Kehadiran extends BaseController
         $bulan = $this->request->getGet('bulan') ?? date('m');
         $tahun = $this->request->getGet('tahun') ?? date('Y');
 
+        if (strtolower((string) session('role')) === 'guru') {
+            $assignedKelas = $this->kelasModel->where('id_guru', session('id_guru'))->first();
+            $myKelasId = $assignedKelas ? (int) $assignedKelas['id_kelas'] : 0;
+            
+            $muridList = $this->muridModel->where('id_kelas', $myKelasId)->orderBy('nama_murid', 'ASC')->findAll();
+        } else {
+            $muridList = $this->muridModel->orderBy('nama_murid', 'ASC')->findAll();
+        }
+
+        if ($id_murid) {
+            $muridObj = $this->muridModel->find($id_murid);
+            if (strtolower((string) session('role')) === 'guru') {
+                $assignedKelas = $this->kelasModel->where('id_guru', session('id_guru'))->first();
+                $myKelasId = $assignedKelas ? (int) $assignedKelas['id_kelas'] : 0;
+                
+                if (!$muridObj || (int)$muridObj['id_kelas'] !== $myKelasId) {
+                    return redirect()->to(base_url('kehadiran/laporan'))->with('error', 'Anda tidak memiliki akses ke laporan murid kelas lain.');
+                }
+            }
+        }
+
         $data = [
-            'murid_list' => $this->muridModel->findAll(),
+            'murid_list' => $muridList,
             'id_murid_selected' => $id_murid,
             'bulan' => $bulan,
             'tahun' => $tahun
@@ -173,10 +214,15 @@ class Kehadiran extends BaseController
 
     private function getKelasList(): array
     {
-        return $this->kelasModel
+        $builder = $this->kelasModel
             ->select('kelas.*, guru.nama_guru')
-            ->join('guru', 'guru.id = kelas.id_guru', 'left')
-            ->orderBy('kelas.nama_kelas', 'ASC')
+            ->join('guru', 'guru.id = kelas.id_guru', 'left');
+
+        if (strtolower((string) session('role')) === 'guru') {
+            $builder->where('kelas.id_guru', session('id_guru'));
+        }
+
+        return $builder->orderBy('kelas.nama_kelas', 'ASC')
             ->findAll();
     }
 
