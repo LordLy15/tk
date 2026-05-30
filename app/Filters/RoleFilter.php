@@ -10,6 +10,17 @@ class RoleFilter implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
+        // 1. Check Maintenance Mode
+        $maintenanceFile = WRITEPATH . 'maintenance.json';
+        if (file_exists($maintenanceFile)) {
+            $maintenanceData = json_decode(file_get_contents($maintenanceFile), true);
+            if ((bool) ($maintenanceData['active'] ?? false)) {
+                if (strtolower((string) session()->get('role')) !== 'administrator') {
+                    return redirect()->to($this->url('maintenance'));
+                }
+            }
+        }
+
         if (! session()->get('isLoggedIn')) {
             session()->set('redirect_url', (string) $request->getUri());
 

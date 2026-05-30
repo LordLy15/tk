@@ -113,6 +113,16 @@ $currentUserRole = session('role') ?: 'User';
 
     <div class="container-fluid admin-content">
 
+        <?php 
+            $mFile = WRITEPATH . 'maintenance.json';
+            if (file_exists($mFile) && ($mData = json_decode(file_get_contents($mFile), true)) && ($mData['active'] ?? false)) : 
+        ?>
+            <div class="alert alert-warning border-warning d-flex align-items-center gap-2 mb-3 shadow-sm" role="alert" style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid #f59e0b;">
+                <i class="ti ti-alert-triangle fs-4 text-warning"></i>
+                <div class="small fw-semibold text-warning-emphasis">MODE MAINTENANCE AKTIF: Sistem saat ini sedang dalam pemeliharaan offline untuk peran lain.</div>
+            </div>
+        <?php endif; ?>
+
         <?php if (session()->getFlashdata('success')) : ?>
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 <?= esc(session()->getFlashdata('success')) ?>

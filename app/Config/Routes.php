@@ -36,16 +36,39 @@ $orangTuaRoles      = ['filter' => 'role:Administrator,Admin'];
 $jadwalRoles        = ['filter' => 'role:Administrator,Admin,Guru'];
 $pengumumanRoles    = ['filter' => 'role:Administrator,Admin,Staff'];
 $liburRoles         = ['filter' => 'role:Administrator,Admin,Guru,Staff'];
+$developerRoles     = ['filter' => 'role:Administrator'];
+$userManagementRoles = ['filter' => 'role:Administrator'];
 
 
 // =================================================================
 // 3. AREA DASHBOARD GURU / ADMIN INTERNAL (Dari branch dashboard-porto)
 // =================================================================
-$routes->group('admin', $dashboardRoles, function($routes) {
+$routes->group('admin', $dashboardRoles, function($routes) use ($developerRoles, $userManagementRoles) {
     $routes->get('dashboard', 'Admin::index');
     $routes->post('saveSiswa', 'Dashboard::saveSiswa');
     $routes->get('deleteSiswa/(:num)', 'Dashboard::deleteSiswa/$1');
     $routes->post('saveGuru', 'Dashboard::saveGuru');
+    
+    // DEVELOPER MAINTENANCE PANEL ROUTES (Nested under admin group, but restricted)
+    $routes->get('developer', 'Developer::index', $developerRoles);
+    $routes->post('developer/toggle-maintenance', 'Developer::toggleMaintenance', $developerRoles);
+    $routes->get('developer/clear-cache', 'Developer::clearCache', $developerRoles);
+    $routes->get('developer/clear-logs', 'Developer::clearLogs', $developerRoles);
+    $routes->get('developer/reset-db', 'Developer::resetDatabase', $developerRoles);
+    $routes->get('developer/logs', 'Developer::logs', $developerRoles);
+
+    // USER MANAGEMENT (CRUD)
+    $routes->get('users', 'Users::index', $userManagementRoles);
+    $routes->get('users/tambah', 'Users::tambah', $userManagementRoles);
+    $routes->post('users/simpan', 'Users::simpan', $userManagementRoles);
+    $routes->get('users/edit/(:num)', 'Users::edit/$1', $userManagementRoles);
+    $routes->post('users/update/(:num)', 'Users::update/$1', $userManagementRoles);
+    $routes->get('users/hapus/(:num)', 'Users::hapus/$1', $userManagementRoles);
+});
+
+// PUBLIC MAINTENANCE PAGE ROUTE
+$routes->get('maintenance', static function() {
+    return view('Developer/maintenance');
 });
 
 

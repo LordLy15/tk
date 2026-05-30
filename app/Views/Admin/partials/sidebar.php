@@ -13,7 +13,6 @@ $navGroups = [
             ['label' => 'Data Guru', 'url' => 'guru', 'icon' => 'ti-user', 'roles' => ['Administrator', 'Admin', 'Staff']],
             ['label' => 'Data Kelas', 'url' => 'kelas', 'icon' => 'ti-users', 'roles' => ['Administrator', 'Admin', 'Staff']],
             ['label' => 'Data Pendidikan', 'url' => 'pendidikan', 'icon' => 'ti-school', 'roles' => ['Administrator', 'Admin']],
-            // MENU PENDAFTARAN DITAMBAHKAN DI SINI
             ['label' => 'Data Pendaftaran', 'url' => 'admin/pendaftaran', 'icon' => 'ti-clipboard-list', 'roles' => ['Administrator', 'Admin', 'Staff']],
         ],
     ],
@@ -31,6 +30,13 @@ $navGroups = [
         'items' => [
             ['label' => 'Pengumuman', 'url' => 'pengumuman', 'icon' => 'ti-bell', 'roles' => ['Administrator', 'Admin', 'Staff']],
             ['label' => 'Libur Sekolah', 'url' => 'libur', 'icon' => 'ti-calendar-off', 'roles' => ['Administrator', 'Admin', 'Guru', 'Staff']],
+        ],
+    ],
+    [
+        'label' => 'Developer',
+        'items' => [
+            ['label' => 'Maintenance Panel', 'url' => 'admin/developer', 'icon' => 'ti-terminal-2', 'roles' => ['Administrator']],
+            ['label' => 'Manajemen Pengguna', 'url' => 'admin/users', 'icon' => 'ti-users-lock', 'roles' => ['Administrator']],
         ],
     ],
 ];

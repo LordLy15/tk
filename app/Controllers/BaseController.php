@@ -73,4 +73,19 @@ abstract class BaseController extends Controller
             unlink($path);
         }
     }
+
+    protected function logActivity(string $aksi, string $modul, ?string $deskripsi = null): void
+    {
+        $db = \Config\Database::connect();
+        if ($db->tableExists('log_aktivitas')) {
+            $db->table('log_aktivitas')->insert([
+                'id_user'    => session('id_users') ?: null,
+                'aksi'       => $aksi,
+                'modul'      => $modul,
+                'deskripsi'  => $deskripsi ?: 'Dilakukan melalui sistem panel admin',
+                'ip_address' => $this->request->getIPAddress(),
+                'created_at' => date('Y-m-d H:i:s')
+            ]);
+        }
+    }
 }
