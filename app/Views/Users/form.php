@@ -131,8 +131,11 @@
         const guruSelect = document.getElementById('id_guru');
 
         function toggleGuruSelect() {
-            // Guru role ID is 4
-            if (roleSelect.value === '4') {
+            // Deteksi berdasarkan teks nama role, bukan hardcode ID
+            const selectedText = roleSelect.options[roleSelect.selectedIndex]?.text?.trim().toLowerCase() ?? '';
+            const isGuru = selectedText.includes('guru');
+
+            if (isGuru) {
                 guruContainer.style.display = 'block';
                 guruSelect.setAttribute('required', 'required');
             } else {
@@ -143,8 +146,7 @@
         }
 
         roleSelect.addEventListener('change', toggleGuruSelect);
-        // Run once on load to handle validation errors back inputs
-        toggleGuruSelect();
+        toggleGuruSelect(); // jalankan saat load
     });
 </script>
 

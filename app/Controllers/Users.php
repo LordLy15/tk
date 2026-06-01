@@ -64,8 +64,10 @@ class Users extends BaseController
         ];
 
         if (! $this->validate($rules)) {
-            return redirect()->back()->withInput()->with('error', 'Lengkapi data formulir dengan benar.');
-        }
+        $errors = $this->validator->getErrors();
+        $errorMsg = implode(' | ', $errors);
+        return redirect()->back()->withInput()->with('error', $errorMsg);
+    }
 
         $post = $this->request->getPost();
         
@@ -73,17 +75,24 @@ class Users extends BaseController
         $id_role = (int) $post['id_role'];
         $id_guru = !empty($post['id_guru']) ? (int) $post['id_guru'] : null;
 
-        if ($id_role === 4) {
+            // Deteksi role Guru berdasarkan nama, bukan hardcode ID
+        $db = Database::connect();
+        $roleData = $db->table('role')->where('id_role', $id_role)->get()->getRowArray();
+        $isGuru = $roleData && strtolower(trim($roleData['nama_role'])) === 'guru';
+
+        if ($isGuru) {
             if (!$id_guru) {
-                return redirect()->back()->withInput()->with('error', 'Untuk peran Guru, Anda wajib memilih data Guru terkait.');
+                return redirect()->back()->withInput()
+                    ->with('error', 'Untuk peran Guru, Anda wajib memilih data Guru terkait.');
             }
-            // Check if this teacher is already linked to another user account
+            // Cek apakah guru sudah terhubung ke akun lain (pada insert cukup cek keberadaan saja)
             $existing = $this->userModel->where('id_guru', $id_guru)->first();
             if ($existing) {
-                return redirect()->back()->withInput()->with('error', 'Guru yang dipilih sudah terhubung dengan akun pengguna lain.');
+                return redirect()->back()->withInput()
+                    ->with('error', 'Guru yang dipilih sudah terhubung dengan akun pengguna lain.');
             }
         } else {
-            $id_guru = null; // Clear if not Guru
+            $id_guru = null;
         }
 
         $dataSave = [
@@ -150,17 +159,26 @@ class Users extends BaseController
         $id_role = (int) $post['id_role'];
         $id_guru = !empty($post['id_guru']) ? (int) $post['id_guru'] : null;
 
-        if ($id_role === 4) {
+                // Deteksi role Guru berdasarkan nama, bukan hardcode ID
+        $db = Database::connect();
+        $roleData = $db->table('role')->where('id_role', $id_role)->get()->getRowArray();
+        $isGuru = $roleData && strtolower(trim($roleData['nama_role'])) === 'guru';
+
+        if ($isGuru) {
             if (!$id_guru) {
-                return redirect()->back()->withInput()->with('error', 'Untuk peran Guru, Anda wajib memilih data Guru terkait.');
+                return redirect()->back()->withInput()
+                    ->with('error', 'Untuk peran Guru, Anda wajib memilih data Guru terkait.');
             }
-            // Check if this teacher is already linked to another user account
-            $existing = $this->userModel->where('id_guru', $id_guru)->where('id_users !=', $id)->first();
+            // Cek apakah guru sudah terhubung ke akun lain
+            $existing = $this->userModel->where('id_guru', $id_guru)
+                             ->where('id_users !=', $id)
+                             ->first();
             if ($existing) {
-                return redirect()->back()->withInput()->with('error', 'Guru yang dipilih sudah terhubung dengan akun pengguna lain.');
+                return redirect()->back()->withInput()
+                    ->with('error', 'Guru yang dipilih sudah terhubung dengan akun pengguna lain.');
             }
         } else {
-            $id_guru = null; // Clear if not Guru
+            $id_guru = null;
         }
 
         $dataUpdate = [
