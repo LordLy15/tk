@@ -45,8 +45,8 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="bg-white border rounded-4 d-flex align-items-center justify-content-center shadow-sm" style="height: 320px;">
-                    <span class="fw-bold text-secondary">GAMBAR VISI MISI</span>
+                <div class="bg-white border rounded-4 shadow-sm overflow-hidden" style="height: 320px;">
+                    <img src="../public/assets/images/foto-guru.jpeg" class="w-100 h-100" style="object-fit: cover;" alt="Ilustrasi Visi Misi: Anak-anak aktif dan cerdas">
                 </div>
             </div>
         </div>
