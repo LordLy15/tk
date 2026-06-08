@@ -23,6 +23,10 @@ $navGroups = [
             ['label' => 'Aktivitas', 'url' => 'aktivitas', 'icon' => 'ti-target', 'roles' => ['Administrator', 'Admin', 'Guru']],
             ['label' => 'Orang Tua', 'url' => 'orang-tua', 'icon' => 'ti-users-group', 'roles' => ['Administrator', 'Admin']],
             ['label' => 'Jadwal Kelas', 'url' => 'jadwal', 'icon' => 'ti-calendar', 'roles' => ['Administrator', 'Admin', 'Guru']],
+            ['label' => 'Akun Orang Tua', 'url' => 'admin/spay-orang-tua', 'icon' => 'ti-user-check', 'roles' => ['Administrator', 'Admin']],
+            ['label' => 'Tagihan Pembayaran', 'url' => 'admin/spay-tagihan', 'icon' => 'ti-receipt', 'roles' => ['Administrator', 'Admin']],
+            ['label' => 'Verifikasi Pembayaran', 'url' => 'admin/verifikasi-pembayaran', 'icon' => 'ti-credit-card', 'roles' => ['Administrator', 'Admin']],
+            ['label' => 'Manajemen E-Book', 'url' => 'admin/ebook', 'icon' => 'ti-book', 'roles' => ['Administrator', 'Admin']],
         ],
     ],
     [

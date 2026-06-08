@@ -40,6 +40,7 @@ class Filters extends BaseFilters
         'auth'          => AuthFilter::class,
         'guest'         => GuestFilter::class,
         'role'          => RoleFilter::class,
+        'orangtuaauth'  => \App\Filters\OrangTuaAuthFilter::class,
     ];
 
     /**

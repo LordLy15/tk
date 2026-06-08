@@ -164,3 +164,69 @@ $routes->get('/libur/edit/(:num)', 'Libur::edit/$1', $liburRoles);
 $routes->post('/libur/update/(:num)', 'Libur::update/$1', $liburRoles);
 $routes->get('/libur/hapus/(:num)', 'Libur::hapus/$1', $liburRoles);
 
+
+// ============================================================
+// ORANG TUA — Auth & Pembayaran
+// ============================================================
+$routes->group('orangtua', function($routes) {
+    // Public (tidak perlu login)
+    $routes->get('login',  'OrangTua\AuthController::login');
+    $routes->post('login', 'OrangTua\AuthController::loginProses');
+    $routes->get('logout', 'OrangTua\AuthController::logout');
+
+    // Protected (harus login orang tua)
+    $routes->group('', ['filter' => 'orangtuaauth'], function($routes) {
+        $routes->get('dashboard',              'OrangTua\PembayaranController::dashboard');
+        $routes->get('pembayaran',             'OrangTua\PembayaranController::index');
+        $routes->get('pembayaran/(:num)',      'OrangTua\PembayaranController::detail/$1');
+        $routes->post('pembayaran/upload/(:num)', 'OrangTua\PembayaranController::uploadBukti/$1');
+    });
+});
+
+// ============================================================
+// ADMIN — Verifikasi Pembayaran & CRUD E-Book
+// ============================================================
+$verifikasiRoles = ['filter' => 'role:Administrator,Admin'];
+$ebookRoles = ['filter' => 'role:Administrator,Admin'];
+
+$routes->group('admin/verifikasi-pembayaran', $verifikasiRoles, function($routes) {
+    $routes->get('/',              'Admin\VerifikasiPembayaranController::index');
+    $routes->get('(:num)',        'Admin\VerifikasiPembayaranController::detail/$1');
+    $routes->post('proses/(:num)','Admin\VerifikasiPembayaranController::proses/$1');
+});
+
+$routes->group('admin/ebook', $ebookRoles, function($routes) {
+    $routes->get('/',            'Admin\EbookController::index');
+    $routes->get('tambah',       'Admin\EbookController::tambah');
+    $routes->post('simpan',      'Admin\EbookController::simpan');
+    $routes->get('edit/(:num)', 'Admin\EbookController::edit/$1');
+    $routes->post('update/(:num)','Admin\EbookController::update/$1');
+    $routes->get('hapus/(:num)', 'Admin\EbookController::hapus/$1');
+});
+
+// Akun Orang Tua untuk Pembayaran
+$routes->group('admin/spay-orang-tua', $verifikasiRoles, function($routes) {
+    $routes->get('/',              'Admin\SpayOrangTuaController::index');
+    $routes->get('tambah',       'Admin\SpayOrangTuaController::tambah');
+    $routes->post('simpan',      'Admin\SpayOrangTuaController::simpan');
+    $routes->get('edit/(:num)', 'Admin\SpayOrangTuaController::edit/$1');
+    $routes->post('update/(:num)','Admin\SpayOrangTuaController::update/$1');
+    $routes->get('hapus/(:num)', 'Admin\SpayOrangTuaController::hapus/$1');
+});
+
+// Tagihan Pembayaran
+$routes->group('admin/spay-tagihan', $verifikasiRoles, function($routes) {
+    $routes->get('/',              'Admin\SpayTagihanController::index');
+    $routes->get('tambah',       'Admin\SpayTagihanController::tambah');
+    $routes->post('simpan',      'Admin\SpayTagihanController::simpan');
+    $routes->get('edit/(:num)', 'Admin\SpayTagihanController::edit/$1');
+    $routes->post('update/(:num)','Admin\SpayTagihanController::update/$1');
+    $routes->get('hapus/(:num)', 'Admin\SpayTagihanController::hapus/$1');
+});
+
+// ============================================================
+// PUBLIC E-BOOK — Semua orang tua & siswa
+// ============================================================
+$routes->get('ebook',                    'Ebook\PublicEbookController::index');
+$routes->get('ebook/download/(:num)',    'Ebook\PublicEbookController::download/$1');
+
