@@ -1,0 +1,384 @@
+/* ============================================
+   TEMA UNGU - ORANG TUA DASHBOARD
+   ============================================ */
+
+:root {
+    --ot-primary: #8b5cf6;
+    --ot-primary-dark: #7c3aed;
+    --ot-primary-light: #a78bfa;
+    --ot-primary-glow: rgba(139, 92, 246, 0.25);
+    --ot-secondary: #f1f5f9;
+    --ot-accent: #f59e0b;
+    --ot-success: #10b981;
+    --ot-warning: #f59e0b;
+    --ot-danger: #ef4444;
+    --ot-text-dark: #1e293b;
+    --ot-text-muted: #64748b;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* Animation Classes */
+.anim-fade-in-up {
+    animation: fadeInUp 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+.anim-fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+    opacity: 0;
+}
+
+.anim-slide-in-left {
+    animation: slideInLeft 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+.anim-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+    opacity: 0;
+}
+
+.anim-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Delay Classes */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+
+/* ============================================
+   CARD STYLES
+   ============================================ */
+
+.ot-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.ot-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px var(--ot-primary-glow);
+}
+
+.ot-card-hero {
+    background: linear-gradient(135deg, var(--ot-primary) 0%, var(--ot-primary-dark) 100%);
+    color: #fff;
+    border: none;
+}
+
+.ot-card-hero:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 50px rgba(139, 92, 246, 0.4);
+}
+
+.ot-stat-card {
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.ot-stat-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.75rem;
+    font-size: 1.5rem;
+}
+
+.ot-stat-number {
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.ot-stat-label {
+    font-size: 0.875rem;
+    color: var(--ot-text-muted);
+    margin-top: 0.25rem;
+}
+
+/* ============================================
+   BADGE STYLES
+   ============================================ */
+
+.ot-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    gap: 0.35rem;
+}
+
+.ot-badge-pending {
+    background: rgba(245, 158, 11, 0.15);
+    color: #b45309;
+}
+
+.ot-badge-verified {
+    background: rgba(16, 185, 129, 0.15);
+    color: #047857;
+}
+
+.ot-badge-rejected {
+    background: rgba(239, 68, 68, 0.15);
+    color: #dc2626;
+}
+
+/* ============================================
+   BUTTON STYLES
+   ============================================ */
+
+.ot-btn-primary {
+    background: linear-gradient(135deg, var(--ot-primary) 0%, var(--ot-primary-dark) 100%);
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.ot-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px var(--ot-primary-glow);
+    color: #fff;
+}
+
+.ot-btn-secondary {
+    background: transparent;
+    color: var(--ot-primary);
+    border: 2px solid var(--ot-primary);
+    padding: 0.5rem 1.25rem;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.ot-btn-secondary:hover {
+    background: var(--ot-primary);
+    color: #fff;
+}
+
+/* ============================================
+   E-BOOK CARD
+   ============================================ */
+
+.ebook-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    transition: all 0.3s ease;
+    border: 1px solid #e2e8f0;
+}
+
+.ebook-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(139, 92, 246, 0.15);
+}
+
+.ebook-cover {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+}
+
+.ebook-placeholder {
+    width: 100%;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    color: #94a3b8;
+    font-size: 2.5rem;
+}
+
+/* ============================================
+   LOGIN PAGE
+   ============================================ */
+
+.ot-login-bg {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.08) 0%, rgba(167, 139, 250, 0.05) 50%, #f6f8fb 100%);
+    min-height: 100vh;
+}
+
+.ot-login-card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px -12px rgba(139, 92, 246, 0.15);
+    border: 1px solid rgba(139, 92, 246, 0.1);
+}
+
+.ot-login-input {
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 0.875rem 1rem;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.ot-login-input:focus {
+    border-color: var(--ot-primary);
+    box-shadow: 0 0 0 4px var(--ot-primary-glow);
+    outline: none;
+}
+
+.ot-login-btn {
+    background: linear-gradient(135deg, var(--ot-primary) 0%, var(--ot-primary-dark) 100%);
+    color: #fff;
+    border: none;
+    padding: 0.875rem 1.5rem;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.ot-login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px var(--ot-primary-glow);
+    color: #fff;
+}
+
+/* ============================================
+   TOPBAR ORANG TUA
+   ============================================ */
+
+.ot-topbar {
+    background: #fff;
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+    padding: 0.75rem 1.5rem;
+}
+
+.ot-topbar-brand {
+    font-weight: 700;
+    color: var(--ot-primary);
+    font-size: 1.125rem;
+}
+
+/* ============================================
+   TAGIHAN LIST ITEM
+   ============================================ */
+
+.tagihan-item {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.tagihan-item:hover {
+    border-color: var(--ot-primary-light);
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.1);
+}
+
+.status-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+/* ============================================
+   INFO BOX
+   ============================================ */
+
+.info-box {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .ot-stat-number {
+        font-size: 1.5rem;
+    }
+
+    .ot-card-hero {
+        padding: 1.5rem;
+    }
+
+    .ebook-cover, .ebook-placeholder {
+        height: 140px;
+    }
+}
