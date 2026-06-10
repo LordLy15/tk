@@ -30,13 +30,22 @@ class SpayPembayaranModel extends Model
             ->get()->getRowArray();
     }
 
-    public function getAllPembayaran()
+    public function getAllPembayaran($searchSiswa = null, $searchKelas = null)
     {
-        return $this->db->table('spay_pembayaran p')
+        $builder = $this->db->table('spay_pembayaran p')
             ->select('p.*, t.judul, t.nominal, ot.nama as nama_ortu, ot.nama_siswa, ot.kelas')
             ->join('spay_tagihan t', 't.id = p.tagihan_id')
-            ->join('spay_orang_tua ot', 'ot.id = p.orang_tua_id')
-            ->orderBy('p.created_at', 'DESC')
+            ->join('spay_orang_tua ot', 'ot.id = p.orang_tua_id');
+
+        if (!empty($searchSiswa)) {
+            $builder->like('ot.nama_siswa', $searchSiswa);
+        }
+
+        if (!empty($searchKelas)) {
+            $builder->where('ot.kelas', $searchKelas);
+        }
+
+        return $builder->orderBy('p.created_at', 'DESC')
             ->get()->getResultArray();
     }
 

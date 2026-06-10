@@ -270,83 +270,84 @@ $namaSiswa = session()->get('orangtua_nama_siswa') ?? '';
                 <?php endif; ?>
             </div>
 
-            <!-- Hero Card - Tagihan Aktif -->
+            <!-- Hero Card - Tagihan Aktif & Stats Section -->
             <div class="row mb-4">
-                <div class="col-12">
-                    <div class="ot-card ot-card-hero p-4 p-md-5 anim-fade-in-up delay-100">
-                        <div class="row align-items-center">
-                            <div class="col-md-8 mb-3 mb-md-0">
-                                <div class="d-flex align-items-center gap-3 mb-2">
-                                    <i class="bi bi-receipt" style="font-size: 2.5rem;"></i>
-                                    <div>
-                                        <h3 class="mb-0 fw-bold">Tagihan Aktif</h3>
-                                        <p class="mb-0">
-                                            <?= ($stats['pending_count'] ?? 0) ?> tagihan menunggu pembayaran
-                                        </p>
-                                    </div>
-                                </div>
+                <!-- Left: Tagihan Aktif -->
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="ot-card ot-card-hero p-4 d-flex flex-column anim-fade-in-up delay-100">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="ot-stat-icon" style="background: rgba(255, 255, 255, 0.18); color: #fff; width: 56px; height: 56px; border-radius: 14px; display: inline-flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 0;">
+                                <i class="bi bi-receipt"></i>
                             </div>
-                            <div class="col-md-4 text-md-end">
-                                <div class="mb-3">
-                                    <small class="opacity-75">Total Tagihan</small>
-                                    <h2 class="mb-0 fw-bold">
-                                        Rp <?= number_format($stats['pending'] ?? 0, 0, ',', '.') ?>
-                                    </h2>
-                                </div>
-                                <a href="<?= base_url('orangtua/pembayaran') ?>" class="ot-btn-primary">
-                                    <i class="bi bi-credit-card"></i>
-                                    Bayar Sekarang
-                                </a>
+                            <div>
+                                <h3 class="mb-0 fw-bold text-white" style="font-size: 1.5rem;">Tagihan Aktif</h3>
+                                <p class="mb-0 opacity-75 small text-white">
+                                    <?= ($stats['pending_count'] ?? 0) ?> tagihan menunggu pembayaran
+                                </p>
                             </div>
+                        </div>
+                        <div class="mt-3">
+                            <small class="opacity-75 d-block text-white mb-1" style="font-size: 0.875rem;">Total Tagihan</small>
+                            <h2 class="fw-bold text-white mb-0" style="font-size: 2.25rem; font-family: 'Plus Jakarta Sans', sans-serif;">
+                                Rp <?= number_format($stats['pending'] ?? 0, 0, ',', '.') ?>
+                            </h2>
+                        </div>
+                        <div class="mt-3">
+                            <a href="<?= base_url('orangtua/pembayaran') ?>" class="ot-btn-primary w-100 justify-content-center py-2.5" style="border-radius: 12px; font-size: 1rem; gap: 0.5rem; background: #8b5cf6; box-shadow: 0 4px 14px rgba(139, 92, 246, 0.4);">
+                                <i class="bi bi-credit-card"></i>
+                                Bayar Sekarang
+                            </a>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Stats Cards -->
-            <div class="row mb-4">
-                <div class="col-6 col-lg-3 mb-3">
-                    <div class="ot-card ot-stat-card anim-fade-in-up delay-200">
-                        <div class="ot-stat-icon" style="background: rgba(139, 92, 246, 0.15); color: var(--ot-primary);">
-                            <i class="bi bi-file-earmark-text"></i>
+                <!-- Right: Stats Cards -->
+                <div class="col-lg-6">
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <div class="ot-card ot-stat-card d-flex flex-column justify-content-center align-items-center anim-fade-in-up delay-200" style="padding: 0.75rem 0.5rem;">
+                                <div class="ot-stat-icon" style="background: rgba(139, 92, 246, 0.15); color: var(--ot-primary); margin-bottom: 0.25rem; width: 40px; height: 40px; font-size: 1.15rem; display: inline-flex; align-items: center; justify-content: center; border-radius: 10px;">
+                                    <i class="bi bi-file-earmark-text"></i>
+                                </div>
+                                <div class="ot-stat-number" style="color: var(--ot-primary); font-size: 1.35rem; line-height: 1.2;">
+                                    <?= ($stats['pending_count'] ?? 0) + ($stats['lunas_count'] ?? 0) ?>
+                                </div>
+                                <div class="ot-stat-label" style="font-size: 0.75rem; margin-top: 0.15rem;">Total Tagihan</div>
+                            </div>
                         </div>
-                        <div class="ot-stat-number" style="color: var(--ot-primary);">
-                            <?= ($stats['pending_count'] ?? 0) + ($stats['lunas_count'] ?? 0) ?>
+                        <div class="col-6">
+                            <div class="ot-card ot-stat-card d-flex flex-column justify-content-center align-items-center anim-fade-in-up delay-300" style="padding: 0.75rem 0.5rem;">
+                                <div class="ot-stat-icon" style="background: rgba(245, 158, 11, 0.15); color: var(--ot-warning); margin-bottom: 0.25rem; width: 40px; height: 40px; font-size: 1.15rem; display: inline-flex; align-items: center; justify-content: center; border-radius: 10px;">
+                                    <i class="bi bi-clock"></i>
+                                </div>
+                                <div class="ot-stat-number" style="color: var(--ot-warning); font-size: 1.35rem; line-height: 1.2;">
+                                    <?= $stats['pending_count'] ?? 0 ?>
+                                </div>
+                                <div class="ot-stat-label" style="font-size: 0.75rem; margin-top: 0.15rem;">Menunggu</div>
+                            </div>
                         </div>
-                        <div class="ot-stat-label">Total Tagihan</div>
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3 mb-3">
-                    <div class="ot-card ot-stat-card anim-fade-in-up delay-300">
-                        <div class="ot-stat-icon" style="background: rgba(245, 158, 11, 0.15); color: var(--ot-warning);">
-                            <i class="bi bi-clock"></i>
+                        <div class="col-6">
+                            <div class="ot-card ot-stat-card d-flex flex-column justify-content-center align-items-center anim-fade-in-up delay-400" style="padding: 0.75rem 0.5rem;">
+                                <div class="ot-stat-icon" style="background: rgba(16, 185, 129, 0.15); color: var(--ot-success); margin-bottom: 0.25rem; width: 40px; height: 40px; font-size: 1.15rem; display: inline-flex; align-items: center; justify-content: center; border-radius: 10px;">
+                                    <i class="bi bi-check-circle"></i>
+                                </div>
+                                <div class="ot-stat-number" style="color: var(--ot-success); font-size: 1.35rem; line-height: 1.2;">
+                                    <?= $stats['lunas_count'] ?? 0 ?>
+                                </div>
+                                <div class="ot-stat-label" style="font-size: 0.75rem; margin-top: 0.15rem;">Lunas</div>
+                            </div>
                         </div>
-                        <div class="ot-stat-number" style="color: var(--ot-warning);">
-                            <?= $stats['pending_count'] ?? 0 ?>
+                        <div class="col-6">
+                            <div class="ot-card ot-stat-card d-flex flex-column justify-content-center align-items-center anim-fade-in-up delay-500" style="padding: 0.75rem 0.5rem;">
+                                <div class="ot-stat-icon" style="background: rgba(139, 92, 246, 0.15); color: var(--ot-primary); margin-bottom: 0.25rem; width: 40px; height: 40px; font-size: 1.15rem; display: inline-flex; align-items: center; justify-content: center; border-radius: 10px;">
+                                    <i class="bi bi-wallet2"></i>
+                                </div>
+                                <div class="ot-stat-number" style="color: var(--ot-primary); font-size: 1.15rem; line-height: 1.2; word-break: break-all;">
+                                    Rp <?= number_format($stats['total'] ?? 0, 0, ',', '.') ?>
+                                </div>
+                                <div class="ot-stat-label" style="font-size: 0.75rem; margin-top: 0.15rem;">Total Keseluruhan</div>
+                            </div>
                         </div>
-                        <div class="ot-stat-label">Menunggu</div>
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3 mb-3">
-                    <div class="ot-card ot-stat-card anim-fade-in-up delay-400">
-                        <div class="ot-stat-icon" style="background: rgba(16, 185, 129, 0.15); color: var(--ot-success);">
-                            <i class="bi bi-check-circle"></i>
-                        </div>
-                        <div class="ot-stat-number" style="color: var(--ot-success);">
-                            <?= $stats['lunas_count'] ?? 0 ?>
-                        </div>
-                        <div class="ot-stat-label">Lunas</div>
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3 mb-3">
-                    <div class="ot-card ot-stat-card anim-fade-in-up delay-500">
-                        <div class="ot-stat-icon" style="background: rgba(139, 92, 246, 0.15); color: var(--ot-primary);">
-                            <i class="bi bi-wallet2"></i>
-                        </div>
-                        <div class="ot-stat-number" style="color: var(--ot-primary); font-size: 1.25rem;">
-                            Rp <?= number_format($stats['total'] ?? 0, 0, ',', '.') ?>
-                        </div>
-                        <div class="ot-stat-label">Total Keseluruhan</div>
                     </div>
                 </div>
             </div>

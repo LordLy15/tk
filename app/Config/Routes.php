@@ -32,7 +32,7 @@ $pendidikanRoles    = ['filter' => 'role:Administrator,Admin'];
 $pendaftaranRoles   = ['filter' => 'role:Administrator,Admin,Staff'];
 $kehadiranRoles     = ['filter' => 'role:Administrator,Admin,Guru'];
 $aktivitasRoles     = ['filter' => 'role:Administrator,Admin,Guru'];
-$orangTuaRoles      = ['filter' => 'role:Administrator,Admin'];
+$orangTuaRoles      = ['filter' => 'role:Administrator,Admin,Staff'];
 $jadwalRoles        = ['filter' => 'role:Administrator,Admin,Guru'];
 $pengumumanRoles    = ['filter' => 'role:Administrator,Admin,Staff'];
 $liburRoles         = ['filter' => 'role:Administrator,Admin,Guru,Staff'];
@@ -188,8 +188,8 @@ $routes->group('orangtua', function($routes) {
 // ============================================================
 // ADMIN — Verifikasi Pembayaran & CRUD E-Book
 // ============================================================
-$verifikasiRoles = ['filter' => 'role:Administrator,Admin'];
-$ebookRoles = ['filter' => 'role:Administrator,Admin'];
+$verifikasiRoles = ['filter' => 'role:Administrator,Admin,Staff'];
+$ebookRoles = ['filter' => 'role:Administrator,Admin,Staff'];
 
 $routes->group('admin/verifikasi-pembayaran', $verifikasiRoles, function($routes) {
     $routes->get('/',              'Admin\VerifikasiPembayaranController::index');
@@ -221,6 +221,7 @@ $routes->group('admin/spay-tagihan', $verifikasiRoles, function($routes) {
     $routes->get('/',              'Admin\SpayTagihanController::index');
     $routes->get('tambah',       'Admin\SpayTagihanController::tambah');
     $routes->post('simpan',      'Admin\SpayTagihanController::simpan');
+    $routes->get('get-orang-tua-by-kelas', 'Admin\SpayTagihanController::getOrangTuaByKelas');
     $routes->get('edit/(:num)', 'Admin\SpayTagihanController::edit/$1');
     $routes->post('update/(:num)','Admin\SpayTagihanController::update/$1');
     $routes->get('hapus/(:num)', 'Admin\SpayTagihanController::hapus/$1');

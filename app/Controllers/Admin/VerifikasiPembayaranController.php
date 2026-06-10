@@ -16,7 +16,23 @@ class VerifikasiPembayaranController extends BaseController
 
     public function index()
     {
-        $data['pembayaran'] = $this->model->getAllPembayaran();
+        $searchSiswa = $this->request->getGet('search_siswa');
+        $searchKelas = $this->request->getGet('search_kelas');
+
+        $data['pembayaran'] = $this->model->getAllPembayaran($searchSiswa, $searchKelas);
+        $data['search_siswa'] = $searchSiswa;
+        $data['search_kelas'] = $searchKelas;
+
+        // Get distinct classes for the filter dropdown
+        $db = \Config\Database::connect();
+        $data['kelas_list'] = $db->table('spay_orang_tua')
+            ->select('kelas')->distinct()
+            ->where('kelas IS NOT NULL')
+            ->where('kelas !=', '')
+            ->where('is_active', 1)
+            ->orderBy('kelas', 'ASC')
+            ->get()->getResultArray();
+
         return view('Admin/pembayaran/index', $data);
     }
 

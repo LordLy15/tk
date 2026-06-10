@@ -1,65 +1,145 @@
-<<<<<<< HEAD
-# CodeIgniter 4 Framework
+# Sistem Informasi Sekolah RA PERWANIDA (Management System)
 
-## What is CodeIgniter?
+Sistem Informasi Sekolah berbasis web untuk RA PERWANIDA (Taman Kanak-kanak). Aplikasi ini dibangun menggunakan framework **CodeIgniter 4**, HTML, Javascript, CSS, dan MySQL. Sistem ini mengelola data guru, murid, kehadiran, jadwal kelas, e-book perpustakaan, pengumuman, serta pembayaran SPP (SPay) wali murid.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+---
 
-This repository holds the distributable version of the framework.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+## 🚀 Fitur Utama
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+1. **Dashboard Khusus Multi-Role**:
+   - **Administrator/Staff TU**: Kelola seluruh data master (guru, murid, kelas, pengumuman, tagihan SPP, dll.).
+   - **Guru**: Manajemen kehadiran murid, pencatatan perkembangan harian/bulanan anak, dan jadwal mengajar.
+   - **Orang Tua**: Dashboard khusus (SPay) untuk memantau tagihan sekolah, upload bukti bayar, membaca pengumuman, dan e-book belajar anak.
+2. **Manajemen Guru & Murid**: Data biodata guru, data siswa (NISN), alamat, penempatan kelas, hingga foto profil.
+3. **Manajemen Kehadiran (Presensi)**: Absensi harian murid dengan status (Hadir, Sakit, Izin, Alpha).
+4. **Sebook Ebook (Perpustakaan Digital)**: Modul untuk mengunggah buku bacaan anak digital (PDF) berdasarkan kategori kelas.
+5. **SPay (Sistem Pembayaran Sekolah)**:
+   - Pengaturan tagihan SPP bulanan, biaya seragam, outing class, dll.
+   - Halaman wali murid untuk upload bukti transfer.
+   - Verifikasi bukti bayar oleh Administrator (Pending, Verified, Rejected).
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+---
 
-## Important Change with index.php
+## 🛠️ Persyaratan Sistem (Prerequisites)
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+Sebelum menjalankan project secara lokal, pastikan perangkat Anda telah terinstal:
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+- **PHP 8.2** atau versi yang lebih baru (aktifkan ekstensi `intl`, `mbstring`, `mysqli`, `curl`, `json` di file `php.ini` Anda).
+- **Web Server & Database**: [XAMPP](https://www.apachefriends.org/) (versi terbaru dengan PHP 8.2) atau [Laragon](https://laragon.org/).
+- **Composer** (opsional, jika ingin mengupdate dependensi vendor PHP).
+- **Web Browser** modern (Chrome, Edge, Firefox).
 
-**Please** read the user guide for a better explanation of how CI4 works!
+---
 
-## Repository Management
+## ⚙️ Langkah Instalasi & Konfigurasi Lokal
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+Ikuti langkah-langkah di bawah ini untuk menjalankan project pada PC/Laptop Anda:
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+### Langkah 1: Pindahkan/Klon Project ke Web Server Anda
+Pastikan folder project ini berada di direktori `htdocs` web server lokal Anda.
+- Contoh di Windows (XAMPP): `C:\xampp-baru\htdocs\tk` atau `C:\xampp\htdocs\tk`
 
-## Contributing
+### Langkah 2: Import Database MySQL
+1. Aktifkan modul **Apache** dan **MySQL** pada panel kontrol XAMPP Anda.
+2. Buka web browser Anda, kunjungi url [http://localhost/phpmyadmin](http://localhost/phpmyadmin).
+3. Buat database baru dengan nama `db_tk` atau `raperwan_admin` (sesuai selera).
+4. Pilih database baru tersebut, masuk ke tab **Import**.
+5. Klik **Choose File** / **Pilih File**, cari file `db_tk.sql` yang ada di root direktori project ini.
+6. Klik tombol **Import** di bagian bawah dan tunggu sampai proses import selesai.
 
-We welcome contributions from the community.
+### Langkah 3: Konfigurasi File Environment (`.env`)
+Salin atau edit file `.env` di root direktori project Anda. Ubah pengaturannya untuk environment lokal:
 
-Please read the [*Contributing to CodeIgniter*](https://github.com/codeigniter4/CodeIgniter4/blob/develop/CONTRIBUTING.md) section in the development repository.
+```env
+# 1. Ubah environment ke development untuk menampilkan halaman error jika terjadi bug
+CI_ENVIRONMENT = development
 
-## Server Requirements
+# 2. Sesuaikan baseURL sesuai dengan cara Anda menjalankan project (pilih salah satu):
+# Jika menggunakan Spark serve (Rekomendasi):
+app.baseURL = 'http://localhost:8080/'
+# Jika menggunakan default Apache/XAMPP:
+# app.baseURL = 'http://localhost/tk/'
 
-PHP version 8.2 or higher is required, with the following extensions installed:
+# 3. WAJIB ubah forceGlobalSecureRequests menjadi false untuk menghindari loop SSL (HTTPS) di local
+app.forceGlobalSecureRequests = false
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+# 4. Sesuaikan konfigurasi koneksi database Anda
+database.default.hostname = localhost
+database.default.database = db_tk (Sesuaikan dengan nama database yang Anda buat di phpmyadmin)
+database.default.username = root
+database.default.password = 
+database.default.DBDriver = MySQLi
+database.default.port = 3306
 
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - The end of life date for PHP 8.1 was December 31, 2025.
-> - If you are still using below PHP 8.2, you should upgrade immediately.
-> - The end of life date for PHP 8.2 will be December 31, 2026.
+# 5. Nonaktifkan atau komentari path session hosting lama agar menggunakan path default local
+# session.savePath = '/home/raperwan/public_html/session'
+```
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+---
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
-=======
-# tk
->>>>>>> 35437afaaa92735e473c1aac9e746dd3bcbcfbd7
+## 🏃 Cara Menjalankan Aplikasi
+
+Anda dapat menggunakan salah satu dari dua cara berikut untuk menjalankan aplikasi:
+
+### Cara A: Menggunakan CLI Spark Serve (Sangat Direkomendasikan)
+1. Buka terminal (Command Prompt / PowerShell / Git Bash) di direktori root project (`C:\xampp-baru\htdocs\tk`).
+2. Jalankan perintah berikut:
+   ```bash
+   php spark serve
+   ```
+3. Buka browser Anda dan akses alamat:
+   ```text
+   http://localhost:8080
+   ```
+
+### Cara B: Menggunakan Apache XAMPP Direct Access
+1. Simpan project Anda di direktori `htdocs` (misal: `C:\xampp\htdocs\tk`).
+2. Buka browser Anda dan akses alamat:
+   ```text
+   http://localhost/tk/
+   ```
+   *(Catatan: Project ini sudah dilengkapi front controller `index.php` pada tingkat root, sehingga Anda bisa langsung mengakses folder utama tanpa perlu memasukkan `/public` di URL)*
+
+---
+
+## 🔑 Data Akun Uji Coba (Default Credentials)
+
+Berdasarkan dump database (`db_tk.sql`), berikut adalah beberapa akun uji coba yang sudah siap digunakan:
+
+| Peran (Role) | Username / Email | Password default | Keterangan |
+|---|---|---|---|
+| **Administrator** | `adingrh` | *(Gunakan password Anda)* | Akun utama admin sekolah (Tabel `users`) |
+| **Guru** | `ahmadsurya` | *(Gunakan password Anda)* | Guru Kelas A (Tabel `users`) |
+| **Staff TU** | `stafftu` | *(Gunakan password Anda)* | Staff Tata Usaha (Tabel `users`) |
+| **Orang Tua / Wali** | `budi.santoso@email.com` | *(Gunakan password Anda)* | Dashboard Pembayaran SPP (Tabel `spay_orang_tua`) |
+| **Orang Tua / Wali** | `siti.rahayu@email.com` | *(Gunakan password Anda)* | Dashboard Pembayaran SPP (Tabel `spay_orang_tua`) |
+
+> [!NOTE]
+> Semua password dienkripsi menggunakan hashing Bcrypt (`password_hash` PHP). Jika Anda lupa password atau ingin membuat password baru untuk uji coba lokal, Anda dapat memperbarui kolom `password` pada tabel terkait menggunakan hash Bcrypt baru atau melakukan registrasi baru jika menu tersedia.
+
+---
+
+## 📁 Struktur Penting Direktori
+
+- `/app` : Folder inti logika aplikasi (Config, Controllers, Models, Views, Database).
+- `/public` : Aset publik (CSS, JS, Images, Uploads) dan entry point asli.
+- `/system` : Core file framework CodeIgniter 4 (jangan diubah).
+- `/writable` : Folder untuk menyimpan log, session lokal, cache, dan file unggahan sementara (memerlukan hak akses tulis/write permission).
+- `/db_tk.sql` : Dump database mentah untuk di-import.
+- `index.php` : Front controller di tingkat root untuk mempermudah routing hosting / Apache.
+- `spark` : CLI tools dari CodeIgniter 4 untuk menjalankan server local, migration, generator, dll.
+
+---
+
+## ⚠️ Troubleshooting Umum
+
+1. **Error: "Your PHP version must be 8.2 or higher..."**
+   - Pastikan PHP CLI dan PHP Apache Anda sudah versi 8.2+. Jalankan `php -v` di terminal untuk memeriksa versi PHP yang aktif di environment path Anda.
+2. **Error: "Database connection refused" atau sejenisnya**
+   - Pastikan MySQL di XAMPP/Laragon sudah aktif.
+   - Periksa kembali konfigurasi database di file `.env`. Pastikan username, database, dan password sudah benar.
+3. **Mengapa halaman redirect terus-menerus (Redirection Loop)?**
+   - Masalah ini terjadi karena `app.forceGlobalSecureRequests` bernilai `true` di file `.env`. Saat berjalan di localhost tanpa HTTPS (SSL), ini memicu redirection loop. Pastikan diubah menjadi `false` di local environment.
+4. **Session tidak berfungsi / Gagal login**
+   - Pastikan baris `session.savePath` milik server hosting di `.env` sudah dikomentari (`#`) atau dihapus, agar aplikasi menggunakan folder `writable/session` lokal.
+   - Pastikan folder `writable` memiliki izin tulis (tidak Write-Protected/Read-Only).

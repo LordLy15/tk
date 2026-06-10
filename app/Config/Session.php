@@ -32,7 +32,7 @@ class Session extends BaseConfig
      * The session cookie name, must contain only [0-9a-z_-] characters
      */
     public string $cookieName = 'ci_session';
-    public string $cookiePath = '/public';
+    public string $cookiePath = '/';
 
     /**
      * --------------------------------------------------------------------------
@@ -59,7 +59,7 @@ class Session extends BaseConfig
      *
      * IMPORTANT: You are REQUIRED to set a valid save path!
      */
-    public string $savePath = '/home/raperwan/public_html/public/writable/session';
+    public string $savePath = WRITEPATH . 'session';
 
     /**
      * --------------------------------------------------------------------------

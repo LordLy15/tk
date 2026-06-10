@@ -116,7 +116,7 @@ class Auth extends BaseController
 
     private function redirectForRole(string $role): string
     {
-        return base_url('public/admin');
+        return base_url('admin');
     }
 
     private function isSafeRedirect(mixed $url): bool
