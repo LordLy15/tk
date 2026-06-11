@@ -123,15 +123,16 @@
                 <?php if ($pembayaran['bukti_bayar']) : ?>
                     <?php $ext = strtolower(pathinfo($pembayaran['bukti_bayar'], PATHINFO_EXTENSION)); ?>
                     <?php if (in_array($ext, ['jpg', 'jpeg', 'png'])) : ?>
-                        <a href="<?= base_url('writable/uploads/bukti_bayar/' . $pembayaran['bukti_bayar']) ?>"
+                        <a href="<?= base_url('uploads/bukti_bayar/' . $pembayaran['bukti_bayar']) ?>"
                            target="_blank">
-                            <img src="<?= base_url('writable/uploads/bukti_bayar/' . $pembayaran['bukti_bayar']) ?>"
+                            <img src="<?= base_url('uploads/bukti_bayar/' . $pembayaran['bukti_bayar']) ?>"
                                  alt="Bukti Bayar"
-                                 class="img-fluid rounded">
+                                 class="img-fluid rounded shadow-sm border"
+                                 style="max-height: 450px; width: 100%; object-fit: contain;">
                         </a>
                     <?php else : ?>
-                        <a href="<?= base_url('writable/uploads/bukti_bayar/' . $pembayaran['bukti_bayar']) ?>"
-                           class="btn btn-outline-primary" target="_blank">
+                        <a href="<?= base_url('uploads/bukti_bayar/' . $pembayaran['bukti_bayar']) ?>"
+                           class="btn btn-outline-primary w-100" target="_blank">
                             <i class="ti ti-file-pdf me-2"></i> Lihat PDF
                         </a>
                     <?php endif; ?>

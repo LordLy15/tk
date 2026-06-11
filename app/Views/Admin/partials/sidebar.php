@@ -40,7 +40,7 @@ $navGroups = [
         'label' => 'Developer',
         'items' => [
             ['label' => 'Maintenance Panel', 'url' => 'admin/developer', 'icon' => 'ti-terminal-2', 'roles' => ['Administrator']],
-            ['label' => 'Manajemen Pengguna', 'url' => 'admin/users', 'icon' => 'ti-users-lock', 'roles' => ['Administrator']],
+            ['label' => 'Manajemen Pengguna', 'url' => 'admin/users', 'icon' => 'ti-user-cog', 'roles' => ['Administrator']],
         ],
     ],
 ];

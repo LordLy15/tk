@@ -10,12 +10,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root { --ot-primary: #8b5cf6; --ot-primary-dark: #7c3aed; }
-        body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: linear-gradient(135deg, rgba(139, 92, 246, 0.08) 0%, rgba(167, 139, 250, 0.05) 50%, #f6f8fb 100%); min-height: 100vh; }
-        .card-custom { background: #fff; border-radius: 20px; box-shadow: 0 25px 50px -12px rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.1); }
-        .form-control:focus { border-color: var(--ot-primary); box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.15); }
+        :root { --ot-primary: #27ae60; --ot-primary-dark: #219653; }
+        body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: linear-gradient(135deg, rgba(39, 174, 96, 0.08) 0%, rgba(46, 204, 113, 0.05) 50%, #f6f8fb 100%); min-height: 100vh; }
+        .card-custom { background: #fff; border-radius: 20px; box-shadow: 0 25px 50px -12px rgba(39, 174, 96, 0.15); border: 1px solid rgba(39, 174, 96, 0.1); }
+        .form-control:focus { border-color: var(--ot-primary); box-shadow: 0 0 0 4px rgba(39, 174, 96, 0.15); }
         .btn-primary-custom { background: linear-gradient(135deg, var(--ot-primary) 0%, var(--ot-primary-dark) 100%); color: #fff; border: none; padding: 0.875rem 1.5rem; border-radius: 10px; font-weight: 700; font-size: 1rem; transition: all 0.3s ease; width: 100%; }
-        .btn-primary-custom:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(139, 92, 246, 0.35); color: #fff; }
+        .btn-primary-custom:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(39, 174, 96, 0.35); color: #fff; }
     </style>
 </head>
 <body>
@@ -24,7 +24,7 @@
             <div class="col-12 col-sm-10 col-md-6 col-lg-5">
                 <div class="card-custom p-4 p-sm-5">
                     <div class="text-center mb-4">
-                        <img src="<?= base_url('assets/dashboard/images/logo-ra.svg') ?>" alt="Logo" width="60" height="60" class="mb-3">
+                        <img src="<?= base_url('assets/logo.png') ?>" alt="Logo" width="54" height="54" class="rounded-circle bg-light p-1 mb-3">
                         <h4 style="color: var(--ot-primary);">Ubah Password</h4>
                         <p class="text-muted">Ubah password akun Anda</p>
                     </div>

@@ -11,20 +11,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --ot-primary: #8b5cf6;
-            --ot-primary-dark: #7c3aed;
-            --ot-primary-light: #a78bfa;
+            --ot-primary: #27ae60;
+            --ot-primary-dark: #219653;
+            --ot-primary-light: #2ecc71;
         }
         body {
             font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.08) 0%, rgba(167, 139, 250, 0.05) 50%, #f6f8fb 100%);
+            background: linear-gradient(135deg, rgba(39, 174, 96, 0.08) 0%, rgba(46, 204, 113, 0.05) 50%, #f6f8fb 100%);
             min-height: 100vh;
         }
         .ot-login-card {
             background: #fff;
             border-radius: 20px;
-            box-shadow: 0 25px 50px -12px rgba(139, 92, 246, 0.15);
-            border: 1px solid rgba(139, 92, 246, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(39, 174, 96, 0.15);
+            border: 1px solid rgba(39, 174, 96, 0.1);
         }
         .ot-login-input {
             border: 2px solid #e2e8f0;
@@ -35,7 +35,7 @@
         }
         .ot-login-input:focus {
             border-color: var(--ot-primary);
-            box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.15);
+            box-shadow: 0 0 0 4px rgba(39, 174, 96, 0.15);
             outline: none;
         }
         .ot-login-btn {
@@ -51,7 +51,7 @@
         }
         .ot-login-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.35);
+            box-shadow: 0 10px 30px rgba(39, 174, 96, 0.35);
             color: #fff;
         }
         @keyframes fadeInUp {
@@ -76,10 +76,11 @@
                     <!-- Logo & Brand -->
                     <div class="text-center mb-4">
                         <div class="d-inline-flex align-items-center gap-3 mb-4">
-                            <img src="<?= base_url('assets/dashboard/images/logo-ra.svg') ?>"
+                            <img src="<?= base_url('assets/logo.png') ?>"
                                  alt="Logo RA Perwanida"
-                                 width="60"
-                                 height="60">
+                                 width="54"
+                                 height="54"
+                                 class="rounded-circle bg-light p-1">
                             <div class="text-start">
                                 <span class="fw-bold d-block" style="color: #1e293b; font-size: 1.25rem;">RA PERWANIDA</span>
                                 <small class="text-muted">TK PERWANIDA TEMPURSARI</small>

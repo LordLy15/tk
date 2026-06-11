@@ -14,7 +14,7 @@ class SpayPembayaranModel extends Model
     {
         $builder = $this->db->table('spay_tagihan t')
             ->select('t.*, p.status, p.bukti_bayar, p.id as pembayaran_id, p.created_at as bayar_created_at')
-            ->join('spay_pembayaran p', 'p.tagihan_id = t.id AND p.orang_tua_id = t.orang_tua_id', 'left')
+            ->join('spay_pembayaran p', 'p.id = (SELECT MAX(id) FROM spay_pembayaran WHERE tagihan_id = t.id AND orang_tua_id = t.orang_tua_id)', 'left')
             ->where('t.orang_tua_id', $orangTuaId);
         if ($status) $builder->where('p.status', $status);
         return $builder->orderBy('t.batas_bayar', 'ASC')->get()->getResultArray();
@@ -24,7 +24,7 @@ class SpayPembayaranModel extends Model
     {
         return $this->db->table('spay_tagihan t')
             ->select('t.*, p.status, p.bukti_bayar, p.catatan_admin, p.id as pembayaran_id, p.tanggal_bayar, p.verified_at')
-            ->join('spay_pembayaran p', 'p.tagihan_id = t.id', 'left')
+            ->join('spay_pembayaran p', 'p.id = (SELECT MAX(id) FROM spay_pembayaran WHERE tagihan_id = t.id)', 'left')
             ->where('t.id', $tagihanId)
             ->where('t.orang_tua_id', $orangTuaId)
             ->get()->getRowArray();
@@ -35,7 +35,8 @@ class SpayPembayaranModel extends Model
         $builder = $this->db->table('spay_pembayaran p')
             ->select('p.*, t.judul, t.nominal, ot.nama as nama_ortu, ot.nama_siswa, ot.kelas')
             ->join('spay_tagihan t', 't.id = p.tagihan_id')
-            ->join('spay_orang_tua ot', 'ot.id = p.orang_tua_id');
+            ->join('spay_orang_tua ot', 'ot.id = p.orang_tua_id')
+            ->where('p.id = (SELECT MAX(id) FROM spay_pembayaran WHERE tagihan_id = p.tagihan_id)');
 
         if (!empty($searchSiswa)) {
             $builder->like('ot.nama_siswa', $searchSiswa);

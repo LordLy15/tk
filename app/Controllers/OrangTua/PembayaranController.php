@@ -20,6 +20,9 @@ class PembayaranController extends BaseController
     public function dashboard()
     {
         $id = session()->get('orangtua_id');
+        $orangTuaModel = new \App\Models\SpayOrangTuaModel();
+        $data['orangtua'] = $orangTuaModel->find($id);
+
         $data['stats'] = $this->pembayaranModel->getStatsByOrangTua($id);
         $data['tagihan_aktif'] = $this->pembayaranModel->getTagihanByOrangTua($id, 'pending');
         $data['tagihan_terbaru'] = array_slice($this->pembayaranModel->getTagihanByOrangTua($id), 0, 3);
@@ -67,7 +70,11 @@ class PembayaranController extends BaseController
         }
 
         $newName = $file->getRandomName();
-        $file->move(WRITEPATH . 'uploads/bukti_bayar', $newName);
+        $dir = FCPATH . 'uploads/bukti_bayar';
+        if (!is_dir($dir)) {
+            mkdir($dir, 0777, true);
+        }
+        $file->move($dir, $newName);
 
         $this->pembayaranModel->simpanPembayaran([
             'tagihan_id'    => $tagihanId,

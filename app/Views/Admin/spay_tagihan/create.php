@@ -1,6 +1,35 @@
 <?= $this->extend('Admin/Dashboard') ?>
 
 <?= $this->section('content') ?>
+<style>
+.tipe-penerima-input:checked + .tipe-penerima-label {
+    border-color: #28a745 !important;
+    background-color: rgba(40, 167, 69, 0.08) !important;
+    color: #28a745 !important;
+}
+.tipe-penerima-label {
+    border: 2px solid #e2e8f0 !important;
+    background-color: #fff !important;
+    color: #495057 !important;
+    border-radius: 12px !important;
+    padding: 1.25rem 1rem !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.tipe-penerima-label:hover {
+    border-color: #cbd5e1 !important;
+    background-color: #f8fafc !important;
+}
+.tipe-penerima-label i {
+    font-size: 1.5rem;
+}
+</style>
+
 <div class="mb-4">
     <a href="<?= base_url('admin/spay-tagihan') ?>" class="btn btn-light mb-3">
         <i class="ti ti-arrow-left me-2"></i> Kembali
@@ -22,17 +51,25 @@
             <div class="col-md-6">
                 <div class="mb-3">
                     <label class="form-label fw-bold">Tipe Penerima *</label>
-                    <div class="d-flex gap-3">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="tipe_penerima" id="tipe_personal" value="personal" checked>
-                            <label class="form-check-label" for="tipe_personal">
-                                Per Orang Tua (Satu Siswa)
+                    <div class="row g-2">
+                        <div class="col-6">
+                            <input type="radio" class="btn-check tipe-penerima-input" name="tipe_penerima" id="tipe_personal" value="personal" autocomplete="off" checked>
+                            <label class="tipe-penerima-label" for="tipe_personal">
+                                <i class="ti ti-user mb-1"></i>
+                                <span class="fw-bold">Per Orang Tua</span>
+                                <small style="color: inherit; opacity: 0.75; font-size: 0.75rem;" class="text-center mt-1 d-none d-sm-block">
+                                    Satu siswa penerima
+                                </small>
                             </label>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="tipe_penerima" id="tipe_kelas" value="kelas">
-                            <label class="form-check-label" for="tipe_kelas">
-                                Per Kelas (Massal)
+                        <div class="col-6">
+                            <input type="radio" class="btn-check tipe-penerima-input" name="tipe_penerima" id="tipe_kelas" value="kelas" autocomplete="off">
+                            <label class="tipe-penerima-label" for="tipe_kelas">
+                                <i class="ti ti-users mb-1"></i>
+                                <span class="fw-bold">Per Kelas (Massal)</span>
+                                <small style="color: inherit; opacity: 0.75; font-size: 0.75rem;" class="text-center mt-1 d-none d-sm-block">
+                                    Seluruh siswa di kelas
+                                </small>
                             </label>
                         </div>
                     </div>
@@ -41,10 +78,11 @@
                 <!-- Tipe Personal Container -->
                 <div class="mb-3" id="container_personal">
                     <label class="form-label fw-bold">Orang Tua *</label>
+                    <?php $selectedOtId = service('request')->getGet('orang_tua_id'); ?>
                     <select name="orang_tua_id" id="orang_tua_id" class="form-select" required>
                         <option value="">-- Pilih Orang Tua --</option>
                         <?php foreach ($orang_tua_list as $ot) : ?>
-                            <option value="<?= $ot['id'] ?>">
+                            <option value="<?= $ot['id'] ?>" <?= ($selectedOtId == $ot['id']) ? 'selected' : '' ?>>
                                 <?= esc($ot['nama']) ?>
                                 <?php if (!empty($ot['nama_siswa'])) : ?>
                                     (<?= esc($ot['nama_siswa']) ?><?= !empty($ot['kelas']) ? ' - ' . esc($ot['kelas']) : '' ?>)
