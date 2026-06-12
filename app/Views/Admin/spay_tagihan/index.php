@@ -105,48 +105,62 @@
             }
             ?>
 
+            <style>
+                .collapse-chevron {
+                    transition: transform 0.2s ease-in-out;
+                }
+                .collapse-chevron:not(.collapsed) {
+                    transform: rotate(-180deg);
+                }
+            </style>
+
             <div class="accordion" id="accordionTagihan">
                 <?php $studentIdx = 0; foreach ($groupedTagihan as $otId => $group) : $studentIdx++; ?>
                     <div class="accordion-item border shadow-sm mb-3 rounded overflow-hidden">
-                        <h2 class="accordion-header" id="headingSiswa<?= $studentIdx ?>">
-                            <button class="accordion-button collapsed px-4 py-3 bg-white" type="button" 
-                                    data-bs-toggle="collapse" data-bs-target="#collapseSiswa<?= $studentIdx ?>" 
-                                    aria-expanded="false" aria-controls="collapseSiswa<?= $studentIdx ?>">
-                                <div class="d-flex align-items-center justify-content-between w-100 me-3 flex-wrap gap-2">
-                                    <div class="d-flex align-items-center gap-3">
-                                        <div class="bg-light text-primary rounded-circle d-flex align-items-center justify-content-center" 
-                                             style="width: 40px; height: 40px; background-color: #f3f4f6 !important;">
-                                            <i class="ti ti-user fs-5"></i>
-                                        </div>
-                                        <div>
-                                            <h6 class="mb-1 fw-bold text-dark" style="margin: 0; font-size: 0.95rem;">
-                                                <?= esc($group['nama_siswa']) ?>
-                                            </h6>
-                                            <div class="d-flex align-items-center gap-2 text-muted small mt-1">
-                                                <span class="badge bg-light text-dark border"><?= esc($group['kelas']) ?></span>
-                                                <span>• Ortu: <?= esc($group['nama_ortu']) ?></span>
-                                            </div>
-                                        </div>
+                        <div class="accordion-header d-flex align-items-center justify-content-between bg-white" id="headingSiswa<?= $studentIdx ?>">
+                            <!-- Click trigger area (everything except the rightmost button) -->
+                            <div class="flex-grow-1 px-4 py-3 d-flex align-items-center justify-content-between cursor-pointer collapsed" 
+                                 data-bs-toggle="collapse" data-bs-target="#collapseSiswa<?= $studentIdx ?>" 
+                                 aria-expanded="false" aria-controls="collapseSiswa<?= $studentIdx ?>"
+                                 style="user-select: none;">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="bg-light text-primary rounded-circle d-flex align-items-center justify-content-center" 
+                                         style="width: 40px; height: 40px; background-color: #f3f4f6 !important;">
+                                        <i class="ti ti-user fs-5"></i>
                                     </div>
-                                    <div class="text-md-end d-flex align-items-center gap-3">
-                                        <span class="badge bg-primary-subtle text-primary border border-primary-subtle rounded-pill px-2.5 py-1">
-                                            <?= count($group['items']) ?> Tagihan
-                                        </span>
-                                        <span class="fw-bold text-primary font-size-md me-1">
-                                            Total: Rp <?= number_format($group['total_nominal'], 0, ',', '.') ?>
-                                        </span>
-                                        <a href="<?= base_url('admin/spay-tagihan/tambah?orang_tua_id=' . $otId) ?>" 
-                                           class="btn btn-sm btn-primary d-inline-flex align-items-center gap-1"
-                                           onclick="event.stopPropagation();"
-                                           style="border-radius: 6px; padding: 0.35rem 0.75rem; font-size: 0.75rem;"
-                                           title="Tambah Tagihan untuk Siswa Ini">
-                                            <i class="ti ti-plus"></i>
-                                            <span class="d-none d-md-inline">Tambah Tagihan</span>
-                                        </a>
+                                    <div>
+                                        <h6 class="mb-1 fw-bold text-dark" style="margin: 0; font-size: 0.95rem;">
+                                            <?= esc($group['nama_siswa']) ?>
+                                        </h6>
+                                        <div class="d-flex align-items-center gap-2 text-muted small mt-1">
+                                            <span class="badge bg-light text-dark border"><?= esc($group['kelas']) ?></span>
+                                            <span>• Ortu: <?= esc($group['nama_ortu']) ?></span>
+                                        </div>
                                     </div>
                                 </div>
-                            </button>
-                        </h2>
+                                <div class="text-md-end d-flex align-items-center gap-3 pe-2">
+                                    <span class="badge bg-primary-subtle text-primary border border-primary-subtle rounded-pill px-2.5 py-1">
+                                        <?= count($group['items']) ?> Tagihan
+                                    </span>
+                                    <span class="fw-bold text-primary font-size-md">
+                                        Total: Rp <?= number_format($group['total_nominal'], 0, ',', '.') ?>
+                                    </span>
+                                </div>
+                            </div>
+                            <!-- Actions area -->
+                            <div class="pe-4 py-3 d-flex align-items-center gap-3 bg-white">
+                                <a href="<?= base_url('admin/spay-tagihan/tambah?orang_tua_id=' . $otId) ?>" 
+                                   class="btn btn-sm btn-primary d-inline-flex align-items-center gap-1"
+                                   style="border-radius: 6px; padding: 0.35rem 0.75rem; font-size: 0.75rem;"
+                                   title="Tambah Tagihan untuk Siswa Ini">
+                                    <i class="ti ti-plus"></i>
+                                    <span class="d-none d-md-inline">Tambah Tagihan</span>
+                                </a>
+                                <i class="ti ti-chevron-down fs-5 text-muted cursor-pointer transition-all collapse-chevron collapsed" 
+                                   data-bs-toggle="collapse" data-bs-target="#collapseSiswa<?= $studentIdx ?>"
+                                   style="user-select: none;"></i>
+                            </div>
+                        </div>
                         <div id="collapseSiswa<?= $studentIdx ?>" class="accordion-collapse collapse" 
                              aria-labelledby="headingSiswa<?= $studentIdx ?>" data-bs-parent="#accordionTagihan">
                             <div class="accordion-body bg-light-subtle p-3" style="background-color: #fafafa;">

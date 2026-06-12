@@ -105,7 +105,7 @@
                                    name="foto_murid"
                                    class="form-control"
                                    accept="image/jpeg,image/png,image/webp">
-                            <div class="form-hint">Format JPG, PNG, atau WEBP. Maksimal 2 MB.</div>
+                            <div class="form-hint">Format JPG, PNG, atau WEBP. Maksimal 5 MB.</div>
                         </div>
                     </div>
                 </div>

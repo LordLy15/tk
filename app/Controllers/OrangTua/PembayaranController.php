@@ -48,11 +48,34 @@ class PembayaranController extends BaseController
             return redirect()->to('/orangtua/pembayaran')
                 ->with('error', 'Tagihan tidak ditemukan.');
         }
+
+        $data['riwayat'] = $this->pembayaranModel->getPaymentHistory($id);
+
         return view('OrangTua/pembayaran/detail', $data);
     }
 
     public function uploadBukti($tagihanId)
     {
+        $orangTuaId = session()->get('orangtua_id');
+        $tagihan = $this->pembayaranModel->getDetailTagihan($tagihanId, $orangTuaId);
+        
+        if (!$tagihan) {
+            return redirect()->to('/orangtua/pembayaran')->with('error', 'Tagihan tidak ditemukan.');
+        }
+
+        $nominalInput = $this->request->getPost('nominal_bayar');
+        // Clean dots and format to float
+        $nominalBayar = (float) str_replace('.', '', $nominalInput);
+
+        if ($nominalBayar <= 0) {
+            return redirect()->back()->with('error', 'Nominal pembayaran harus lebih dari 0.');
+        }
+
+        $sisaTagihan = (float) $tagihan['sisa_tagihan'];
+        if ($nominalBayar > $sisaTagihan) {
+            return redirect()->back()->with('error', 'Nominal pembayaran tidak boleh melebihi sisa tagihan (Maks. Rp ' . number_format($sisaTagihan, 0, ',', '.') . ').');
+        }
+
         $file = $this->request->getFile('bukti_bayar');
 
         if (!$file || !$file->isValid()) {
@@ -78,7 +101,8 @@ class PembayaranController extends BaseController
 
         $this->pembayaranModel->simpanPembayaran([
             'tagihan_id'    => $tagihanId,
-            'orang_tua_id'  => session()->get('orangtua_id'),
+            'orang_tua_id'  => $orangTuaId,
+            'nominal_bayar' => $nominalBayar,
             'bukti_bayar'   => $newName,
             'tanggal_bayar' => date('Y-m-d'),
             'status'        => 'pending',
@@ -86,6 +110,6 @@ class PembayaranController extends BaseController
         ]);
 
         return redirect()->to('/orangtua/pembayaran')
-            ->with('success', 'Bukti pembayaran berhasil dikirim, menunggu verifikasi admin.');
+            ->with('success', 'Bukti pembayaran cicilan sebesar Rp ' . number_format($nominalBayar, 0, ',', '.') . ' berhasil dikirim, menunggu verifikasi admin.');
     }
 }

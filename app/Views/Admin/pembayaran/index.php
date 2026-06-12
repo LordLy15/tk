@@ -149,7 +149,7 @@
                                             <tr>
                                                 <th style="width: 50px;" class="text-center">No</th>
                                                 <th>Tagihan</th>
-                                                <th>Nominal</th>
+                                                <th>Nominal Bayar / Tagihan</th>
                                                 <th class="text-center">Status</th>
                                                 <th class="text-center">Tanggal Bayar</th>
                                                 <th class="text-center" style="width: 100px;">Bukti</th>
@@ -161,14 +161,18 @@
                                                 <tr>
                                                     <td class="text-center"><?= $itemIdx + 1 ?></td>
                                                     <td><?= esc($p['judul']) ?></td>
-                                                    <td><strong>Rp <?= number_format($p['nominal'], 0, ',', '.') ?></strong></td>
+                                                    <td>
+                                                        <strong>Rp <?= number_format($p['nominal_bayar'], 0, ',', '.') ?></strong>
+                                                        <br>
+                                                        <small class="text-muted">Tagihan: Rp <?= number_format($p['nominal'], 0, ',', '.') ?></small>
+                                                    </td>
                                                     <td class="text-center">
                                                         <?php
                                                         $badgeClass = $p['status'] === 'verified'
                                                             ? 'bg-success-subtle text-success border-success-subtle'
                                                             : ($p['status'] === 'rejected' ? 'bg-danger-subtle text-danger border-danger-subtle' : 'bg-warning-subtle text-dark border-warning-subtle');
                                                         $label = $p['status'] === 'verified'
-                                                            ? 'Lunas'
+                                                            ? 'Disetujui'
                                                             : ($p['status'] === 'rejected' ? 'Ditolak' : 'Pending');
                                                         ?>
                                                         <span class="badge border <?= $badgeClass ?>"><?= $label ?></span>

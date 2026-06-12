@@ -32,9 +32,28 @@
                         <p class="fw-semibold mb-0"><?= esc($pembayaran['judul']) ?></p>
                     </div>
                     <div class="col-md-6">
-                        <label class="text-muted small">Nominal</label>
-                        <p class="fw-bold mb-0 text-primary">
-                            Rp <?= number_format($pembayaran['nominal'], 0, ',', '.') ?>
+                        <label class="text-muted small">Nominal Tagihan</label>
+                        <p class="fw-bold mb-0 text-dark">
+                            Rp <?= number_format($pembayaran['nominal_tagihan'], 0, ',', '.') ?>
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="text-muted small">Nominal Cicilan Ini</label>
+                        <p class="fw-bold mb-0 text-primary" style="font-size: 1.1rem;">
+                            Rp <?= number_format($pembayaran['nominal_bayar'], 0, ',', '.') ?>
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="text-muted small">Terbayar Sebelumnya</label>
+                        <p class="fw-semibold mb-0 text-success">
+                            Rp <?= number_format($pembayaran['total_terbayar_sebelumnya'], 0, ',', '.') ?>
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="text-muted small">Sisa Tagihan (Setelah Verifikasi)</label>
+                        <p class="fw-semibold mb-0 <?= $pembayaran['sisa_tagihan_setelahnya'] <= 0 ? 'text-success' : 'text-danger' ?>">
+                            Rp <?= number_format(max(0, $pembayaran['sisa_tagihan_setelahnya']), 0, ',', '.') ?>
+                            <?= $pembayaran['sisa_tagihan_setelahnya'] <= 0 ? '<span class="badge bg-success ms-2">Lunas</span>' : '<span class="badge bg-warning text-dark ms-2">Sisa</span>' ?>
                         </p>
                     </div>
                     <div class="col-md-6">
@@ -76,7 +95,7 @@
                         <label class="form-label">Status</label>
                         <select name="status" class="form-select" required>
                             <option value="">-- Pilih Status --</option>
-                            <option value="verified">Verifikasi (Lunas)</option>
+                            <option value="verified">Verifikasi Pembayaran</option>
                             <option value="rejected">Tolak</option>
                         </select>
                     </div>

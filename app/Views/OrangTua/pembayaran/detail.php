@@ -36,6 +36,7 @@ $namaOrtu = session()->get('orangtua_nama') ?? 'Orang Tua';
         .ot-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
         .ot-badge { display: inline-flex; align-items: center; padding: 0.4rem 0.8rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 700; gap: 0.35rem; border: 1px solid transparent; }
         .ot-badge-pending { background: rgba(245, 158, 11, 0.1) !important; color: #d97706 !important; border-color: rgba(245, 158, 11, 0.2) !important; }
+        .ot-badge-partial { background: rgba(59, 130, 246, 0.1) !important; color: #1d4ed8 !important; border-color: rgba(59, 130, 246, 0.2) !important; }
         .ot-badge-verified { background: rgba(16, 185, 129, 0.1) !important; color: #059669 !important; border-color: rgba(16, 185, 129, 0.2) !important; }
         .ot-badge-rejected { background: rgba(239, 68, 68, 0.1) !important; color: #dc2626 !important; border-color: rgba(239, 68, 68, 0.2) !important; }
         
@@ -166,9 +167,6 @@ $namaOrtu = session()->get('orangtua_nama') ?? 'Orang Tua';
         <div class="container-fluid">
             <div class="d-flex align-items-center justify-content-between">
                 <div class="d-flex align-items-center gap-3">
-                    <a href="<?= base_url('orangtua/pembayaran') ?>" class="ot-back-btn" title="Kembali">
-                        <i class="bi bi-arrow-left"></i>
-                    </a>
                     <div class="d-flex align-items-center text-decoration-none">
                         <img src="<?= base_url('assets/logo.png'); ?>" alt="Logo RA Perwanida" class="me-2 rounded-circle bg-white p-1" style="max-height: 40px; width: 40px;">
                         <div class="lh-1 text-start">
@@ -198,6 +196,14 @@ $namaOrtu = session()->get('orangtua_nama') ?? 'Orang Tua';
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-8">
 
+                    <!-- Back Button -->
+                    <div class="mb-3 anim-fade-in-up">
+                        <a href="<?= base_url('orangtua/pembayaran') ?>" class="btn btn-white border border-light-subtle shadow-xs rounded-pill px-3 py-2 d-inline-flex align-items-center gap-2 text-dark fw-semibold" style="font-size: 0.85rem; background-color: #ffffff;">
+                            <i class="bi bi-arrow-left"></i>
+                            Kembali
+                        </a>
+                    </div>
+
                     <!-- Alert -->
                     <?php if (session()->getFlashdata('success')) : ?>
                         <div class="alert alert-success alert-dismissible fade show rounded-3 shadow-sm anim-fade-in-up" role="alert">
@@ -221,9 +227,25 @@ $namaOrtu = session()->get('orangtua_nama') ?? 'Orang Tua';
                             <div>
                                 <small class="text-muted d-block uppercase tracking-wider mb-1" style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.5px;">DETAIL TAGIHAN</small>
                                 <h4 class="fw-bold mb-2 text-dark" style="font-size: 1.35rem;"><?= esc(ucwords(strtolower($t['judul']))) ?></h4>
-                                <?php $statusClass = $t['status'] === 'verified' ? 'ot-badge-verified' : ($t['status'] === 'rejected' ? 'ot-badge-rejected' : 'ot-badge-pending'); ?>
-                                <?php $statusLabel = $t['status'] === 'verified' ? 'Lunas' : ($t['status'] === 'rejected' ? 'Ditolak' : 'Menunggu Verifikasi'); ?>
-                                <?php $statusIcon = $t['status'] === 'verified' ? 'check-circle' : ($t['status'] === 'rejected' ? 'x-circle' : 'clock'); ?>
+                                <?php 
+                                if ($t['status'] === 'verified') {
+                                    $statusClass = 'ot-badge-verified';
+                                    $statusLabel = 'Lunas';
+                                    $statusIcon = 'check-circle';
+                                } elseif ($t['status'] === 'partial') {
+                                    $statusClass = 'ot-badge-partial';
+                                    $statusLabel = 'Dicicil';
+                                    $statusIcon = 'arrow-repeat';
+                                } elseif ($t['status'] === 'rejected') {
+                                    $statusClass = 'ot-badge-rejected';
+                                    $statusLabel = 'Ditolak';
+                                    $statusIcon = 'x-circle';
+                                } else {
+                                    $statusClass = 'ot-badge-pending';
+                                    $statusLabel = 'Menunggu Verifikasi';
+                                    $statusIcon = 'clock';
+                                }
+                                ?>
                                 <span class="ot-badge <?= $statusClass ?>">
                                     <i class="bi bi-<?= $statusIcon ?>"></i>
                                     <?= $statusLabel ?>
@@ -234,6 +256,27 @@ $namaOrtu = session()->get('orangtua_nama') ?? 'Orang Tua';
                                 <h3 class="fw-bold mb-0 text-success" style="color: var(--ot-primary) !important; font-size: 1.75rem;">
                                     Rp <?= number_format($t['nominal'], 0, ',', '.') ?>
                                 </h3>
+                            </div>
+                        </div>
+
+                        <!-- Progress Cicilan -->
+                        <?php 
+                        $percent = 0;
+                        if ($t['nominal'] > 0) {
+                            $percent = min(100, round(((float)$t['total_terbayar'] / (float)$t['nominal']) * 100));
+                        }
+                        ?>
+                        <div class="mb-4 p-3 border rounded-3 bg-light">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="fw-bold text-dark" style="font-size: 0.85rem;">Progres Pembayaran</span>
+                                <span class="fw-bold text-primary" style="font-size: 0.85rem;"><?= $percent ?>%</span>
+                            </div>
+                            <div class="progress mb-2" style="height: 10px; border-radius: 5px;">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: <?= $percent ?>%; border-radius: 5px;" aria-valuenow="<?= $percent ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div class="d-flex justify-content-between small text-muted" style="font-size: 0.75rem;">
+                                <span>Terbayar: <strong>Rp <?= number_format($t['total_terbayar'], 0, ',', '.') ?></strong></span>
+                                <span>Sisa Tagihan: <strong>Rp <?= number_format($t['sisa_tagihan'], 0, ',', '.') ?></strong></span>
                             </div>
                         </div>
 
@@ -282,33 +325,66 @@ $namaOrtu = session()->get('orangtua_nama') ?? 'Orang Tua';
                             </div>
                         <?php endif; ?>
 
-                        <?php if ($t['bukti_bayar']) : ?>
-                            <div class="alert alert-success bg-success-subtle text-success border border-success-subtle mb-4 rounded-3 d-flex align-items-center gap-2" style="background-color: rgba(39, 174, 96, 0.08) !important; color: var(--ot-primary) !important;">
+                        <?php if ($t['status'] === 'pending') : ?>
+                            <div class="alert alert-success bg-success-subtle text-success border border-success-subtle mb-0 rounded-3 d-flex align-items-center gap-2" style="background-color: rgba(39, 174, 96, 0.08) !important; color: var(--ot-primary) !important;">
                                 <i class="bi bi-cloud-check-fill fs-5"></i>
                                 <div>
-                                    <strong>Bukti transfer telah terkirim.</strong> Staf sekolah akan memverifikasi bukti pembayaran Anda.
-                                </div>
-                            </div>
-                            <div class="mb-2">
-                                <label class="fw-bold text-dark mb-2 d-block" style="font-size: 0.9rem;"><i class="bi bi-image me-1"></i> Bukti Pembayaran:</label>
-                                <div class="p-3 border rounded-3 bg-light text-center">
-                                    <?php $ext = strtolower(pathinfo($t['bukti_bayar'], PATHINFO_EXTENSION)); ?>
-                                    <?php if (in_array($ext, ['jpg', 'jpeg', 'png'])) : ?>
-                                        <a href="<?= base_url('uploads/bukti_bayar/' . $t['bukti_bayar']) ?>" target="_blank" title="Klik untuk memperbesar">
-                                            <img src="<?= base_url('uploads/bukti_bayar/' . $t['bukti_bayar']) ?>" alt="Bukti Transfer" class="img-fluid rounded border shadow-sm" style="max-height: 280px; object-fit: contain;">
-                                        </a>
-                                    <?php else : ?>
-                                        <a href="<?= base_url('uploads/bukti_bayar/' . $t['bukti_bayar']) ?>" class="btn btn-outline-success btn-sm rounded-pill" target="_blank" style="border-color: var(--ot-primary); color: var(--ot-primary);">
-                                            <i class="bi bi-file-pdf me-2"></i> Lihat Dokumen (PDF)
-                                        </a>
-                                    <?php endif; ?>
+                                    <strong>Pembayaran cicilan sedang diproses.</strong> Mohon tunggu verifikasi admin untuk pembayaran sebelumnya sebelum mengirim cicilan baru.
                                 </div>
                             </div>
                         <?php endif; ?>
                     </div>
 
+                    <!-- Riwayat Transaksi -->
+                    <?php if (!empty($riwayat)) : ?>
+                        <div class="ot-card p-4 mb-4 anim-fade-in-up">
+                            <h5 class="fw-bold text-dark mb-3">
+                                <i class="bi bi-clock-history me-2 text-primary"></i>
+                                Riwayat Pengajuan Pembayaran
+                            </h5>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped mb-0 text-start" style="font-size: 0.85rem;">
+                                    <thead>
+                                        <tr class="table-light">
+                                            <th>Tanggal</th>
+                                            <th>Nominal Bayar</th>
+                                            <th>Bukti</th>
+                                            <th>Status</th>
+                                            <th>Catatan Sekolah</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach ($riwayat as $r) : ?>
+                                            <tr>
+                                                <td><?= date('d M Y', strtotime($r['created_at'])) ?></td>
+                                                <td class="fw-bold text-dark">Rp <?= number_format($r['nominal_bayar'], 0, ',', '.') ?></td>
+                                                <td>
+                                                    <a href="<?= base_url('uploads/bukti_bayar/' . $r['bukti_bayar']) ?>" target="_blank" class="btn btn-sm btn-outline-secondary py-0 px-2">
+                                                        Lihat
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <?php
+                                                    if ($r['status'] === 'verified') {
+                                                        echo '<span class="badge bg-success">Disetujui</span>';
+                                                    } elseif ($r['status'] === 'rejected') {
+                                                        echo '<span class="badge bg-danger">Ditolak</span>';
+                                                    } else {
+                                                        echo '<span class="badge bg-warning text-dark">Pending</span>';
+                                                    }
+                                                    ?>
+                                                </td>
+                                                <td><?= esc($r['catatan_admin'] ?: '-') ?></td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+
                     <!-- Upload Bukti Bayar -->
-                    <?php if ($t['status'] !== 'verified') : ?>
+                    <?php if ($t['sisa_tagihan'] > 0 && $t['status'] !== 'pending') : ?>
                         <div class="ot-card p-4 anim-fade-in-up delay-100">
                             <h5 class="fw-bold text-dark mb-3">
                                 <i class="bi bi-upload me-2 text-success" style="color: var(--ot-primary) !important;"></i>
@@ -319,6 +395,21 @@ $namaOrtu = session()->get('orangtua_nama') ?? 'Orang Tua';
                                   method="post"
                                   enctype="multipart/form-data">
                                 <?= csrf_field() ?>
+
+                                <div class="mb-3">
+                                    <label for="nominal_bayar" class="form-label fw-bold text-muted small mb-1">Nominal Pembayaran (Rp) *</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light fw-bold text-muted">Rp</span>
+                                        <input type="text" 
+                                               class="form-control fw-bold text-primary" 
+                                               id="nominal_bayar" 
+                                               name="nominal_bayar" 
+                                               value="<?= number_format($t['sisa_tagihan'], 0, ',', '.') ?>" 
+                                               placeholder="Contoh: 100.000" 
+                                               required>
+                                    </div>
+                                    <div class="form-text">Masukkan jumlah uang yang Anda transfer. Sisa tagihan saat ini adalah <strong>Rp <?= number_format($t['sisa_tagihan'], 0, ',', '.') ?></strong>.</div>
+                                </div>
                                 
                                 <div class="mb-4">
                                     <label class="form-label fw-bold text-muted small mb-2">Pilih Foto Bukti Transfer Bank / Resi Pembayaran</label>
@@ -370,6 +461,20 @@ $namaOrtu = session()->get('orangtua_nama') ?? 'Orang Tua';
                 dropzone.style.backgroundColor = '#f8fafc';
             }
         });
+
+        // Thousands separator formatter
+        const nominalInput = document.getElementById('nominal_bayar');
+        if (nominalInput) {
+            nominalInput.addEventListener('input', function(e) {
+                let value = this.value.replace(/\D/g, '');
+                if (value === '') {
+                    this.value = '';
+                    return;
+                }
+                let formatted = new Intl.NumberFormat('id-ID').format(value);
+                this.value = formatted;
+            });
+        }
     </script>
 </body>
 </html>

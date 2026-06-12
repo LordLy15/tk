@@ -68,9 +68,10 @@ class Guru extends BaseController
         }
 
         if (! $this->validate($rules)) {
+            $errors = implode('<br>', $this->validator->getErrors());
             return redirect()->back()
                 ->withInput()
-                ->with('error', 'Lengkapi data guru dengan benar.');
+                ->with('error', $errors ?: 'Lengkapi data guru dengan benar.');
         }
 
         $post = $this->request->getPost();
@@ -135,9 +136,10 @@ class Guru extends BaseController
         }
 
         if (! $this->validate($rules)) {
+            $errors = implode('<br>', $this->validator->getErrors());
             return redirect()->back()
                 ->withInput()
-                ->with('error', 'Lengkapi data guru dengan benar.');
+                ->with('error', $errors ?: 'Lengkapi data guru dengan benar.');
         }
 
         $post = $this->request->getPost();

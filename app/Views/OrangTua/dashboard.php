@@ -95,6 +95,10 @@ $namaSiswa = session()->get('orangtua_nama_siswa') ?? '';
             background: rgba(245, 158, 11, 0.15);
             color: #b45309;
         }
+        .ot-badge-partial {
+            background: rgba(59, 130, 246, 0.15);
+            color: #1d4ed8;
+        }
         .ot-badge-verified {
             background: rgba(16, 185, 129, 0.15);
             color: #047857;
@@ -153,13 +157,15 @@ $namaSiswa = session()->get('orangtua_nama_siswa') ?? '';
         }
         .ebook-cover {
             width: 100%;
-            height: 160px;
+            height: auto;
+            aspect-ratio: 3 / 4;
             object-fit: cover;
             background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
         }
         .ebook-placeholder {
             width: 100%;
-            height: 160px;
+            height: auto;
+            aspect-ratio: 3 / 4;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -222,12 +228,53 @@ $namaSiswa = session()->get('orangtua_nama_siswa') ?? '';
             color: #ffffff !important;
             transform: translateY(-1px);
         }
+
+        .ot-stat-number-custom {
+            font-size: 1.45rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        /* Responsive customizations */
+        @media (min-width: 768px) {
+            .border-start-md {
+                border-left: 1px solid #e2e8f0 !important;
+            }
+        }
+        @media (max-width: 576px) {
+            .ot-stat-card-custom {
+                padding: 0.75rem !important;
+            }
+            .ot-stat-number-custom {
+                font-size: 1.05rem !important;
+            }
+            .ot-stat-label-custom {
+                font-size: 0.68rem !important;
+            }
+            .ot-topbar {
+                padding-left: 0.75rem !important;
+                padding-right: 0.75rem !important;
+            }
+            .navbar-brand img {
+                max-height: 38px !important;
+                width: 38px !important;
+            }
+            .navbar-brand span {
+                font-size: 0.95rem !important;
+            }
+            .navbar-brand small {
+                font-size: 0.6rem !important;
+            }
+            .ot-topbar .navbar-brand {
+                margin-right: 0.5rem !important;
+            }
+        }
     </style>
 </head>
 <body>
 
     <!-- Topbar -->
-    <nav class="ot-topbar fixed-top py-2 px-4">
+    <nav class="ot-topbar fixed-top py-2 px-3 px-sm-4">
         <div class="container-fluid">
             <div class="d-flex align-items-center justify-content-between">
                 <a class="navbar-brand d-flex align-items-center text-decoration-none" href="<?= base_url('orangtua/dashboard'); ?>">
@@ -280,10 +327,10 @@ $namaSiswa = session()->get('orangtua_nama_siswa') ?? '';
                         <div class="col-md-7 mb-3 mb-md-0">
                             <div class="d-flex align-items-center gap-3 flex-wrap">
                                 <div class="rounded-circle d-flex align-items-center justify-content-center" 
-                                     style="width: 54px; height: 54px; background-color: rgba(39, 174, 96, 0.1); color: var(--ot-primary);">
+                                     style="width: 54px; height: 54px; background-color: rgba(39, 174, 96, 0.1); color: var(--ot-primary); flex-shrink: 0;">
                                     <i class="bi bi-person-check-fill fs-3"></i>
                                 </div>
-                                <div>
+                                <div class="flex-grow-1">
                                     <h5 class="fw-bold mb-1 text-dark">Selamat Datang, <?= esc($namaOrtu) ?>!</h5>
                                     <p class="text-muted mb-0 small">
                                         Wali murid dari <strong class="text-dark"><?= esc($namaSiswa) ?></strong> 
@@ -309,10 +356,10 @@ $namaSiswa = session()->get('orangtua_nama_siswa') ?? '';
                 <!-- Left: Tagihan Aktif -->
                 <div class="col-lg-6 mb-4 mb-lg-0">
                     <div class="card border-0 text-white anim-fade-in-up delay-100 shadow-sm d-flex flex-column h-100" 
-                         style="background: linear-gradient(135deg, var(--ot-primary) 0%, var(--ot-primary-dark) 100%); border-radius: 16px; min-height: 220px; overflow: hidden; justify-content: space-between; padding: 1.75rem;">
+                          style="background: linear-gradient(135deg, var(--ot-primary) 0%, var(--ot-primary-dark) 100%); border-radius: 16px; min-height: 220px; overflow: hidden; justify-content: space-between; padding: 1.75rem;">
                         <div class="d-flex align-items-center gap-3">
                             <div class="d-flex align-items-center justify-content-center rounded-3" 
-                                 style="background: rgba(255, 255, 255, 0.18); width: 48px; height: 48px; font-size: 1.4rem;">
+                                 style="background: rgba(255, 255, 255, 0.18); width: 48px; height: 48px; font-size: 1.4rem; flex-shrink: 0;">
                                 <i class="bi bi-credit-card-2-front"></i>
                             </div>
                             <div>
@@ -342,55 +389,55 @@ $namaSiswa = session()->get('orangtua_nama_siswa') ?? '';
                 <div class="col-lg-6">
                     <div class="row g-3 h-100">
                         <div class="col-6">
-                            <div class="card border-0 shadow-sm d-flex flex-column justify-content-center align-items-center anim-fade-in-up delay-200 h-100 p-3" 
+                            <div class="card border-0 shadow-sm d-flex flex-column justify-content-center align-items-center anim-fade-in-up delay-200 h-100 p-3 ot-stat-card-custom" 
                                  style="border-radius: 14px; min-height: 100px;">
                                 <div class="rounded-3 d-flex align-items-center justify-content-center mb-2" 
-                                     style="width: 38px; height: 38px; background: rgba(39, 174, 96, 0.1); color: var(--ot-primary);">
+                                     style="width: 38px; height: 38px; background: rgba(39, 174, 96, 0.1); color: var(--ot-primary); flex-shrink: 0;">
                                     <i class="bi bi-file-earmark-text-fill fs-5"></i>
                                 </div>
-                                <div class="fw-bold text-dark fs-4">
+                                <div class="fw-bold text-dark ot-stat-number-custom">
                                     <?= ($stats['pending_count'] ?? 0) + ($stats['lunas_count'] ?? 0) ?>
                                 </div>
-                                <div class="text-muted small" style="font-size: 0.75rem;">Total Tagihan</div>
+                                <div class="text-muted small ot-stat-label-custom" style="font-size: 0.75rem;">Total Tagihan</div>
                             </div>
                         </div>
                         <div class="col-6">
-                            <div class="card border-0 shadow-sm d-flex flex-column justify-content-center align-items-center anim-fade-in-up delay-300 h-100 p-3" 
+                            <div class="card border-0 shadow-sm d-flex flex-column justify-content-center align-items-center anim-fade-in-up delay-300 h-100 p-3 ot-stat-card-custom" 
                                  style="border-radius: 14px; min-height: 100px;">
                                 <div class="rounded-3 d-flex align-items-center justify-content-center mb-2" 
-                                     style="width: 38px; height: 38px; background: rgba(245, 158, 11, 0.1); color: var(--ot-warning);">
+                                     style="width: 38px; height: 38px; background: rgba(245, 158, 11, 0.1); color: var(--ot-warning); flex-shrink: 0;">
                                     <i class="bi bi-clock-fill fs-5"></i>
                                 </div>
-                                <div class="fw-bold text-warning fs-4">
+                                <div class="fw-bold text-warning ot-stat-number-custom">
                                     <?= $stats['pending_count'] ?? 0 ?>
                                 </div>
-                                <div class="text-muted small" style="font-size: 0.75rem;">Belum Bayar</div>
+                                <div class="text-muted small ot-stat-label-custom" style="font-size: 0.75rem;">Belum Bayar</div>
                             </div>
                         </div>
                         <div class="col-6">
-                            <div class="card border-0 shadow-sm d-flex flex-column justify-content-center align-items-center anim-fade-in-up delay-400 h-100 p-3" 
+                            <div class="card border-0 shadow-sm d-flex flex-column justify-content-center align-items-center anim-fade-in-up delay-400 h-100 p-3 ot-stat-card-custom" 
                                  style="border-radius: 14px; min-height: 100px;">
                                 <div class="rounded-3 d-flex align-items-center justify-content-center mb-2" 
-                                     style="width: 38px; height: 38px; background: rgba(16, 185, 129, 0.1); color: var(--ot-success);">
+                                     style="width: 38px; height: 38px; background: rgba(16, 185, 129, 0.1); color: var(--ot-success); flex-shrink: 0;">
                                     <i class="bi bi-check-circle-fill fs-5"></i>
                                 </div>
-                                <div class="fw-bold text-success fs-4">
+                                <div class="fw-bold text-success ot-stat-number-custom">
                                     <?= $stats['lunas_count'] ?? 0 ?>
                                 </div>
-                                <div class="text-muted small" style="font-size: 0.75rem;">Lunas</div>
+                                <div class="text-muted small ot-stat-label-custom" style="font-size: 0.75rem;">Lunas</div>
                             </div>
                         </div>
                         <div class="col-6">
-                            <div class="card border-0 shadow-sm d-flex flex-column justify-content-center align-items-center anim-fade-in-up delay-500 h-100 p-3" 
+                            <div class="card border-0 shadow-sm d-flex flex-column justify-content-center align-items-center anim-fade-in-up delay-500 h-100 p-3 ot-stat-card-custom" 
                                  style="border-radius: 14px; min-height: 100px;">
                                 <div class="rounded-3 d-flex align-items-center justify-content-center mb-2" 
-                                     style="width: 38px; height: 38px; background: rgba(39, 174, 96, 0.1); color: var(--ot-primary);">
+                                     style="width: 38px; height: 38px; background: rgba(39, 174, 96, 0.1); color: var(--ot-primary); flex-shrink: 0;">
                                     <i class="bi bi-cash-stack fs-5"></i>
                                 </div>
-                                <div class="fw-bold text-dark" style="font-size: 0.95rem; word-break: break-all; text-align: center;">
+                                <div class="fw-bold text-dark ot-stat-number-custom" style="word-break: break-all; text-align: center;">
                                     Rp <?= number_format($stats['total'] ?? 0, 0, ',', '.') ?>
                                 </div>
-                                <div class="text-muted small" style="font-size: 0.75rem;">Total Nominal</div>
+                                <div class="text-muted small ot-stat-label-custom" style="font-size: 0.75rem;">Total Nominal</div>
                             </div>
                         </div>
                     </div>
@@ -420,35 +467,54 @@ $namaSiswa = session()->get('orangtua_nama_siswa') ?? '';
                         <?php else : ?>
                             <?php foreach ($tagihan_terbaru as $tagihan) : ?>
                                 <div class="tagihan-item p-3 mb-2 rounded border" style="transition: all 0.3s ease;">
-                                    <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
-                                        <div class="d-flex align-items-center gap-3">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <div class="d-flex align-items-start align-items-sm-center gap-3 flex-grow-1">
                                             <?php
-                                            $statusColor = $tagihan['status'] === 'verified' ? 'success' : ($tagihan['status'] === 'rejected' ? 'danger' : 'warning');
-                                            $statusBg = $tagihan['status'] === 'verified' ? 'rgba(16, 185, 129, 0.1)' : ($tagihan['status'] === 'rejected' ? 'rgba(239, 68, 68, 0.1)' : 'rgba(245, 158, 11, 0.1)');
-                                            $statusIcon = $tagihan['status'] === 'verified' ? 'check-circle-fill' : ($tagihan['status'] === 'rejected' ? 'x-circle-fill' : 'clock-fill');
-                                            $statusText = $tagihan['status'] === 'verified' ? 'Lunas' : ($tagihan['status'] === 'rejected' ? 'Ditolak' : 'Menunggu');
+                                            if ($tagihan['status'] === 'verified') {
+                                                $statusColor = 'success';
+                                                $statusBg = 'rgba(16, 185, 129, 0.1)';
+                                                $statusIcon = 'check-circle-fill';
+                                                $statusText = 'Lunas';
+                                            } elseif ($tagihan['status'] === 'partial') {
+                                                $statusColor = 'primary';
+                                                $statusBg = 'rgba(59, 130, 246, 0.1)';
+                                                $statusIcon = 'arrow-repeat';
+                                                $statusText = 'Dicicil';
+                                            } elseif ($tagihan['status'] === 'rejected') {
+                                                $statusColor = 'danger';
+                                                $statusBg = 'rgba(239, 68, 68, 0.1)';
+                                                $statusIcon = 'x-circle-fill';
+                                                $statusText = 'Ditolak';
+                                            } else {
+                                                $statusColor = 'warning';
+                                                $statusBg = 'rgba(245, 158, 11, 0.1)';
+                                                $statusIcon = 'clock-fill';
+                                                $statusText = 'Menunggu';
+                                            }
                                             ?>
-                                            <div class="status-icon d-flex align-items-center justify-content-center rounded-3" style="background: <?= $statusBg ?>; color: var(--ot-<?= $statusColor ?>); width: 42px; height: 42px; font-size: 1.2rem;">
+                                            <div class="status-icon d-flex align-items-center justify-content-center rounded-3 flex-shrink-0" style="background: <?= $statusBg ?>; color: var(--ot-<?= $statusColor ?>); width: 42px; height: 42px; font-size: 1.2rem;">
                                                 <i class="bi bi-<?= $statusIcon ?>"></i>
                                             </div>
-                                            <div>
-                                                <h6 class="mb-0 fw-bold text-dark"><?= esc($tagihan['judul']) ?></h6>
-                                                <small class="text-muted">
-                                                    <?= $tagihan['batas_bayar']
-                                                        ? 'Batas: ' . date('d M Y', strtotime($tagihan['batas_bayar']))
-                                                        : 'Tidak ada batas waktu'; ?>
-                                                </small>
+                                            <div class="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center w-100 gap-2 gap-sm-3">
+                                                <div>
+                                                    <h6 class="mb-0 fw-bold text-dark" style="font-size: 0.95rem;"><?= esc($tagihan['judul']) ?></h6>
+                                                    <small class="text-muted d-block mt-0.5" style="font-size: 0.75rem;">
+                                                        <?= $tagihan['batas_bayar']
+                                                            ? 'Batas: ' . date('d M Y', strtotime($tagihan['batas_bayar']))
+                                                            : 'Tidak ada batas waktu'; ?>
+                                                    </small>
+                                                </div>
+                                                <div class="text-start text-sm-end">
+                                                    <div class="fw-bold text-dark mb-1" style="font-size: 1.05rem;">
+                                                        Rp <?= number_format($tagihan['nominal'], 0, ',', '.') ?>
+                                                    </div>
+                                                    <span class="ot-badge ot-badge-<?= $tagihan['status'] === 'verified' ? 'verified' : ($tagihan['status'] === 'rejected' ? 'rejected' : ($tagihan['status'] === 'partial' ? 'partial' : 'pending')) ?>">
+                                                        <?= $statusText ?>
+                                                    </span>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="text-md-end d-flex align-items-center gap-3">
-                                            <div>
-                                                <div class="fw-bold text-dark mb-1" style="font-size: 1.05rem;">
-                                                    Rp <?= number_format($tagihan['nominal'], 0, ',', '.') ?>
-                                                </div>
-                                                <span class="ot-badge ot-badge-<?= $tagihan['status'] === 'verified' ? 'verified' : ($tagihan['status'] === 'rejected' ? 'rejected' : 'pending') ?>">
-                                                    <?= $statusText ?>
-                                                </span>
-                                            </div>
+                                        <div class="ms-3 flex-shrink-0">
                                             <a href="<?= base_url('orangtua/pembayaran/' . $tagihan['id']) ?>" 
                                                class="btn btn-sm btn-outline-primary d-flex align-items-center justify-content-center" 
                                                style="height: 36px; width: 36px; border-radius: 8px;" title="Detail Pembayaran">

@@ -35,6 +35,7 @@ $namaOrtu = session()->get('orangtua_nama') ?? 'Orang Tua';
         .ot-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
         .ot-badge { display: inline-flex; align-items: center; padding: 0.4rem 0.8rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 700; gap: 0.35rem; border: 1px solid transparent; }
         .ot-badge-pending { background: rgba(245, 158, 11, 0.1) !important; color: #d97706 !important; border-color: rgba(245, 158, 11, 0.2) !important; }
+        .ot-badge-partial { background: rgba(59, 130, 246, 0.1) !important; color: #1d4ed8 !important; border-color: rgba(59, 130, 246, 0.2) !important; }
         .ot-badge-verified { background: rgba(16, 185, 129, 0.1) !important; color: #059669 !important; border-color: rgba(16, 185, 129, 0.2) !important; }
         .ot-badge-rejected { background: rgba(239, 68, 68, 0.1) !important; color: #dc2626 !important; border-color: rgba(239, 68, 68, 0.2) !important; }
         
@@ -144,9 +145,6 @@ $namaOrtu = session()->get('orangtua_nama') ?? 'Orang Tua';
         <div class="container-fluid">
             <div class="d-flex align-items-center justify-content-between">
                 <div class="d-flex align-items-center gap-3">
-                    <a href="<?= base_url('orangtua/dashboard') ?>" class="ot-back-btn" title="Kembali ke Dashboard">
-                        <i class="bi bi-arrow-left"></i>
-                    </a>
                     <div class="d-flex align-items-center text-decoration-none">
                         <img src="<?= base_url('assets/logo.png'); ?>" alt="Logo RA Perwanida" class="me-2 rounded-circle bg-white p-1" style="max-height: 40px; width: 40px;">
                         <div class="lh-1 text-start">
@@ -176,6 +174,14 @@ $namaOrtu = session()->get('orangtua_nama') ?? 'Orang Tua';
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-8">
                     
+                    <!-- Back Button -->
+                    <div class="mb-3 anim-fade-in-up">
+                        <a href="<?= base_url('orangtua/dashboard') ?>" class="btn btn-white border border-light-subtle shadow-xs rounded-pill px-3 py-2 d-inline-flex align-items-center gap-2 text-dark fw-semibold" style="font-size: 0.85rem; background-color: #ffffff;">
+                            <i class="bi bi-arrow-left"></i>
+                            Kembali ke Dashboard
+                        </a>
+                    </div>
+                    
                     <!-- Header -->
                     <div class="mb-4 anim-fade-in-up">
                         <h4 class="fw-bold mb-1 text-dark">
@@ -195,6 +201,10 @@ $namaOrtu = session()->get('orangtua_nama') ?? 'Orang Tua';
                             <a href="<?= base_url('orangtua/pembayaran?status=pending') ?>"
                                class="ot-filter-btn <?= $filter_status === 'pending' ? 'active' : ''; ?>">
                                 <i class="bi bi-clock"></i> Menunggu Verifikasi
+                            </a>
+                            <a href="<?= base_url('orangtua/pembayaran?status=partial') ?>"
+                               class="ot-filter-btn <?= $filter_status === 'partial' ? 'active' : ''; ?>">
+                                <i class="bi bi-arrow-repeat"></i> Dicicil
                             </a>
                             <a href="<?= base_url('orangtua/pembayaran?status=verified') ?>"
                                class="ot-filter-btn <?= $filter_status === 'verified' ? 'active' : ''; ?>">
@@ -257,15 +267,40 @@ $namaOrtu = session()->get('orangtua_nama') ?? 'Orang Tua';
                                         <div class="d-flex align-items-center gap-4 ms-auto ms-md-0 w-100 w-md-auto justify-content-between justify-content-md-end flex-wrap flex-sm-nowrap">
                                             <div class="text-start text-md-end">
                                                 <small class="text-muted d-block" style="font-size: 0.7rem;">Nominal</small>
-                                                <span class="fw-bold" style="font-size: 1.15rem; color: var(--ot-primary);">
-                                                    Rp <?= number_format($t['nominal'], 0, ',', '.') ?>
-                                                </span>
+                                                <?php if ($t['sisa_tagihan'] < $t['nominal'] && $t['sisa_tagihan'] > 0) : ?>
+                                                    <span class="fw-semibold small d-block text-muted text-decoration-line-through">
+                                                        Rp <?= number_format($t['nominal'], 0, ',', '.') ?>
+                                                    </span>
+                                                    <span class="fw-bold text-danger" style="font-size: 1.15rem;">
+                                                        Sisa: Rp <?= number_format($t['sisa_tagihan'], 0, ',', '.') ?>
+                                                    </span>
+                                                <?php else : ?>
+                                                    <span class="fw-bold" style="font-size: 1.15rem; color: var(--ot-primary);">
+                                                        Rp <?= number_format($t['nominal'], 0, ',', '.') ?>
+                                                    </span>
+                                                <?php endif; ?>
                                             </div>
                                             
                                             <div class="d-flex flex-row flex-md-column align-items-center align-items-md-end gap-2">
-                                                <?php $statusClass = $t['status'] === 'verified' ? 'ot-badge-verified' : ($t['status'] === 'rejected' ? 'ot-badge-rejected' : 'ot-badge-pending'); ?>
-                                                <?php $statusIcon = $t['status'] === 'verified' ? 'check-circle' : ($t['status'] === 'rejected' ? 'x-circle' : 'clock'); ?>
-                                                <?php $statusLabel = $t['status'] === 'verified' ? 'Lunas' : ($t['status'] === 'rejected' ? 'Ditolak' : 'Menunggu'); ?>
+                                                <?php 
+                                                if ($t['status'] === 'verified') {
+                                                    $statusClass = 'ot-badge-verified';
+                                                    $statusIcon = 'check-circle';
+                                                    $statusLabel = 'Lunas';
+                                                } elseif ($t['status'] === 'partial') {
+                                                    $statusClass = 'ot-badge-partial';
+                                                    $statusIcon = 'arrow-repeat';
+                                                    $statusLabel = 'Dicicil';
+                                                } elseif ($t['status'] === 'rejected') {
+                                                    $statusClass = 'ot-badge-rejected';
+                                                    $statusIcon = 'x-circle';
+                                                    $statusLabel = 'Ditolak';
+                                                } else {
+                                                    $statusClass = 'ot-badge-pending';
+                                                    $statusIcon = 'clock';
+                                                    $statusLabel = 'Menunggu';
+                                                }
+                                                ?>
                                                 <span class="ot-badge <?= $statusClass ?>">
                                                     <i class="bi bi-<?= $statusIcon ?>"></i>
                                                     <?= $statusLabel ?>

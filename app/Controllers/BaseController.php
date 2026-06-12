@@ -29,10 +29,10 @@ abstract class BaseController extends Controller
     protected function profilePhotoValidationRule(string $field, string $label = 'Foto profil'): array
     {
         return [
-            'rules' => "uploaded[$field]|max_size[$field,2048]|is_image[$field]|mime_in[$field,image/jpg,image/jpeg,image/png,image/webp]",
+            'rules' => "uploaded[$field]|max_size[$field,5120]|is_image[$field]|mime_in[$field,image/jpg,image/jpeg,image/png,image/webp]",
             'errors' => [
                 'uploaded' => $label . ' gagal diunggah.',
-                'max_size' => $label . ' maksimal 2 MB.',
+                'max_size' => $label . ' maksimal 5 MB.',
                 'is_image' => $label . ' harus berupa file gambar.',
                 'mime_in' => $label . ' harus berformat JPG, JPEG, PNG, atau WEBP.',
             ],

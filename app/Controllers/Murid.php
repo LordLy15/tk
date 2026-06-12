@@ -75,9 +75,10 @@ class Murid extends BaseController
         }
 
         if (! $this->validate($rules)) {
+            $errors = implode('<br>', $this->validator->getErrors());
             return redirect()->back()
                 ->withInput()
-                ->with('error', 'Lengkapi data murid dengan benar.');
+                ->with('error', $errors ?: 'Lengkapi data murid dengan benar.');
         }
 
         $post = $this->request->getPost();
@@ -139,9 +140,10 @@ class Murid extends BaseController
         }
 
         if (! $this->validate($rules)) {
+            $errors = implode('<br>', $this->validator->getErrors());
             return redirect()->back()
                 ->withInput()
-                ->with('error', 'Lengkapi data murid dengan benar.');
+                ->with('error', $errors ?: 'Lengkapi data murid dengan benar.');
         }
 
         $post = $this->request->getPost();

@@ -115,7 +115,7 @@
                                    name="foto_murid"
                                    class="form-control"
                                    accept="image/jpeg,image/png,image/webp">
-                            <div class="form-hint">Kosongkan jika tidak ingin mengganti foto. Maksimal 2 MB.</div>
+                            <div class="form-hint">Kosongkan jika tidak ingin mengganti foto. Maksimal 5 MB.</div>
                         </div>
 
                         <?php if (! empty($murid['foto_murid'])) : ?>
