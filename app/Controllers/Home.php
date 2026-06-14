@@ -9,14 +9,35 @@ class Home extends BaseController {
     public function index() {
         $guru  = new GuruModel();
         $murid = new MuridModel();
+        $bannerModel = new \App\Models\BannerModel();
+        $beritaModel = new \App\Models\BeritaModel();
         
         $data = [
-            'total_guru'  => $guru->findAll(),
-            'total_murid' => $murid->findAll(), // Ubah $siswa menjadi $murid
-            'title'       => 'Beranda - Dashboard Publik'
+            'total_guru'    => $guru->findAll(),
+            'total_murid'   => $murid->findAll(), // Ubah $siswa menjadi $murid
+            'banners'       => $bannerModel->where('is_active', 1)->orderBy('id', 'DESC')->findAll(),
+            'latest_berita' => $beritaModel->orderBy('tanggal', 'DESC')->orderBy('id', 'DESC')->findAll(3),
+            'title'         => 'Beranda - Dashboard Publik'
         ];
         
         return view('home', $data);
+    }
+
+    public function beritaDetail($slug)
+    {
+        $beritaModel = new \App\Models\BeritaModel();
+        $item = $beritaModel->where('slug', $slug)->first();
+        
+        if (!$item) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
+
+        $data = [
+            'item'  => $item,
+            'title' => esc($item['judul']) . ' - RA Perwanida Tempursari'
+        ];
+
+        return view('public_berita_detail', $data);
     }
 
     public function pendaftaran()

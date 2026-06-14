@@ -197,11 +197,14 @@
                                                             <span class="text-muted small">Tidak ada</span>
                                                         <?php endif; ?>
                                                     </td>
-                                                    <td class="text-center">
-                                                        <a href="<?= base_url('admin/verifikasi-pembayaran/' . $p['id']) ?>"
-                                                           class="btn btn-sm <?= $p['status'] === 'pending' ? 'btn-warning' : 'btn-outline-primary' ?> w-100">
-                                                            <i class="ti ti-eye me-1"></i> <?= $p['status'] === 'pending' ? 'Verifikasi' : 'Detail' ?>
-                                                        </a>
+                                                    <td class="action-cell">
+                                                        <div class="table-actions">
+                                                            <a href="<?= base_url('admin/verifikasi-pembayaran/' . $p['id']) ?>"
+                                                               class="btn btn-info btn-sm action-icon-btn"
+                                                               title="<?= $p['status'] === 'pending' ? 'Verifikasi' : 'Detail' ?>">
+                                                                <i class="ti ti-eye"></i>
+                                                            </a>
+                                                        </div>
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>

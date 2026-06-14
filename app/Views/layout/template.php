@@ -87,6 +87,10 @@
 
         @media (min-width: 768px) {
             .social-container { justify-content: flex-start; }
+            .footer-social-icons {
+                justify-content: flex-start !important;
+                padding-left: 20px !important;
+            }
         }
 
         .social-icon-link {
@@ -153,6 +157,29 @@
         padding: 8px 15px;
     }
 }
+
+@media (max-width: 576px) {
+    .navbar-brand img {
+        max-height: 42px !important;
+    }
+    .navbar-brand span {
+        font-size: 0.95rem !important;
+    }
+    .navbar-brand small {
+        font-size: 0.62rem !important;
+    }
+    .navbar-toggler {
+        padding: 4px 8px !important;
+        font-size: 0.9rem !important;
+    }
+}
+
+/* Fix text spacing / justify issue on mobile and tablet viewports */
+@media (max-width: 768px) {
+    .article-content, .article-content *, .news-card p, #tentang p, #visi-misi p, .faq-card p {
+        text-align: left !important;
+    }
+}
     </style>
 </head>
 <body>
@@ -186,6 +213,7 @@
                         <li><a class="dropdown-item" href="<?= base_url('#visi-misi') ?>">Visi Misi</a></li>
                         <li><a class="dropdown-item" href="<?= base_url('#pimpinan') ?>">Pimpinan Sekolah</a></li>
                         <li><a class="dropdown-item" href="<?= base_url('#guru') ?>">Guru Guru</a></li>
+                        <li><a class="dropdown-item" href="<?= base_url('#lokasi') ?>">Lokasi Sekolah</a></li>
                     </ul>
                 </li>
 
@@ -202,7 +230,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#berita">Berita & Kegiatan</a>
+                    <a class="nav-link" href="<?= base_url('#berita') ?>">Berita & Kegiatan</a>
                 </li>
 
                 <li class="nav-item">
@@ -221,7 +249,7 @@
     <div class="container">
         <div class="row text-center text-md-start d-flex align-items-start">
             
-            <div class="col-md-4 mb-4">
+            <div class="col-lg-3 col-md-6 mb-4">
                 <div class="d-flex align-items-center justify-content-center justify-content-md-start">
                     <img src="<?= base_url('assets/logo.png'); ?>" alt="Logo" width="60" class="me-3">
                     <div class="text-start">
@@ -231,19 +259,19 @@
                 </div>
             </div>
 
-            <div class="col-md-4 mb-4">
+            <div class="col-lg-3 col-md-6 mb-4">
                 <h5 class="fw-bold" style="color: #27ae60;">Alamat</h5>
                 <p class="small text-muted">Tempursari RT 04/03 Desa Tempursari Kecamatan Sambi 
                 Kabupaten Boyolali 57376</p>
             </div>
 
-            <div class="col-md-4 mb-4">
+            <div class="col-lg-3 col-md-6 mb-4">
                 <h5 class="fw-bold" style="color: #27ae60;">Hubungi Kami</h5>
                 <a href="https://wa.me/628123456789" class="btn btn-success btn-sm rounded-pill px-4 shadow-sm mb-3">
                     <i class="fab fa-whatsapp me-2"></i>Chat WhatsApp
                 </a>
                 
-                <div class="d-flex gap-3 justify-content-center justify-content-md-start mt-2">
+                <div class="d-flex gap-3 justify-content-center footer-social-icons mt-2">
                     <a href="https://instagram.com/raperwanidatempursari?igshid=YmMyMTA2M2Y=" target="_blank" class="social-icon-link" title="Instagram">
                         <i class="fab fa-instagram fs-4" style="color: #E1306C;"></i>
                     </a>
@@ -256,6 +284,19 @@
                     <a href="https://www.tiktok.com/@raperwanidatempursari?_t=8VyC9v5qgV8&_r=1" target="_blank" class="social-icon-link" title="TikTok">
                         <i class="fab fa-tiktok fs-4" style="color: #000000;"></i>
                     </a>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4" id="lokasi">
+                <h5 class="fw-bold" style="color: #27ae60;">Lokasi Sekolah</h5>
+                <div class="position-relative overflow-hidden rounded-3 shadow-sm" style="height: 130px; border: 1px solid rgba(0,0,0,0.08);">
+                    <iframe src="https://maps.google.com/maps?q=RA%20Perwanida%20Tempursari%20Sambi%20Boyolali&t=&z=14&ie=UTF8&iwloc=&output=embed" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
 

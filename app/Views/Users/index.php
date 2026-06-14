@@ -76,27 +76,24 @@
                                         <span class="badge bg-danger-subtle text-danger px-3 py-1.5 border border-danger-subtle">Nonaktif</span>
                                     <?php endif; ?>
                                 </td>
-                                <td class="text-center">
-                                    <div class="d-flex justify-content-center gap-1">
+                                <td class="action-cell">
+                                    <div class="table-actions">
                                         <a href="<?= base_url('admin/users/edit/' . $u['id_users']) ?>" 
-                                           class="btn btn-warning btn-sm btn-icon-btn d-inline-flex align-items-center justify-content-center"
-                                           title="Edit Pengguna"
-                                           style="width: 32px; height: 32px;">
+                                           class="btn btn-warning btn-sm action-icon-btn"
+                                           title="Edit Pengguna">
                                             <i class="ti ti-edit"></i>
                                         </a>
                                         
                                         <?php if ((int)session('id_users') !== (int)$u['id_users']) : ?>
                                             <a href="<?= base_url('admin/users/hapus/' . $u['id_users']) ?>" 
-                                               class="btn btn-danger btn-sm btn-icon-btn d-inline-flex align-items-center justify-content-center"
+                                               class="btn btn-danger btn-sm action-icon-btn"
                                                title="Hapus Pengguna"
-                                               style="width: 32px; height: 32px;"
                                                onclick="return confirm('Apakah Anda yakin ingin menghapus pengguna ini?')">
                                                 <i class="ti ti-trash"></i>
                                             </a>
                                         <?php else : ?>
-                                            <button class="btn btn-secondary btn-sm btn-icon-btn d-inline-flex align-items-center justify-content-center"
+                                            <button class="btn btn-secondary btn-sm action-icon-btn"
                                                     disabled
-                                                    style="width: 32px; height: 32px;"
                                                     title="Tidak bisa menghapus akun sendiri">
                                                 <i class="ti ti-trash"></i>
                                             </button>

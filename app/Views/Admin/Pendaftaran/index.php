@@ -27,7 +27,7 @@
                             <th class="py-3">Data Kelahiran</th>
                             <th class="py-3">Orang Tua / Wali</th>
                             <th class="py-3">Kontak & Alamat</th>
-                            <th class="py-3 text-center">Bukti Upload</th>
+                             <th class="action-cell text-center py-3">Bukti Upload</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -64,11 +64,13 @@
                                             <?= esc($row['alamat']); ?>
                                         </small>
                                     </td>
-                                    <td class="text-center">
+                                    <td class="action-cell">
                                         <?php if($row['akta_kelahiran']) : ?>
-                                            <a href="<?= base_url('uploads/akta/' . $row['akta_kelahiran']); ?>" target="_blank" class="btn btn-sm btn-outline-success rounded-pill px-3">
-                                                Lihat Akta
-                                            </a>
+                                            <div class="table-actions">
+                                                <a href="<?= base_url('uploads/akta/' . $row['akta_kelahiran']); ?>" target="_blank" class="btn btn-info btn-sm action-icon-btn" title="Lihat Akta">
+                                                    <i class="ti ti-file-text"></i>
+                                                </a>
+                                            </div>
                                         <?php else : ?>
                                             <span class="badge bg-secondary rounded-pill px-3">Tidak Ada</span>
                                         <?php endif; ?>

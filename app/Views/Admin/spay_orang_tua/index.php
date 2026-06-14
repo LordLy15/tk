@@ -51,7 +51,7 @@
                             <th>Nama Siswa</th>
                             <th>Kelas</th>
                             <th>Status</th>
-                            <th>Aksi</th>
+                             <th class="action-cell text-center">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -71,16 +71,20 @@
                                             <span class="badge bg-secondary">Nonaktif</span>
                                         <?php endif; ?>
                                     </td>
-                                    <td>
-                                        <a href="<?= base_url('admin/spay-orang-tua/edit/' . $ot['id']) ?>"
-                                           class="btn btn-sm btn-outline-primary">
-                                            <i class="ti ti-edit"></i>
-                                        </a>
-                                        <a href="<?= base_url('admin/spay-orang-tua/hapus/' . $ot['id']) ?>"
-                                           class="btn btn-sm btn-outline-danger"
-                                           onclick="return confirm('Yakin nonaktifkan akun ini?')">
-                                            <i class="ti ti-trash"></i>
-                                        </a>
+                                    <td class="action-cell">
+                                        <div class="table-actions">
+                                            <a href="<?= base_url('admin/spay-orang-tua/edit/' . $ot['id']) ?>"
+                                               class="btn btn-warning btn-sm action-icon-btn"
+                                               title="Edit">
+                                                <i class="ti ti-edit"></i>
+                                            </a>
+                                            <a href="<?= base_url('admin/spay-orang-tua/hapus/' . $ot['id']) ?>"
+                                               class="btn btn-danger btn-sm action-icon-btn"
+                                               onclick="return confirm('Yakin nonaktifkan akun ini?')"
+                                               title="Hapus">
+                                                <i class="ti ti-trash"></i>
+                                            </a>
+                                        </div>
                                     </td>
                                 </tr>
                             <?php endif; ?>

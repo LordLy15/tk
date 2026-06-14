@@ -8,7 +8,7 @@ Sistem Informasi Sekolah berbasis web untuk RA PERWANIDA (Taman Kanak-kanak). Ap
 
 1. **Dashboard Khusus Multi-Role**:
    - **Administrator/Staff TU**: Kelola seluruh data master (guru, murid, kelas, pengumuman, tagihan SPP, dll.).
-   - **Guru**: Manajemen kehadiran murid, pencatatan perkembangan harian/bulanan anak, dan jadwal mengajar.
+   - **Guru**: Manajemen kehadiran murid dan jadwal mengajar.
    - **Orang Tua**: Dashboard khusus (SPay) untuk memantau tagihan sekolah, upload bukti bayar, membaca pengumuman, dan e-book belajar anak.
 2. **Manajemen Guru & Murid**: Data biodata guru, data siswa (NISN), alamat, penempatan kelas, hingga foto profil.
 3. **Manajemen Kehadiran (Presensi)**: Absensi harian murid dengan status (Hadir, Sakit, Izin, Alpha).

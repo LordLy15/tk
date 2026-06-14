@@ -34,6 +34,8 @@ $navGroups = [
         'items' => [
             ['label' => 'Pengumuman', 'url' => 'pengumuman', 'icon' => 'ti-bell', 'roles' => ['Administrator', 'Admin', 'Staff']],
             ['label' => 'Libur Sekolah', 'url' => 'libur', 'icon' => 'ti-calendar-off', 'roles' => ['Administrator', 'Admin', 'Guru', 'Staff']],
+            ['label' => 'Manajemen Banner', 'url' => 'admin/banner', 'icon' => 'ti-photo', 'roles' => ['Administrator', 'Staff']],
+            ['label' => 'Berita & Kegiatan', 'url' => 'admin/berita', 'icon' => 'ti-news', 'roles' => ['Administrator', 'Staff']],
         ],
     ],
     [

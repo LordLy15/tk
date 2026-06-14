@@ -89,6 +89,7 @@ footer {
     overflow-y: auto;
     scrollbar-color: #cbd5e1 transparent;
     scrollbar-width: thin;
+    scroll-behavior: smooth;
 }
 
 .sidebar::-webkit-scrollbar {
@@ -349,7 +350,7 @@ footer {
     align-items: center;
     background: #f8fafc;
     border: 1px solid #e2e8f0;
-    border-radius: 6px;
+    border-radius: 8px;
     display: inline-flex;
     flex-wrap: nowrap;
     gap: .3rem;
@@ -372,12 +373,36 @@ footer {
     align-items: center;
     border: 0;
     display: inline-flex;
-    height: 36px;
+    height: 32px;
     justify-content: center;
-    min-height: 36px;
+    min-height: 32px;
     padding: 0;
     transition: box-shadow .15s ease, filter .15s ease, transform .15s ease;
-    width: 36px;
+    width: 32px;
+    border-radius: 8px !important;
+}
+
+.table-actions .action-icon-btn.btn-info,
+.table-actions .action-icon-btn.btn-outline-info {
+    background-color: #00b4d8 !important;
+    border-color: #00b4d8 !important;
+    color: #000000 !important;
+}
+
+.table-actions .action-icon-btn.btn-warning,
+.table-actions .action-icon-btn.btn-outline-warning,
+.table-actions .action-icon-btn.btn-success,
+.table-actions .action-icon-btn.btn-outline-success {
+    background-color: #28a745 !important;
+    border-color: #28a745 !important;
+    color: #ffffff !important;
+}
+
+.table-actions .action-icon-btn.btn-danger,
+.table-actions .action-icon-btn.btn-outline-danger {
+    background-color: #dc3545 !important;
+    border-color: #dc3545 !important;
+    color: #ffffff !important;
 }
 
 .table-actions .action-icon-btn i {
@@ -952,5 +977,54 @@ table thead th {
     --attendance-bg: #f1f5f9;
     --attendance-border: #cbd5e1;
     --attendance-text: #475569;
+}
+
+/* Override dropdown-item & dropdown-toggle focus/hover/active colors to prevent orange */
+.dropdown-item {
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.dropdown-item:hover, 
+.dropdown-item:focus {
+    background-color: rgba(22, 163, 74, 0.08) !important;
+    color: #14532d !important;
+}
+
+.dropdown-item:active, 
+.dropdown-item.active {
+    background-color: #16a34a !important;
+    color: #ffffff !important;
+}
+
+/* Logout button hover/focus states (danger) */
+.dropdown-item.text-danger:hover,
+.dropdown-item.text-danger:focus {
+    background-color: rgba(220, 53, 69, 0.08) !important;
+    color: #dc3545 !important;
+}
+
+.dropdown-item.text-danger:active {
+    background-color: #dc3545 !important;
+    color: #ffffff !important;
+}
+
+/* Fix dropdown toggle trigger focus ring/outline/text to avoid orange */
+a[data-bs-toggle="dropdown"] {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+a[data-bs-toggle="dropdown"]:hover,
+a[data-bs-toggle="dropdown"]:focus,
+a[data-bs-toggle="dropdown"]:active,
+a[data-bs-toggle="dropdown"].show {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+a[data-bs-toggle="dropdown"]:hover .text-dark,
+a[data-bs-toggle="dropdown"]:focus .text-dark,
+a[data-bs-toggle="dropdown"].show .text-dark {
+    color: #16a34a !important;
 }
 

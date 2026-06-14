@@ -36,17 +36,6 @@
     .about-img-container {
         position: relative;
     }
-    .about-img-container::before {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        border: 4px solid rgba(39, 174, 96, 0.2);
-        top: 15px;
-        left: 15px;
-        border-radius: 1.5rem;
-        z-index: -1;
-    }
 
     /* Visi Misi Section */
     .visi-misi-card {
@@ -283,7 +272,353 @@
         font-size: 0.95rem;
         margin-bottom: 15px;
     }
+
+    /* Hero Carousel Sizing & Premium Adjustments */
+    .hero-carousel-img {
+        height: 520px !important;
+        object-fit: cover;
+        object-position: center;
+    }
+    .carousel-inner {
+        max-height: 520px !important;
+    }
+    .banner-desc {
+        max-width: 700px;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+    @media (max-width: 768px) {
+        .carousel-inner {
+            max-height: 280px !important;
+        }
+        .hero-carousel-img {
+            height: 280px !important;
+        }
+        .carousel-caption {
+            padding-bottom: 20px !important;
+            padding-left: 15px !important;
+            padding-right: 15px !important;
+        }
+        .carousel-caption h1 {
+            font-size: 1.3rem !important;
+            line-height: 1.35 !important;
+            margin-bottom: 12px !important;
+            font-weight: 700 !important;
+        }
+        .banner-desc {
+            font-size: 0.82rem !important;
+            line-height: 1.4 !important;
+            margin-bottom: 10px !important;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            max-width: 90% !important;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .carousel-caption .btn {
+            padding: 6px 16px !important;
+            font-size: 0.8rem !important;
+        }
+    }
+    @media (max-width: 576px) {
+        .carousel-inner {
+            max-height: 190px !important;
+        }
+        .hero-carousel-img {
+            height: 190px !important;
+        }
+        .carousel-caption {
+            padding-bottom: 12px !important;
+            padding-left: 10px !important;
+            padding-right: 10px !important;
+        }
+        .carousel-caption h1 {
+            font-size: 0.95rem !important;
+            line-height: 1.3 !important;
+            margin-bottom: 6px !important;
+            font-weight: 700 !important;
+        }
+        .banner-desc {
+            font-size: 0.7rem !important;
+            line-height: 1.35 !important;
+            margin-bottom: 8px !important;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            max-width: 95% !important;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .carousel-caption .btn {
+            padding: 4px 10px !important;
+            font-size: 0.68rem !important;
+        }
+    }
+
+    /* Responsive image wrappers */
+    .about-img {
+        height: 100% !important;
+        object-fit: cover;
+    }
+    @media (max-width: 768px) {
+        .img-wrapper-responsive {
+            height: 240px !important;
+        }
+    }
+
+    /* Pimpinan & Guru Cards Mobile Compatibility */
+    @media (max-width: 576px) {
+        .pimpinan-card {
+            height: 280px !important;
+            min-height: 280px !important;
+            border-radius: 16px !important;
+        }
+        .teacher-card {
+            height: 240px !important;
+            min-height: 240px !important;
+            border-radius: 16px !important;
+        }
+        .pimpinan-img-container {
+            height: 170px !important;
+        }
+        .teacher-card-img-container {
+            height: 140px !important;
+        }
+        .pimpinan-card-content {
+            padding: 10px 12px 12px 12px !important;
+        }
+        .teacher-card-content {
+            padding: 8px 10px 10px 10px !important;
+        }
+        .pimpinan-card-name {
+            font-size: 0.78rem !important;
+            margin-bottom: 2px !important;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .teacher-card-name {
+            font-size: 0.78rem !important;
+            margin-bottom: 1px !important;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .pimpinan-card-role {
+            font-size: 0.65rem !important;
+            margin-bottom: 6px !important;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .teacher-card-role {
+            font-size: 0.65rem !important;
+            margin-bottom: 4px !important;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .pimpinan-card-quote {
+            font-size: 0.58rem !important;
+            line-height: 1.25 !important;
+            padding-top: 6px !important;
+            margin-top: 4px !important;
+            border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+        }
+        .teacher-card-footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+            padding-top: 6px !important;
+            margin-top: 2px !important;
+        }
+        .teacher-card-edu {
+            font-size: 0.6rem !important;
+        }
+        .teacher-card-edu i {
+            margin-right: 3px !important;
+            font-size: 0.68rem !important;
+        }
+        .teacher-card-badge {
+            padding: 3px 6px !important;
+            font-size: 0.55rem !important;
+            border-radius: 6px !important;
+        }
+        .pimpinan-card-overlay, .teacher-card-overlay {
+            background: linear-gradient(to bottom, rgba(22, 67, 43, 0) 30%, #16432b 65%) !important;
+        }
+    }
+
+    /* Berita & Kegiatan Section Styles */
+    .news-card {
+        border-radius: 20px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        background: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    .news-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 30px rgba(39, 174, 96, 0.1) !important;
+        border-color: rgba(39, 174, 96, 0.2);
+    }
+    .news-img-wrapper {
+        position: relative;
+        height: 200px;
+        overflow: hidden;
+    }
+    .news-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+    .news-card:hover .news-img {
+        transform: scale(1.05);
+    }
+    .news-badge {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        z-index: 10;
+        font-size: 0.8rem;
+        font-weight: 600;
+        padding: 6px 12px;
+        border-radius: 50px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* News Card Mobile Compatibility */
+    @media (max-width: 576px) {
+        .news-card {
+            border-radius: 14px !important;
+        }
+        .news-img-wrapper {
+            height: 110px !important;
+        }
+        .news-badge {
+            top: 8px !important;
+            left: 8px !important;
+            font-size: 0.65rem !important;
+            padding: 3px 8px !important;
+        }
+        .news-card .card-body {
+            padding: 10px !important;
+        }
+        .news-card .card-body .d-flex {
+            margin-bottom: 2px !important;
+            gap: 4px !important;
+        }
+        .news-card .card-body .d-flex span,
+        .news-card .card-body .d-flex i {
+            font-size: 0.68rem !important;
+        }
+        .news-card h5 {
+            font-size: 0.82rem !important;
+            margin-bottom: 4px !important;
+            line-height: 1.25 !important;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .news-card p {
+            font-size: 0.68rem !important;
+            line-height: 1.35 !important;
+            margin-bottom: 10px !important;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .news-card .btn {
+            padding: 4px 4px !important;
+            font-size: 0.64rem !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            white-space: nowrap !important;
+        }
+        .news-card .btn i {
+            margin-left: 4px !important;
+        }
+    }
 </style>
+
+<div class="container py-4">
+    <!-- Hero Banner Carousel -->
+    <div id="heroCarousel" class="carousel slide carousel-fade mb-5" data-bs-ride="carousel" data-bs-interval="4000">
+        <!-- Indicators -->
+        <?php if (!empty($banners) && count($banners) > 1): ?>
+            <div class="carousel-indicators">
+                <?php foreach ($banners as $index => $b): ?>
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="<?= $index ?>" class="<?= $index === 0 ? 'active' : '' ?>" aria-current="<?= $index === 0 ? 'true' : 'false' ?>"></button>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
+
+        <!-- Slides -->
+        <div class="carousel-inner rounded-4 shadow-sm overflow-hidden" style="max-height: 520px;">
+            <?php if (!empty($banners)): ?>
+                <?php foreach ($banners as $index => $b): ?>
+                    <div class="carousel-item <?= $index === 0 ? 'active' : '' ?>">
+                        <div class="position-relative">
+                            <!-- Dark Overlay -->
+                            <div class="position-absolute w-100 h-100" style="background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 100%); z-index: 1;"></div>
+                            <img src="<?= base_url('uploads/banners/' . esc($b['gambar'])) ?>" class="d-block w-100 hero-carousel-img" alt="<?= esc($b['judul']) ?>" style="height: 520px; object-fit: cover;">
+                            
+                            <!-- Caption Content -->
+                            <div class="carousel-caption d-flex flex-column justify-content-end text-start h-100 pb-5 px-4 px-md-5" style="z-index: 2; left: 0; right: 0; bottom: 0;">
+                                <div class="container-fluid">
+                                    <h1 class="display-5 fw-bold text-white mb-2" style="font-family: 'Quicksand', sans-serif; text-shadow: 0 2px 4px rgba(0,0,0,0.5);"><?= esc($b['judul']) ?></h1>
+                                    <?php if (!empty($b['deskripsi'])): ?>
+                                        <p class="banner-desc text-white-50 mb-3"><?= esc($b['deskripsi']) ?></p>
+                                    <?php endif; ?>
+                                    <?php if (!empty($b['link_url'])): ?>
+                                        <a href="<?= esc($b['link_url']) ?>" target="_blank" class="btn btn-success px-4 py-2.5 rounded-pill fw-bold shadow d-inline-flex align-items-center gap-2" style="background-color: #27ae60; border-color: #27ae60;">
+                                            Baca Selengkapnya <i class="fa-solid fa-arrow-right"></i>
+                                        </a>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <!-- Default Placeholder Slide -->
+                <div class="carousel-item active">
+                    <div class="position-relative">
+                        <div class="position-absolute w-100 h-100" style="background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 100%); z-index: 1;"></div>
+                        <img src="<?= base_url('assets/images/gambar-sekolah.jpeg') ?>" class="d-block w-100 hero-carousel-img" alt="Selamat Datang" style="height: 520px; object-fit: cover;">
+                        <div class="carousel-caption d-flex flex-column justify-content-end text-start h-100 pb-5 px-4 px-md-5" style="z-index: 2; left: 0; right: 0; bottom: 0;">
+                            <div class="container-fluid">
+                                <h1 class="display-5 fw-bold text-white mb-2" style="font-family: 'Quicksand', sans-serif; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">Selamat Datang di RA Perwanida Tempursari</h1>
+                                <p class="banner-desc text-white-50 mb-3">Mendidik dengan ilmu, menuntun dengan adab. Membangun generasi unggul yang cerdas, sehat, dan mandiri sejak usia dini.</p>
+                                <a href="#tentang" class="btn btn-success px-4 py-2.5 rounded-pill fw-bold shadow d-inline-flex align-items-center gap-2" style="background-color: #27ae60; border-color: #27ae60;">
+                                    Kenali Kami <i class="fa-solid fa-arrow-down"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php endif; ?>
+        </div>
+
+        <!-- Controls -->
+        <?php if (!empty($banners) && count($banners) > 1): ?>
+            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev" style="z-index: 3;">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next" style="z-index: 3;">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        <?php endif; ?>
+    </div>
+</div>
 
 <section id="tentang" class="py-5 mt-3">
     <div class="container py-4">
@@ -296,11 +631,10 @@
                 </p>
             </div>
             <div class="col-md-6">
-                <div class="about-img-container">
+                <div class="about-img-container img-wrapper-responsive" style="height: 340px;">
                     <img src="<?= base_url('assets/images/gambar-sekolah.jpeg') ?>" 
                         alt="Gedung RA Perwanida" 
-                        class="img-fluid rounded-4 shadow w-100" 
-                        style="height: 340px; object-fit: cover;">
+                        class="img-fluid rounded-4 shadow w-100 about-img">
                 </div>
             </div>
         </div>
@@ -337,8 +671,8 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="bg-white border rounded-4 shadow-sm overflow-hidden" style="height: 340px;">
-                    <img src="<?= base_url('assets/images/foto-guru.jpeg') ?>" class="w-100 h-100" style="object-fit: cover;" alt="Ilustrasi Visi Misi: Anak-anak aktif dan cerdas">
+                <div class="bg-white border rounded-4 shadow-sm overflow-hidden img-wrapper-responsive" style="height: 340px;">
+                    <img src="<?= base_url('assets/images/foto-guru.jpeg') ?>" class="w-100 h-100 about-img" alt="Ilustrasi Visi Misi: Anak-anak aktif dan cerdas">
                 </div>
             </div>
         </div>
@@ -354,7 +688,7 @@
         </div>
         
         <div class="row justify-content-center">
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="col-10 col-sm-8 col-md-6 col-lg-4">
                 <div class="pimpinan-card">
                     <div class="pimpinan-img-container">
                         <img src="<?= base_url('assets/images/foto-kepala.JPG') ?>" 
@@ -389,7 +723,7 @@
             <?php if(!empty($total_guru)): ?>
                 <?php foreach($total_guru as $g): ?>
                 
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                     <div class="teacher-card">
                         <div class="teacher-card-img-container">
                             <?php if (! empty($g['foto_guru'])) : ?>
@@ -434,6 +768,78 @@
             <?php else: ?>
                 <div class="col-12">
                     <p class="text-muted fst-italic">Data guru belum tersedia.</p>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
+</section>
+
+<section id="berita" class="py-5">
+    <div class="container py-4">
+        <div class="section-title-wrapper text-center">
+            <span class="section-tagline">Info Terkini</span>
+            <h2 class="section-main-title">BERITA & KEGIATAN</h2>
+            <div class="section-title-line"></div>
+        </div>
+
+        <div class="row justify-content-center g-3 g-sm-4 mt-2">
+            <?php if (!empty($latest_berita)) : ?>
+                <?php foreach ($latest_berita as $item) : ?>
+                    <div class="col-6 col-md-6 col-lg-4">
+                        <div class="card news-card h-100 shadow-sm border-0">
+                            <!-- Image Wrapper -->
+                            <div class="news-img-wrapper">
+                                <?php if ($item['gambar']) : ?>
+                                    <img src="<?= base_url('uploads/berita/' . esc($item['gambar'])) ?>" alt="<?= esc($item['judul']) ?>" class="news-img">
+                                <?php else : ?>
+                                    <div class="w-100 h-100 bg-light d-flex align-items-center justify-content-center">
+                                        <i class="fas fa-newspaper text-muted fa-3x"></i>
+                                    </div>
+                                <?php endif; ?>
+                                
+                                <!-- Category Badge -->
+                                <?php if ($item['kategori'] === 'Berita') : ?>
+                                    <span class="badge news-badge bg-success" style="background-color: #27ae60 !important;">
+                                        <i class="fas fa-newspaper me-1"></i> Berita
+                                    </span>
+                                <?php else : ?>
+                                    <span class="badge news-badge bg-warning text-dark" style="background-color: #f1c40f !important;">
+                                        <i class="fas fa-calendar-alt me-1"></i> Kegiatan
+                                    </span>
+                                <?php endif; ?>
+                            </div>
+
+                            <!-- Card Body -->
+                            <div class="card-body p-4 d-flex flex-column">
+                                <div class="d-flex align-items-center gap-2 text-muted small mb-2">
+                                    <i class="far fa-calendar-alt text-success"></i>
+                                    <span><?= date('d M Y', strtotime($item['tanggal'])) ?></span>
+                                </div>
+                                <h5 class="fw-bold mb-3" style="color: #2c3e50; line-height: 1.4; font-family: 'Quicksand', sans-serif;">
+                                    <?= esc($item['judul']) ?>
+                                </h5>
+                                <p class="text-muted small mb-4 flex-grow-1" style="text-align: justify; line-height: 1.6;">
+                                    <?php
+                                        $clean_content = preg_replace('/<[^>]+>/', ' ', $item['konten']);
+                                        $clean_content = html_entity_decode($clean_content);
+                                        $clean_content = preg_replace('/\s+/', ' ', $clean_content);
+                                        $clean_content = trim($clean_content);
+                                        echo esc(substr($clean_content, 0, 120)) . (strlen($clean_content) > 120 ? '...' : '');
+                                    ?>
+                                </p>
+                                <a href="<?= base_url('berita/' . $item['slug']) ?>" class="btn btn-outline-success rounded-pill w-100 py-2 fw-semibold mt-auto" style="border-color: #27ae60; color: #27ae60;">
+                                    Baca Selengkapnya <i class="fas fa-arrow-right ms-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php else : ?>
+                <div class="col-12 text-center py-5">
+                    <div class="text-muted">
+                        <i class="far fa-folder-open fa-3x mb-3 text-secondary"></i>
+                        <p class="mb-0">Belum ada berita atau kegiatan terbaru.</p>
+                    </div>
                 </div>
             <?php endif; ?>
         </div>

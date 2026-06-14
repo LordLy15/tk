@@ -105,9 +105,9 @@
                     <ul class="pagination mb-0">
                         <!-- Previous Page -->
                         <li class="page-item <?= $page <= 1 ? 'disabled' : '' ?>">
-                            <a class="page-item" 
+                            <a class="page-link" 
                                href="<?= base_url('admin/developer/logs?page=' . ($page - 1) . ($search ? '&search=' . urlencode($search) : '')) ?>">
-                                <span class="page-link"><i class="ti ti-chevron-left"></i></span>
+                                <i class="ti ti-chevron-left"></i>
                             </a>
                         </li>
                         
@@ -127,9 +127,9 @@
                         
                         <!-- Next Page -->
                         <li class="page-item <?= $page >= $total_pages ? 'disabled' : '' ?>">
-                            <a class="page-item" 
+                            <a class="page-link" 
                                href="<?= base_url('admin/developer/logs?page=' . ($page + 1) . ($search ? '&search=' . urlencode($search) : '')) ?>">
-                                <span class="page-link"><i class="ti ti-chevron-right"></i></span>
+                                <i class="ti ti-chevron-right"></i>
                             </a>
                         </li>
                     </ul>

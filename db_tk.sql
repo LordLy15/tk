@@ -389,29 +389,7 @@ CREATE TABLE `pengumuman` (
 INSERT INTO `pengumuman` (`id`, `judul`, `konten`, `tanggal_mulai`, `tanggal_selesai`, `prioritas`, `status`, `created_by`, `created_at`, `updated_at`) VALUES
 (4, 'mengingatkan pembayaran sekolah', 'a\r\na\r\na\r\na\r\na\r\na\r\n\r\na\r\na\r\na\r\na\r\na\r\na\r\n\r\na\r\n', '2026-05-21', '2026-05-25', 'rendah', 'nonaktif', NULL, '2026-05-21 05:04:49', '2026-05-23 00:43:01');
 
--- --------------------------------------------------------
 
---
--- Struktur dari tabel `perkembangan_murid`
---
-
-CREATE TABLE `perkembangan_murid` (
-  `id` int(11) UNSIGNED NOT NULL,
-  `id_murid` int(11) UNSIGNED NOT NULL,
-  `id_guru` int(11) UNSIGNED NOT NULL,
-  `bulan` int(2) DEFAULT NULL,
-  `tahun` int(4) DEFAULT NULL,
-  `nilai_kognitif` int(3) DEFAULT NULL,
-  `nilai_afektif` int(3) DEFAULT NULL,
-  `nilai_motorik` int(3) DEFAULT NULL,
-  `nilai_sosial` int(3) DEFAULT NULL,
-  `catatan` text DEFAULT NULL,
-  `rekomendasi` text DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
 
 --
 -- Struktur dari tabel `role`
@@ -681,14 +659,6 @@ ALTER TABLE `pengumuman`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `perkembangan_murid`
---
-ALTER TABLE `perkembangan_murid`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `perkembangan_unique` (`id_murid`,`bulan`,`tahun`),
-  ADD KEY `perkembangan_id_guru_foreign` (`id_guru`);
-
---
 -- Indeks untuk tabel `role`
 --
 ALTER TABLE `role`
@@ -825,12 +795,6 @@ ALTER TABLE `pengumuman`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `perkembangan_murid`
---
-ALTER TABLE `perkembangan_murid`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT untuk tabel `role`
 --
 ALTER TABLE `role`
@@ -907,13 +871,6 @@ ALTER TABLE `murid`
 --
 ALTER TABLE `orang_tua`
   ADD CONSTRAINT `orang_tua_id_murid_foreign` FOREIGN KEY (`id_murid`) REFERENCES `murid` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `perkembangan_murid`
---
-ALTER TABLE `perkembangan_murid`
-  ADD CONSTRAINT `perkembangan_murid_id_guru_foreign` FOREIGN KEY (`id_guru`) REFERENCES `guru` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `perkembangan_murid_id_murid_foreign` FOREIGN KEY (`id_murid`) REFERENCES `murid` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `spay_pembayaran`

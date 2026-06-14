@@ -41,6 +41,7 @@ class Filters extends BaseFilters
         'guest'         => GuestFilter::class,
         'role'          => RoleFilter::class,
         'orangtuaauth'  => \App\Filters\OrangTuaAuthFilter::class,
+        'maintenance'   => \App\Filters\MaintenanceFilter::class,
     ];
 
     /**
@@ -79,6 +80,17 @@ class Filters extends BaseFilters
      */
     public array $globals = [
         'before' => [
+            'maintenance' => [
+                'except' => [
+                    'login',
+                    'logout',
+                    'maintenance',
+                    'assets/*',
+                    'uploads/*',
+                    'writable/*',
+                    'admin/developer/toggle-maintenance'
+                ]
+            ],
             // 'honeypot',
             // 'csrf',
             // 'invalidchars',

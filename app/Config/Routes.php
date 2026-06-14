@@ -12,6 +12,7 @@ use CodeIgniter\Router\RouteCollection;
 // Memanggil halaman utama portofolio langsung saat web dibuka
 $routes->get('/', 'Home::index'); 
 $routes->get('/pendaftaran', 'Home::pendaftaran');
+$routes->get('/berita/(:segment)', 'Home::beritaDetail/$1');
 $routes->post('/pendaftaran/simpan', 'Home::simpanPendaftaran'); // <-- INI ROUTE BARU UNTUK MENANGANI SUBMIT FORM
 
 // Jika kamu masih punya controller Porto, bisa dibiarkan sebagai opsional
@@ -56,6 +57,8 @@ $routes->group('admin', $dashboardRoles, function($routes) use ($developerRoles,
     $routes->get('developer/clear-logs', 'Developer::clearLogs', $developerRoles);
     $routes->get('developer/reset-db', 'Developer::resetDatabase', $developerRoles);
     $routes->get('developer/logs', 'Developer::logs', $developerRoles);
+    $routes->get('developer/backup-db', 'Developer::backupDatabase', $developerRoles);
+    $routes->post('developer/run-query', 'Developer::runQuery', $developerRoles);
 
     // USER MANAGEMENT (CRUD)
     $routes->get('users', 'Users::index', $userManagementRoles);
@@ -205,6 +208,27 @@ $routes->group('admin/ebook', $ebookRoles, function($routes) {
     $routes->post('update/(:num)','Admin\EbookController::update/$1');
     $routes->get('hapus/(:num)', 'Admin\EbookController::hapus/$1');
 });
+
+$bannerRoles = ['filter' => 'role:Administrator,Staff'];
+$routes->group('admin/banner', $bannerRoles, function($routes) {
+    $routes->get('/',            'Admin\BannerController::index');
+    $routes->get('tambah',       'Admin\BannerController::tambah');
+    $routes->post('simpan',      'Admin\BannerController::simpan');
+    $routes->get('edit/(:num)', 'Admin\BannerController::edit/$1');
+    $routes->post('update/(:num)','Admin\BannerController::update/$1');
+    $routes->get('hapus/(:num)', 'Admin\BannerController::hapus/$1');
+});
+
+$beritaRoles = ['filter' => 'role:Administrator,Staff'];
+$routes->group('admin/berita', $beritaRoles, function($routes) {
+    $routes->get('/',            'Admin\BeritaController::index');
+    $routes->get('tambah',       'Admin\BeritaController::tambah');
+    $routes->post('simpan',      'Admin\BeritaController::simpan');
+    $routes->get('edit/(:num)', 'Admin\BeritaController::edit/$1');
+    $routes->post('update/(:num)','Admin\BeritaController::update/$1');
+    $routes->get('hapus/(:num)', 'Admin\BeritaController::hapus/$1');
+});
+
 
 // Akun Orang Tua untuk Pembayaran
 $routes->group('admin/spay-orang-tua', $verifikasiRoles, function($routes) {

@@ -53,6 +53,22 @@ class Developer extends BaseController
             $maintenanceActive = (bool) ($maintenanceData['active'] ?? false);
         }
 
+        // Disk space calculations (safely wrapped)
+        $diskFree = 'N/A';
+        $diskTotal = 'N/A';
+        try {
+            $diskFreeVal = @disk_free_space(ROOTPATH);
+            $diskTotalVal = @disk_total_space(ROOTPATH);
+            if ($diskFreeVal !== false) {
+                $diskFree = $this->formatBytes($diskFreeVal);
+            }
+            if ($diskTotalVal !== false) {
+                $diskTotal = $this->formatBytes($diskTotalVal);
+            }
+        } catch (\Throwable $e) {
+            // Ignored
+        }
+
         $data = [
             'title'              => 'Panel Maintenance Developer',
             'php_version'        => $phpVersion,
@@ -63,7 +79,17 @@ class Developer extends BaseController
             'debug_size'         => $this->formatBytes($debugSize),
             'tables'             => $tables,
             'activity_logs'      => $logs,
-            'maintenance_active' => $maintenanceActive
+            'maintenance_active' => $maintenanceActive,
+            // New premium environment stats
+            'environment'        => defined('ENVIRONMENT') ? ENVIRONMENT : 'production',
+            'os'                 => PHP_OS_FAMILY . ' (' . php_uname('r') . ')',
+            'upload_limit'       => ini_get('upload_max_filesize'),
+            'post_limit'         => ini_get('post_max_size'),
+            'memory_limit'       => ini_get('memory_limit'),
+            'db_name'            => $db->database,
+            'db_host'            => $db->hostname,
+            'disk_free'          => $diskFree,
+            'disk_total'         => $diskTotal,
         ];
 
         return view('Developer/index', $data);
@@ -216,6 +242,108 @@ class Developer extends BaseController
         ];
         
         return view('Developer/logs', $data);
+    }
+
+    public function backupDatabase()
+    {
+        $db = Database::connect();
+        
+        try {
+            $db->initialize();
+        } catch (\Throwable $e) {
+            return redirect()->to('/admin/developer')->with('error', 'Database gagal terhubung: ' . $e->getMessage());
+        }
+        
+        if (!$db->connID) {
+            return redirect()->to('/admin/developer')->with('error', 'Database tidak terhubung.');
+        }
+
+        $tables = $db->listTables();
+        $output = "-- RA PERWANIDA Database Backup\n";
+        $output .= "-- Generated on: " . date('Y-m-d H:i:s') . "\n";
+        $output .= "-- PHP Version: " . PHP_VERSION . "\n\n";
+        $output .= "SET FOREIGN_KEY_CHECKS = 0;\n\n";
+
+        foreach ($tables as $table) {
+            // Get CREATE TABLE statement
+            $query = $db->query("SHOW CREATE TABLE " . $db->escapeIdentifiers($table));
+            $row = $query->getRowArray();
+            if (isset($row['Create Table'])) {
+                $output .= "DROP TABLE IF EXISTS " . $db->escapeIdentifiers($table) . ";\n";
+                $output .= $row['Create Table'] . ";\n\n";
+            }
+
+            // Get records
+            $records = $db->table($table)->get()->getResultArray();
+            if (!empty($records)) {
+                $output .= "-- Data for table: " . $table . "\n";
+                foreach ($records as $record) {
+                    $keys = array_keys($record);
+                    $values = array_map(function($val) use ($db) {
+                        if ($val === null) {
+                            return 'NULL';
+                        }
+                        return $db->escape($val);
+                    }, array_values($record));
+                    
+                    $output .= "INSERT INTO " . $db->escapeIdentifiers($table) . " (" . implode(', ', $keys) . ") VALUES (" . implode(', ', $values) . ");\n";
+                }
+                $output .= "\n";
+            }
+        }
+
+        $output .= "SET FOREIGN_KEY_CHECKS = 1;\n";
+
+        $filename = 'backup_db_' . date('Ymd_His') . '.sql';
+        
+        $this->logActivity('Melakukan backup database ke file ' . $filename, 'Developer Panel');
+
+        return $this->response->setHeader('Content-Type', 'application/sql')
+            ->setHeader('Content-Disposition', 'attachment; filename="' . $filename . '"')
+            ->setBody($output);
+    }
+
+    public function runQuery()
+    {
+        $queryText = trim((string) $this->request->getPost('sql_query'));
+        if ($queryText === '') {
+            return redirect()->to('/admin/developer')->with('error', 'Masukkan query SQL terlebih dahulu.');
+        }
+
+        $db = Database::connect();
+        
+        try {
+            // Check query type
+            $isSelect = preg_match('/^\s*select/i', $queryText);
+            $isExplain = preg_match('/^\s*explain/i', $queryText);
+            $isShow = preg_match('/^\s*show/i', $queryText);
+            $isDescribe = preg_match('/^\s*desc/i', $queryText);
+
+            $startTime = microtime(true);
+            $queryResult = $db->query($queryText);
+            $elapsedTime = round((microtime(true) - $startTime) * 1000, 2); // ms
+
+            if ($isSelect || $isExplain || $isShow || $isDescribe) {
+                $results = $queryResult->getResultArray();
+                $fields = $queryResult->getFieldNames();
+                
+                session()->setFlashdata('query_success', 'Query berhasil dieksekusi dalam ' . $elapsedTime . ' ms.');
+                session()->setFlashdata('query_results', $results);
+                session()->setFlashdata('query_fields', $fields);
+                session()->setFlashdata('query_sql', $queryText);
+            } else {
+                $affectedRows = $db->affectedRows();
+                session()->setFlashdata('query_success', 'Query berhasil dieksekusi dalam ' . $elapsedTime . ' ms. Baris terpengaruh: ' . $affectedRows);
+                session()->setFlashdata('query_sql', $queryText);
+            }
+            
+            $this->logActivity('Menjalankan query SQL kustom via Console', 'Developer Panel');
+        } catch (\Throwable $e) {
+            session()->setFlashdata('query_error', 'Query Error: ' . $e->getMessage());
+            session()->setFlashdata('query_sql', $queryText);
+        }
+
+        return redirect()->to('/admin/developer#query-console');
     }
 
     private function getDirectorySize($path): int

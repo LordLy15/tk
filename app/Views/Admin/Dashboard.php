@@ -1,6 +1,34 @@
 <?php
 $currentUserName = session('nama_lengkap') ?: session('nama') ?: 'Pengguna';
 $currentUserRole = session('role') ?: 'User';
+$currentUserPhoto = null;
+
+if (session('id_guru')) {
+    $db = \Config\Database::connect();
+    $guru = $db->table('guru')->where('id', session('id_guru'))->get()->getRowArray();
+    if ($guru && !empty($guru['foto_guru'])) {
+        $currentUserPhoto = base_url('uploads/foto_guru/' . rawurlencode($guru['foto_guru']));
+    }
+}
+
+$initials = '';
+if (!$currentUserPhoto) {
+    $words = explode(' ', trim($currentUserName));
+    $initials = strtoupper(substr($words[0], 0, 1));
+    if (count($words) > 1) {
+        $initials .= strtoupper(substr($words[1], 0, 1));
+    } else {
+        $initials .= (strlen($words[0]) > 1) ? strtoupper(substr($words[0], 1, 1)) : '';
+    }
+    $initials = substr($initials, 0, 2);
+}
+
+$profileUrl = '#';
+if (strtolower($currentUserRole) === 'guru' && session('id_guru')) {
+    $profileUrl = base_url('guru/edit/' . session('id_guru'));
+} else if (session('id_users')) {
+    $profileUrl = base_url('admin/users/edit/' . session('id_users'));
+}
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -50,10 +78,18 @@ $currentUserRole = session('role') ?: 'User';
            class="d-flex align-items-center text-decoration-none"
            data-bs-toggle="dropdown">
 
-            <img src="/assets/dashboard/images/avatar-1.jpg"
-                 class="rounded-circle me-2"
-                 width="40"
-                 height="40">
+            <?php if ($currentUserPhoto) : ?>
+                <img src="<?= $currentUserPhoto ?>"
+                     class="rounded-circle me-2"
+                     width="40"
+                     height="40"
+                     style="object-fit: cover; border: 1.5px solid #27ae60;">
+            <?php else : ?>
+                <div class="rounded-circle me-2 d-flex align-items-center justify-content-center text-white fw-bold"
+                     style="width: 40px; height: 40px; background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%); font-size: 14px; border: 1.5px solid #27ae60; box-shadow: 0 0 0 1px rgba(0,0,0,0.05);">
+                    <?= esc($initials) ?>
+                </div>
+            <?php endif; ?>
 
             <div>
 
@@ -74,14 +110,14 @@ $currentUserRole = session('role') ?: 'User';
         <ul class="dropdown-menu dropdown-menu-end">
 
             <li>
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="<?= $profileUrl ?>">
                     <i class="ti ti-user me-2"></i>
                     Profil Saya
                 </a>
             </li>
 
             <li>
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="<?= $profileUrl ?>">
                     <i class="ti ti-settings me-2"></i>
                     Pengaturan
                 </a>
@@ -184,6 +220,12 @@ $currentUserRole = session('role') ?: 'User';
                 link.classList.add('active');
             }
         });
+
+        // Scroll the active menu item into view
+        const activeLink = document.querySelector('.sidebar .nav-link.active');
+        if (activeLink) {
+            activeLink.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
     });
 </script>
 

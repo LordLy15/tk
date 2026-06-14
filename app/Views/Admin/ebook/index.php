@@ -42,7 +42,7 @@
                             <th>Penulis</th>
                             <th>Kategori</th>
                             <th>Kelas</th>
-                            <th style="width: 120px;">Aksi</th>
+                             <th class="action-cell text-center" style="width: 120px;">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -71,16 +71,28 @@
                                         : '-'; ?>
                                 </td>
                                 <td><?= esc($e['kelas'] ?? '-') ?></td>
-                                <td>
-                                    <a href="<?= base_url('admin/ebook/edit/' . $e['id']) ?>"
-                                       class="btn btn-sm btn-outline-primary">
-                                        <i class="ti ti-edit"></i>
-                                    </a>
-                                    <a href="<?= base_url('admin/ebook/hapus/' . $e['id']) ?>"
-                                       class="btn btn-sm btn-outline-danger"
-                                       onclick="return confirm('Yakin hapus e-book ini?')">
-                                        <i class="ti ti-trash"></i>
-                                    </a>
+                                <td class="action-cell">
+                                    <div class="table-actions">
+                                        <?php if ($e['file_path']) : ?>
+                                            <a href="<?= base_url('ebook/download/' . $e['id']) ?>"
+                                               target="_blank"
+                                               class="btn btn-info btn-sm action-icon-btn"
+                                               title="Unduh E-Book">
+                                                <i class="ti ti-download"></i>
+                                            </a>
+                                        <?php endif; ?>
+                                        <a href="<?= base_url('admin/ebook/edit/' . $e['id']) ?>"
+                                           class="btn btn-warning btn-sm action-icon-btn"
+                                           title="Edit">
+                                            <i class="ti ti-edit"></i>
+                                        </a>
+                                        <a href="<?= base_url('admin/ebook/hapus/' . $e['id']) ?>"
+                                           class="btn btn-danger btn-sm action-icon-btn"
+                                           onclick="return confirm('Yakin hapus e-book ini?')"
+                                           title="Hapus">
+                                            <i class="ti ti-trash"></i>
+                                        </a>
+                                    </div>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

@@ -192,17 +192,19 @@
                                                     <td>
                                                         <?= $t['batas_bayar'] ? date('d M Y', strtotime($t['batas_bayar'])) : '-' ?>
                                                     </td>
-                                                    <td class="text-center">
-                                                        <a href="<?= base_url('admin/spay-tagihan/edit/' . $t['id']) ?>"
-                                                           class="btn btn-sm btn-outline-primary" title="Edit Tagihan">
-                                                            <i class="ti ti-edit"></i>
-                                                        </a>
-                                                        <a href="<?= base_url('admin/spay-tagihan/hapus/' . $t['id']) ?>"
-                                                           class="btn btn-sm btn-outline-danger"
-                                                           onclick="return confirm('Yakin hapus tagihan ini?')" title="Hapus Tagihan">
-                                                            <i class="ti ti-trash"></i>
-                                                        </a>
-                                                    </td>
+                                                     <td class="action-cell">
+                                                         <div class="table-actions">
+                                                             <a href="<?= base_url('admin/spay-tagihan/edit/' . $t['id']) ?>"
+                                                                class="btn btn-warning btn-sm action-icon-btn" title="Edit Tagihan">
+                                                                 <i class="ti ti-edit"></i>
+                                                             </a>
+                                                             <a href="<?= base_url('admin/spay-tagihan/hapus/' . $t['id']) ?>"
+                                                                class="btn btn-danger btn-sm action-icon-btn"
+                                                                onclick="return confirm('Yakin hapus tagihan ini?')" title="Hapus Tagihan">
+                                                                 <i class="ti ti-trash"></i>
+                                                             </a>
+                                                         </div>
+                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>
                                         </tbody>

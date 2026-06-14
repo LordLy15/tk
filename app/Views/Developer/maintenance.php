@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistem Sedang Maintenance - RA PERWANIDA</title>
     
-    <link rel="icon" type="image/svg+xml" href="/tk/public/assets/dashboard/images/logo-ra.svg">
-    <link rel="shortcut icon" type="image/svg+xml" href="/tk/public/assets/dashboard/images/logo-ra.svg">
+    <link rel="icon" type="image/svg+xml" href="<?= base_url('assets/dashboard/images/logo-ra.svg') ?>">
+    <link rel="shortcut icon" type="image/svg+xml" href="<?= base_url('assets/dashboard/images/logo-ra.svg') ?>">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     
     <!-- Tabler Icons -->
@@ -206,7 +206,7 @@
 
     <div class="container">
         <div class="logo-area">
-            <img src="/tk/public/assets/dashboard/images/logo-ra.svg" alt="Logo RA">
+            <img src="<?= base_url('assets/dashboard/images/logo-ra.svg') ?>" alt="Logo RA">
             <span class="brand-name">RA PERWANIDA</span>
         </div>
 
@@ -225,7 +225,7 @@
             <span>Hanya akun <strong>Developer</strong> yang diperkenankan mengakses dashboard selama masa pemeliharaan.</span>
         </div>
 
-        <a href="/tk/public/logout" class="btn-logout">
+        <a href="<?= base_url('logout') ?>" class="btn-logout">
             <i class="ti ti-logout"></i>
             Keluar Aplikasi
         </a>
