@@ -6,7 +6,7 @@ use CodeIgniter\Config\BaseConfig;
 
 class App extends BaseConfig
 {
-    public string $baseURL = 'https://raperwanidatempursari.sch.id/public/';
+    public string $baseURL = 'https://raperwanidatempursari.sch.id/';
 
     public array $allowedHostnames = [
         'raperwanidatempursari.sch.id',

@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^([\s\S]*)$ public/index.php/$1 [L,NC,QSA]
+</IfModule>
+
+<IfModule !mod_rewrite.c>
+    ErrorDocument 404 public/index.php
+</IfModule>

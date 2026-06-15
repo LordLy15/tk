@@ -31,6 +31,7 @@ class AuthController extends BaseController
                 'orangtua_id'        => $user['id'],
                 'orangtua_nama'      => $user['nama'],
                 'orangtua_nama_siswa'=> $user['nama_siswa'] ?? '',
+                'orangtua_kelas'     => $user['kelas'] ?? '',
             ]);
             return redirect()->to('/orangtua/dashboard');
         }
@@ -42,7 +43,7 @@ class AuthController extends BaseController
 
     public function logout()
     {
-        session()->remove(['orangtua_logged_in', 'orangtua_id', 'orangtua_nama', 'orangtua_nama_siswa']);
+        session()->remove(['orangtua_logged_in', 'orangtua_id', 'orangtua_nama', 'orangtua_nama_siswa', 'orangtua_kelas']);
         return redirect()->to('/orangtua/login');
     }
 
@@ -60,7 +61,6 @@ class AuthController extends BaseController
         $passwordBaru = $this->request->getPost('password_baru');
         $konfirmasi = $this->request->getPost('konfirmasi_password');
 
-        // Validasi
         if (strlen($passwordBaru) < 6) {
             return redirect()->back()->with('error', 'Password baru minimal 6 karakter.');
         }
@@ -69,13 +69,11 @@ class AuthController extends BaseController
             return redirect()->back()->with('error', 'Konfirmasi password tidak cocok.');
         }
 
-        // Cek password lama
         $user = $model->find($id);
         if (!$user || !password_verify($passwordLama, $user['password'])) {
             return redirect()->back()->with('error', 'Password lama salah.');
         }
 
-        // Update password
         $model->update($id, [
             'password'   => password_hash($passwordBaru, PASSWORD_DEFAULT),
             'updated_at' => date('Y-m-d H:i:s'),
